@@ -146,8 +146,19 @@
       animation: gentle-bounce 2.5s ease-in-out infinite;
     }
     
-    .cta-btn:nth-child(2) {
+    /* Only apply bounce to specific buttons in hero */
+    .btn-group .cta-btn {
+      animation: gentle-bounce 2.5s ease-in-out infinite;
+    }
+    
+    .btn-group .cta-btn:nth-child(2) {
       animation-delay: 0.3s;
+    }
+    
+    /* No bounce for other CTAs */
+    .service-card .cta-btn,
+    .choice-card .cta-btn {
+      animation: none;
     }
     
     @keyframes gentle-bounce {
@@ -180,6 +191,14 @@
     section {
       padding: clamp(3rem, 8vw, 100px) 0;
       position: relative;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     
     /* Services Section - Dark Luxury Background */
@@ -403,6 +422,14 @@
       color: rgba(255,255,255,0.7);
       font-size: clamp(0.875rem, 2vw, 0.94rem);
       border-top: 1px solid rgba(212,180,122,0.2);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    footer.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     
     /* Tablet optimizations */
@@ -497,6 +524,10 @@
       .cta-btn {
         animation: none;
       }
+      section,
+      footer {
+        transition: none;
+      }
     }
     
     /* Print styles */
@@ -523,7 +554,6 @@
   </style>
 </head>
 <body>
-
   <!-- Hero -->
   <section class="hero" data-aos="fade">
     <div class="container hero-content">
@@ -537,7 +567,6 @@
       </div>
     </div>
   </section>
-
   <!-- Sessions -->
   <section id="sessions" data-aos="fade-up">
     <div class="container">
@@ -547,27 +576,26 @@
         <div class="service-card">
           <h3>Russian Volume Lashes</h3>
           <p>Ultra-leichte, dramatische Wimpernverlängerung – perfekt für den Wow-Effekt.</p>
-          <p><strong>Dauer:</strong> 2–2.5 Std.  |  <strong>ab</strong> 98 €</p>
+          <p><strong>Dauer:</strong> 2–2.5 Std.  |  <strong>ab</strong> 98 €</p>
           <a href="#" class="cta-btn" style="margin-top:1.4rem;">Termin sichern</a>
         </div>
         
         <div class="service-card">
           <h3>Brow Sculpt & Tint</h3>
           <p>Brow Lamination + perfektes Tinting + Formgebung für definierte, natürliche Brauen.</p>
-          <p><strong>Dauer:</strong> 75 Min.  |  <strong>ab</strong> 85 €</p>
+          <p><strong>Dauer:</strong> 75 Min.  |  <strong>ab</strong> 85 €</p>
           <a href="#" class="cta-btn" style="margin-top:1.4rem;">Termin sichern</a>
         </div>
         
         <div class="service-card">
           <h3>Luxury Glow Facial</h3>
           <p>Hydrafacial + LED-Therapie + Massage – für strahlende Haut und pure Entspannung.</p>
-          <p><strong>Dauer:</strong> 90 Min.  |  <strong>ab</strong> 145 €</p>
+          <p><strong>Dauer:</strong> 90 Min.  |  <strong>ab</strong> 145 €</p>
           <a href="#" class="cta-btn" style="margin-top:1.4rem;">Termin sichern</a>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Course Choice -->
   <section id="course-choice" data-aos="fade-up">
     <div class="container">
@@ -605,11 +633,9 @@
       </div>
     </div>
   </section>
-
   <footer>
     © 2026 Luxury Beauty Lounge – Alle Rechte vorbehalten
   </footer>
-
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -621,10 +647,37 @@
     });
   </script>
   <script>
+    // Force scroll to top on load/refresh
     window.addEventListener('load', () => {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     });
+    
+    // Additional safety for hash navigation: delay scroll to top if hash present
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash) {
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        }, 0);
+      }
+    });
+    
+    // Scroll animation for sections and footer (fallback/enhancement beyond AOS, works on all elements)
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('section, footer');
+      const triggerBottom = window.innerHeight * 0.85;
+      
+      elements.forEach(el => {
+        const elTop = el.getBoundingClientRect().top;
+        if (elTop < triggerBottom) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+    // Trigger initial check for above-fold elements
+    setTimeout(animateOnScroll, 100);
   </script>
 </body>
-</html>
 </html>
