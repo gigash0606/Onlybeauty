@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- AOS -->
+  <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
+
   <style>
     :root {
       --white: #ffffff;
@@ -24,7 +24,6 @@
       --red: #c62839;
       --red-dark: #a01e2d;
       
-      /* Responsive spacing */
       --spacing-xs: clamp(0.5rem, 1.5vw, 1rem);
       --spacing-sm: clamp(1rem, 2vw, 1.5rem);
       --spacing-md: clamp(1.5rem, 3vw, 2.5rem);
@@ -146,7 +145,6 @@
       animation: gentle-bounce 2.5s ease-in-out infinite;
     }
     
-    /* Only apply bounce to specific buttons in hero */
     .btn-group .cta-btn {
       animation: gentle-bounce 2.5s ease-in-out infinite;
     }
@@ -155,19 +153,14 @@
       animation-delay: 0.3s;
     }
     
-    /* No bounce for other CTAs */
     .service-card .cta-btn,
     .choice-card .cta-btn {
       animation: none;
     }
     
     @keyframes gentle-bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
     }
     
     .cta-btn:hover {
@@ -188,20 +181,11 @@
     }
     
     /* Sections */
-    section {
+    section, footer {
       padding: clamp(3rem, 8vw, 100px) 0;
       position: relative;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
     
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /* Services Section - Dark Luxury Background */
     #sessions {
       background: 
         linear-gradient(135deg, var(--black) 0%, var(--black-soft) 100%),
@@ -235,7 +219,6 @@
       color: var(--red);
     }
     
-    /* Course Choice Section - White Luxury Background */
     #course-choice {
       background: 
         linear-gradient(135deg, var(--white) 0%, #fefefe 100%),
@@ -259,11 +242,6 @@
       pointer-events: none;
     }
     
-    #course-choice .container {
-      position: relative;
-      z-index: 1;
-    }
-    
     .section-title {
       text-align: center;
       font-size: clamp(1.875rem, 4.5vw + 0.5rem, 2.8rem);
@@ -273,7 +251,6 @@
       padding: 0 var(--spacing-xs);
     }
     
-    /* Services */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
@@ -335,7 +312,6 @@
       box-shadow: 0 12px 32px rgba(212,180,122,0.5);
     }
     
-    /* Choices */
     .choices {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
@@ -422,172 +398,98 @@
       color: rgba(255,255,255,0.7);
       font-size: clamp(0.875rem, 2vw, 0.94rem);
       border-top: 1px solid rgba(212,180,122,0.2);
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
     
-    footer.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /* Tablet optimizations */
+    /* Media Queries */
     @media (min-width: 481px) and (max-width: 768px) {
-      .hero {
-        min-height: 70vh;
-      }
-      
-      .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-      
-      .choices {
-        grid-template-columns: 1fr;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+      .hero { min-height: 70vh; }
+      .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+      .choices { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
     }
     
-    /* Mobile optimizations */
     @media (max-width: 480px) {
-      .hero {
-        min-height: clamp(500px, 75vh, 650px);
-        padding: var(--spacing-sm) var(--spacing-xs);
-      }
-      
-      .btn-group {
-        flex-direction: column;
-        width: 100%;
-      }
-      
-      .cta-btn {
-        width: 100%;
-        min-width: 100%;
-      }
-      
-      .services-grid,
-      .choices {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-      }
-      
-      .service-card,
-      .choice-card {
-        padding: var(--spacing-md);
-      }
-      
-      section {
-        padding: clamp(2.5rem, 6vw, 4rem) 0;
-      }
+      .hero { min-height: clamp(500px, 75vh, 650px); padding: var(--spacing-sm) var(--spacing-xs); }
+      .btn-group { flex-direction: column; width: 100%; }
+      .cta-btn { width: 100%; min-width: 100%; }
+      .services-grid, .choices { grid-template-columns: 1fr; gap: var(--spacing-md); }
+      .service-card, .choice-card { padding: var(--spacing-md); }
+      section { padding: clamp(2.5rem, 6vw, 4rem) 0; }
     }
     
-    /* Large screen optimizations */
     @media (min-width: 1200px) {
-      .container {
-        max-width: 1180px;
-      }
-      
-      .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      
-      .choices {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+      .container { max-width: 1180px; }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .choices { grid-template-columns: repeat(2, 1fr); max-width: 1000px; margin-left: auto; margin-right: auto; }
     }
     
-    /* Touch device optimizations */
     @media (hover: none) and (pointer: coarse) {
-      .cta-btn,
-      .service-card,
-      .choice-card {
+      .cta-btn, .service-card, .choice-card {
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
-      
-      .cta-btn:active {
-        transform: scale(0.98);
-      }
-      
-      .service-card:active,
-      .choice-card:active {
-        transform: translateY(-5px);
-      }
+      .cta-btn:active { transform: scale(0.98); }
+      .service-card:active, .choice-card:active { transform: translateY(-5px); }
     }
     
-    /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
-      .cta-btn {
-        animation: none;
-      }
-      section,
-      footer {
-        transition: none;
-      }
+      .cta-btn { animation: none; }
     }
     
-    /* Print styles */
     @media print {
-      .hero {
-        min-height: auto;
-        padding: 2rem 0;
-      }
-      
-      .cta-btn {
-        display: none;
-      }
-      
-      section {
-        padding: 2rem 0;
-        page-break-inside: avoid;
-      }
-      
-      #sessions {
-        background: var(--white);
-        color: var(--black-soft);
-      }
+      .hero { min-height: auto; padding: 2rem 0; }
+      .cta-btn { display: none; }
+      section { padding: 2rem 0; page-break-inside: avoid; }
+      #sessions { background: var(--white); color: var(--black-soft); }
     }
   </style>
 </head>
 <body>
+
+  <!-- AOS JS (at the end for better performance) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,      // like the buttery feel on dagcosmetics
+      once: true,         // animate only once
+      offset: 100,        // start a bit earlier
+      easing: 'ease-out-cubic'
+    });
+  </script>
+
   <!-- Hero -->
   <section class="hero" data-aos="fade">
     <div class="container hero-content">
-      <img src="3_efcb2dc3-a2ef-4f6b-9e99-134326d31ccb.png" alt="Logo" style="width: 100px; height: 100px; border-radius: 50%;">
-      <h1>Luxury <span class="highlight-red">Beauty</span> Lounge</h1>
-      <p>Exklusive Behandlungen • Professionelle Ausbildung • Dein Weg in die Selbstständigkeit als Beauty-Expertin</p>
+      <img src="3_efcb2dc3-a2ef-4f6b-9e99-134326d31ccb.png" alt="Logo" style="width: 100px; height: 100px; border-radius: 50%;" data-aos="zoom-in" data-aos-delay="200">
+      <h1 data-aos="fade-up" data-aos-delay="300">Luxury <span class="highlight-red">Beauty</span> Lounge</h1>
+      <p data-aos="fade-up" data-aos-delay="500">Exklusive Behandlungen • Professionelle Ausbildung • Dein Weg in die Selbstständigkeit als Beauty-Expertin</p>
       
-      <div class="btn-group">
+      <div class="btn-group" data-aos="fade-up" data-aos-delay="700">
         <a href="#sessions" class="cta-btn">Behandlung buchen</a>
         <a href="#course-choice" class="cta-btn">Kurs buchen</a>
       </div>
     </div>
   </section>
+
   <!-- Sessions -->
-  <section id="sessions" data-aos="fade-up">
+  <section id="sessions">
     <div class="container">
-      <h2 class="section-title">Unsere Signature <span class="highlight-red">Behandlungen</span></h2>
+      <h2 class="section-title" data-aos="fade-up">Unsere Signature <span class="highlight-red">Behandlungen</span></h2>
       
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
           <h3>Russian Volume Lashes</h3>
           <p>Ultra-leichte, dramatische Wimpernverlängerung – perfekt für den Wow-Effekt.</p>
           <p><strong>Dauer:</strong> 2–2.5 Std.  |  <strong>ab</strong> 98 €</p>
           <a href="#" class="cta-btn" style="margin-top:1.4rem;">Termin sichern</a>
         </div>
         
-        <div class="service-card">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
           <h3>Brow Sculpt & Tint</h3>
           <p>Brow Lamination + perfektes Tinting + Formgebung für definierte, natürliche Brauen.</p>
           <p><strong>Dauer:</strong> 75 Min.  |  <strong>ab</strong> 85 €</p>
           <a href="#" class="cta-btn" style="margin-top:1.4rem;">Termin sichern</a>
         </div>
         
-        <div class="service-card">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
           <h3>Luxury Glow Facial</h3>
           <p>Hydrafacial + LED-Therapie + Massage – für strahlende Haut und pure Entspannung.</p>
           <p><strong>Dauer:</strong> 90 Min.  |  <strong>ab</strong> 145 €</p>
@@ -596,16 +498,17 @@
       </div>
     </div>
   </section>
+
   <!-- Course Choice -->
-  <section id="course-choice" data-aos="fade-up">
+  <section id="course-choice">
     <div class="container">
-      <h2 class="section-title">Werde zur <span class="highlight-red">selbstständigen</span> Beauty-Expertin</h2>
-      <p style="text-align:center; max-width:min(820px, 90vw); margin:0 auto clamp(2rem, 5vw, 3.5rem); font-size:clamp(1.0625rem, 2.5vw + 0.3rem, 1.22rem); color:#444; padding:0 var(--spacing-xs); line-height:1.6;">
+      <h2 class="section-title" data-aos="fade-up">Werde zur <span class="highlight-red">selbstständigen</span> Beauty-Expertin</h2>
+      <p style="text-align:center; max-width:min(820px, 90vw); margin:0 auto clamp(2rem, 5vw, 3.5rem); font-size:clamp(1.0625rem, 2.5vw + 0.3rem, 1.22rem); color:#444; padding:0 var(--spacing-xs); line-height:1.6;" data-aos="fade-up" data-aos-delay="200">
         Lerne von Grund auf alles, was du brauchst – von Profi-Techniken bis zum Aufbau deines eigenen erfolgreichen Salons.
       </p>
       
       <div class="choices">
-        <div class="choice-card choice-bad">
+        <div class="choice-card choice-bad" data-aos="fade-right" data-aos-delay="100">
           <div class="bad-symbol">✗</div>
           <h3>Option A: Bleib beim Status quo</h3>
           <p>Du bleibst in deinem 9-to-5 Job, kommst finanziell kaum voran und lebst deinen Traum nie wirklich.</p>
@@ -617,7 +520,7 @@
           </p>
         </div>
         
-        <div class="choice-card choice-good">
+        <div class="choice-card choice-good" data-aos="fade-left" data-aos-delay="200">
           <h3>Option B: Starte jetzt deinen Weg</h3>
           <p>Werde Lash- & Beauty-Profi, baue dein eigenes Business auf und lebe deine Leidenschaft selbstbestimmt.</p>
           <p style="color:var(--gold); font-weight:600; font-size:clamp(1.0625rem, 2.8vw + 0.2rem, 1.28rem); margin:clamp(1.5rem, 4vw, 2rem) 0; line-height:1.7;">
@@ -633,62 +536,22 @@
       </div>
     </div>
   </section>
-  <footer>
+
+  <footer data-aos="fade-up">
     © 2026 Luxury Beauty Lounge – Alle Rechte vorbehalten
   </footer>
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Smooth scroll for internal links -->
   <script>
-    AOS.init({
-      duration: 900,
-      once: true,
-      easing: 'ease-out',
-      disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    });
-  </script>
-  <script>
-    // Force scroll to top on load/refresh
-    window.addEventListener('load', () => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    });
-    
-    // Additional safety for hash navigation: delay scroll to top if hash present
-    window.addEventListener('DOMContentLoaded', () => {
-      if (window.location.hash) {
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'instant' });
-        }, 0);
-      }
-    });
-    
-    // Scroll animation for sections and footer (fallback/enhancement beyond AOS, works on all elements)
-    const animateOnScroll = () => {
-      const elements = document.querySelectorAll('section, footer');
-      const triggerBottom = window.innerHeight * 0.85;
-      
-      elements.forEach(el => {
-        const elTop = el.getBoundingClientRect().top;
-        if (elTop < triggerBottom) {
-          el.classList.add('visible');
-        }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       });
-    };
-    
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-    // Trigger initial check for above-fold elements
-    setTimeout(animateOnScroll, 100);
-  </script>
-  <script>
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
     });
-  });
-});
-</script>
+  </script>
 </body>
 </html>
