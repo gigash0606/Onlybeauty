@@ -679,5 +679,16 @@
     // Trigger initial check for above-fold elements
     setTimeout(animateOnScroll, 100);
   </script>
+  <script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+});
+</script>
 </body>
 </html>
