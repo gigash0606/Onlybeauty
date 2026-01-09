@@ -440,6 +440,12 @@
       section { padding: 2rem 0; page-break-inside: avoid; }
       #sessions { background: var(--white); color: var(--black-soft); }
     }
+    @media (max-width: 768px) {
+  [data-aos="fade-left"],
+  [data-aos="fade-right"] {
+    transform: none !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -448,7 +454,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 800,      // like the buttery feel on dagcosmetics
+      duration: 600,      // like the buttery feel on dagcosmetics
       once: true,         // animate only once
       offset: 100,        // start a bit earlier
       easing: 'ease-out-cubic'
