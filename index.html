@@ -456,14 +456,6 @@ footer {
 
   <!-- AOS JS (at the end for better performance) -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 600,      // like the buttery feel on dagcosmetics
-      once: true,         // animate only once
-      offset: 100,        // start a bit earlier
-      easing: 'ease-out-cubic'
-    });
-  </script>
 
   <!-- Hero -->
 <section class="hero" data-aos="fade">
@@ -563,18 +555,6 @@ footer {
 <footer data-aos="fade-up" data-aos-delay="700">
   © 2026 Luxury Beauty Lounge – Alle Rechte vorbehalten
 </footer>
-  <!-- Smooth scroll for internal links -->
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      });
-    });
-  </script>
   <script>
   window.addEventListener('load', () => {
     // Ensure page starts at top
