@@ -130,41 +130,45 @@
       margin-top: var(--spacing-md);
     }
     
-    .cta-btn {
-      display: inline-block;
-      background: var(--gold);
-      color: #000;
-      padding: clamp(0.875rem, 2vw, 1rem) clamp(2rem, 5vw, 2.6rem);
-      font-size: clamp(1rem, 2.2vw + 0.3rem, 1.18rem);
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: all 0.35s ease;
-      box-shadow: 0 6px 20px rgba(212,180,122,0.28);
-      letter-spacing: 0.3px;
-      min-width: clamp(200px, 40vw, 240px);
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      animation: gentle-bounce 2.5s ease-in-out infinite;
-    }
-    
-    .btn-group .cta-btn {
-      animation: gentle-bounce 2.5s ease-in-out infinite;
-    }
-    
-    .btn-group .cta-btn:nth-child(2) {
-      animation-delay: 0.3s;
-    }
-    
+  .cta-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 3rem);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+
+  /* unified shadow like cards */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+  border-radius: 14px; /* match card shape */
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-5px);
+  background: var(--gold-light);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.cta-btn:active {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* optional: slightly bigger for choice-card buttons to match card corners */
+.choice-card .cta-btn {
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+} 
+     
     .service-card .cta-btn,
     .choice-card .cta-btn {
       animation: none;
-    }
-    
-    @keyframes gentle-bounce {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-8px); }
     }
     
     .cta-btn:hover {
@@ -453,6 +457,16 @@
 footer {
   opacity: 1 !important;
   transform: none !important;
+}
+/* Continuous smooth floating for hero buttons */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.hero .cta-btn {
+  animation: float 2s ease-in-out infinite;
 }
   </style>
 </head>
