@@ -132,6 +132,7 @@ body, p, span, a, li {
       opacity: 0.9;
     }
     
+    
     .btn-group {
       display: flex;
       flex-wrap: wrap;
@@ -503,6 +504,243 @@ footer {
   color: var(--gold);
   font-weight: 600;
 }
+/* Social Proof Ticker */
+.social-proof-ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid rgba(212,180,122,0.3);
+  border-bottom: 1px solid rgba(212,180,122,0.3);
+  padding: 0.75rem 0;
+  margin: clamp(1rem, 2.5vw, 2rem) 0;
+  position: relative;
+  background: rgba(212,180,122,0.05); /* subtle gold tint */
+}
+
+.ticker-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker 20s linear infinite;
+}
+
+.ticker-track span {
+  display: inline-block;
+  margin-right: clamp(3rem, 5vw, 5rem);
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  color: var(--black-soft);
+  font-style: italic;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Pause on hover */
+.social-proof-ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+.service-featured {
+  background: linear-gradient(135deg, rgba(212,180,122,0.1) 0%, rgba(212,180,122,0.05) 100%);
+  border: 2px solid var(--gold);
+  box-shadow: 0 20px 50px rgba(212,180,122,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+  transform: scale(1.02);
+  position: relative;
+}
+
+.featured-badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: var(--gold);
+  color: var(--black);
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+.services-trust {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8); /* looks good on dark #sessions background */
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  margin-top: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 500;
+}
+#course-choice .services-trust {
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: clamp(1rem, 2vw, 1.5rem);
+}
+.choice-featured {
+  transform: scale(1.05); /* slightly bigger */
+  border: 2px solid var(--gold); /* gold border */
+  box-shadow: 0 20px 50px rgba(212,180,122,0.35); /* stronger shadow */
+  background: linear-gradient(135deg, rgba(212,180,122,0.08) 0%, rgba(212,180,122,0.03) 100%);
+  z-index: 2;
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.choice-featured:hover {
+  transform: scale(1.08);
+  box-shadow: 0 25px 60px rgba(212,180,122,0.4);
+}
+.choice-bad {
+  background: rgba(198,40,57,0.02); /* very muted red tint */
+  border: 1px solid rgba(198,40,57,0.1); /* subtle border */
+  color: rgba(0,0,0,0.6); /* faded text */
+  transform: scale(0.96); /* slightly smaller */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* soft shadow */
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+  filter: grayscale(20%); /* slight desaturation */
+}
+
+.choice-bad:hover {
+  transform: scale(0.97);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  filter: grayscale(0%); /* subtle “unlock” on hover */
+}
+
+.choice-bad h3,
+.choice-bad p,
+.choice-bad .choice-bad-list {
+  color: rgba(0,0,0,0.6); /* consistent muted text */
+}
+.choice-bad .bad-symbol {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  color: rgba(198,40,57,0.5); /* muted red */
+  opacity: 0.7;
+}
+.course-trust {
+  text-align: center;
+  color: var(--black-soft);
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  line-height: 1.5;
+}
+
+.course-trust p {
+  margin: clamp(0.5rem, 1vw, 1rem) 0;
+}
+
+.course-trust strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+/* Light, luxurious testimonial section */
+#testimonials {
+  background: linear-gradient(135deg, #fefcf7 0%, #fef9f2 100%);
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  text-align: center;
+  position: relative;
+}
+
+/* Optional soft texture overlay */
+#testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(212,180,122,0.03), transparent 70%);
+  pointer-events: none;
+}
+
+/* Section title */
+#testimonials .section-title {
+  color: var(--black-soft);
+  margin-bottom: clamp(2rem,4vw,3rem);
+}
+
+/* Slider container */
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: clamp(2rem,4vw,3rem);
+  padding: 2rem 0;
+}
+
+.testimonial-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual testimonial cards */
+.testimonial {
+  flex: 0 0 300px;
+  background: var(--white);
+  border: 1px solid rgba(212,180,122,0.3);
+  border-radius: 16px;
+  padding: clamp(2rem,4vw,3rem);
+  box-shadow: 0 8px 32px rgba(212,180,122,0.1);
+  scroll-snap-align: start;
+  color: var(--black-soft);
+}
+
+.testimonial p {
+  font-size: clamp(0.95rem,1.8vw,1.1rem);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: var(--black-soft);
+}
+
+.testimonial strong {
+  color: var(--gold);
+  font-weight: 600;
+  font-size: clamp(0.85rem,1.5vw,1rem);
+}
+/* Contact Section — clean white background */
+#contact {
+  background: var(--white); /* pure white */
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  text-align: center;
+}
+
+#contact .section-title {
+  color: var(--black-soft);
+  margin-bottom: clamp(1.5rem,3vw,2rem);
+  font-weight: 600;
+}
+
+#contact .centered-text {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: clamp(2rem, 4vw, 2.5rem);
+  line-height: 1.6;
+  color: var(--black-soft);
+}
+
+#contact .contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 2vw, 1rem);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#contact .contact-info p {
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  margin-bottom: 0;
+  color: var(--black-soft);
+  line-height: 1.5;
+}
+
+#contact .contact-info strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+/* Footer */
+footer {
+  background: var(--black-soft); /* dark contrast */
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 4vw, 2rem);
+  border-top: 1px solid rgba(212, 180, 122, 0.2);
+  font-size: clamp(0.875rem, 2vw, 0.94rem);
+}
+
+footer span {
+  color: var(--gold);
+  font-weight: 600;
+}
   </style>
 </head>
 <body>
@@ -527,6 +765,17 @@ footer {
       Exklusive Behandlungen • Professionelle Ausbildung • Dein Weg in die Selbstständigkeit als Beauty-Expertin
     </p>
     
+    <!-- Social Proof Ticker -->
+<div class="social-proof-ticker" data-aos="fade-up" data-aos-delay="600">
+  <div class="ticker-track">
+    <span>“Die Behandlung war einfach traumhaft! – Anna K.”</span>
+    <span>“Professionell, freundlich und sehr sauber. – Lara M.”</span>
+    <span>“Meine Wimpern sehen fantastisch aus! – Julia S.”</span>
+    <span>“Ich komme definitiv wieder. – Sophie R.”</span>
+    <span>“Tolles Erlebnis, kann ich nur empfehlen. – Maria L.”</span>
+  </div>
+</div>
+
     <div class="btn-group" data-aos="fade-up" data-aos-delay="700">
       <a href="#sessions" class="cta-btn">Behandlung buchen</a>
       <a href="#course-choice" class="cta-btn">Kurs buchen</a>
@@ -542,26 +791,37 @@ footer {
     </h2>
 
     <div class="services-grid">
-      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>Russian Volume Lashes</h3>
-        <p>Ultra-leichte, dramatische Wimpernverlängerung – perfekt für den Wow-Effekt.</p>
-        <p><strong>Dauer:</strong> 2–2.5 Std. | <strong>ab</strong> 98 €</p>
-        <a href="#" class="cta-btn">Termin sichern</a>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="350">
-        <h3>Brow Sculpt & Tint</h3>
-        <p>Brow Lamination + perfektes Tinting + Formgebung für definierte, natürliche Brauen.</p>
-        <p><strong>Dauer:</strong> 75 Min. | <strong>ab</strong> 85 €</p>
-        <a href="#" class="cta-btn">Termin sichern</a>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+      <!-- Featured service -->
+      <div class="service-card service-featured" data-aos="fade-up" data-aos-delay="200">
+        <div class="featured-badge">Beliebt</div>
         <h3>Luxury Glow Facial</h3>
         <p>Hydrafacial + LED-Therapie + Massage – für strahlende Haut und pure Entspannung.</p>
         <p><strong>Dauer:</strong> 90 Min. | <strong>ab</strong> 145 €</p>
         <a href="#" class="cta-btn">Termin sichern</a>
       </div>
+
+      <!-- Other services -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+        <h3>Russian Volume Lashes</h3>
+        <p>Ultra-leichte, dramatische Wimpernverlängerung – perfekt für den Wow-Effekt.</p>
+        <p><strong>Dauer:</strong> 2–2.5 Std. | <strong>ab</strong> 98 €</p>
+        <a href="#" class="cta-btn">Termin sichern</a>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+        <h3>Deluxe Brow Shaping</h3>
+        <p>Perfekte Augenbrauen mit präzisem Waxing, Pinzette und Styling – für einen eleganten Look.</p>
+        <p><strong>Dauer:</strong> 60 Min. | <strong>ab</strong> 75 €</p>
+        <a href="#" class="cta-btn">Termin sichern</a>
+      </div>
     </div>
-  </div>
+
+    <!-- Micro trust signals -->
+    <p class="services-trust">
+      Über <strong>500 zufriedene Kundinnen</strong> jährlich • <strong>100% professionelle Produkte</strong> • <strong>Ausgebildetes Expertenteam</strong>
+    </p>
+
+  </div> <!-- end of .container -->
 </section>
 
 <!-- Course Choice -->
@@ -571,9 +831,13 @@ footer {
       Werde zur <span class="highlight-red">selbstständigen</span> Beauty-Expertin
     </h2>
 
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="250">
-      Lerne von Grund auf alles, was du brauchst – von Profi-Techniken bis zum Aufbau deines eigenen erfolgreichen Salons.
-    </p>
+   <p class="centered-text" data-aos="fade-up" data-aos-delay="250">
+  Lerne alles, was du für dein eigenes erfolgreiches Beauty-Business brauchst – von Profi-Techniken bis zu Kundenmanagement und Marketing. 
+  Starte noch heute deine Selbstständigkeit und gestalte deine Zukunft selbstbestimmt!
+</p>
+<p class="centered-text services-trust" data-aos="fade-up" data-aos-delay="350">
+  Bereits über <strong>200 erfolgreiche Absolventinnen</strong> in Deutschland
+</p>
 
     <div class="choices">
       <div class="choice-card choice-bad" data-aos="fade-up" data-aos-delay="400">
@@ -588,7 +852,7 @@ footer {
         </p>
       </div>
 
-      <div class="choice-card choice-good" data-aos="fade-up" data-aos-delay="400">
+   <div class="choice-card choice-good choice-featured" data-aos="fade-up" data-aos-delay="400">
         <h3>Option B: Starte jetzt deinen Weg</h3>
         <p>Werde Lash- & Beauty-Profi, baue dein eigenes Business auf und lebe deine Leidenschaft selbstbestimmt.</p>
         <p class="choice-good-list">
@@ -600,13 +864,63 @@ footer {
         <a href="#" class="cta-btn">Kurs jetzt buchen</a>
       </div>
     </div>
+    <!-- Micro social proof -->
+<div class="course-trust" data-aos="fade-up" data-aos-delay="500">
+  <p><strong>90%</strong> unserer Absolventinnen starten erfolgreich ihr eigenes Business innerhalb von 6 Monaten</p>
+  <p>"Dank des Kurses habe ich mein Studio eröffnet!" – Lena M.</p>
+  <p>"Die Techniken sind wirklich professionell und leicht umsetzbar." – Sarah K.</p>
+</div>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- Testimonial Slider -->
+<section id="testimonials">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+      Das sagen unsere Absolventinnen
+    </h2>
+
+    <div class="testimonial-slider" data-aos="fade-up" data-aos-delay="250">
+      <div class="testimonial">
+        <p>"Dank des Kurses habe ich endlich mein eigenes Beauty-Studio eröffnet. Absolut empfehlenswert!"</p>
+        <strong>- Lena M.</strong>
+      </div>
+      <div class="testimonial">
+        <p>"Die Techniken sind professionell, praxisnah und leicht umzusetzen. Ich fühle mich vorbereitet und sicher."</p>
+        <strong>- Sarah K.</strong>
+      </div>
+      <div class="testimonial">
+        <p>"Ich konnte mein Einkommen verdoppeln und arbeite endlich selbstbestimmt. Danke für alles!"</p>
+        <strong>- Julia K.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+      Kontaktiere uns
+    </h2>
+
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="250">
+      Wir freuen uns auf deine Nachricht oder deinen Besuch!
+    </p>
+
+    <div class="contact-info" data-aos="fade-up" data-aos-delay="400">
+      <p><strong>Adresse:</strong> Musterstraße 12, 12345 Leipzig</p>
+      <p><strong>Telefon:</strong> +49 341 1234567</p>
+      <p><strong>E-Mail:</strong> kontakt@luxurybeauty.de</p>
+      <p><strong>Öffnungszeiten:</strong> Mo–Fr 10:00–19:00, Sa 10:00–16:00</p>
+    </div>
+  </div>
+</section>
+
 <footer data-aos="fade-up" data-aos-delay="700">
-  © 2026 Luxury Beauty Lounge – Alle Rechte vorbehalten
+  <p>© 2026 <span>Luxury Beauty Lounge</span> – Alle Rechte vorbehalten</p>
 </footer>
+
  <script>
   window.addEventListener('load', () => {
     window.scrollTo(0, 0);
