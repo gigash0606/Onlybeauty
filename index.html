@@ -10,10 +10,7 @@
   }
 </script>
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+ <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -34,6 +31,12 @@
       --spacing-lg: clamp(2rem, 4vw, 4rem);
       --spacing-xl: clamp(3rem, 6vw, 6rem);
     }
+    /* Enforce Barlow everywhere */
+*,
+*::before,
+*::after {
+  font-family: 'Barlow', sans-serif !important;
+}
     
     * {
       margin: 0;
@@ -48,17 +51,24 @@
     body {
       background: var(--white);
       color: var(--black-soft);
-      font-family: 'Inter', sans-serif;
+      font-family: 'Barlow', sans-serif;
       line-height: 1.68;
       font-size: clamp(15px, 1.6vw, 18px);
       overflow-x: hidden;
     }
     
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      color: var(--black-soft);
-    }
+    /* All headings use Barlow Black (900) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 900; /* Barlow Black */
+  color: var(--black-soft);
+}
+
+/* All body text uses Barlow normal */
+body, p, span, a, li {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+}
     
     .container {
       max-width: 1180px;
@@ -477,6 +487,22 @@ footer {
   border-radius: 50%;
   z-index: 10;
 }
+.centered-text {
+  text-align: center;
+  max-width: min(820px, 90vw);
+  margin: 0 auto clamp(2rem,5vw,3.5rem);
+  line-height: 1.6;
+}
+
+.choice-bad-list {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.choice-good-list {
+  color: var(--gold);
+  font-weight: 600;
+}
   </style>
 </head>
 <body>
@@ -545,8 +571,7 @@ footer {
       Werde zur <span class="highlight-red">selbstständigen</span> Beauty-Expertin
     </h2>
 
-    <p style="text-align:center; max-width:min(820px,90vw); margin:0 auto clamp(2rem,5vw,3.5rem); line-height:1.6;" 
-       data-aos="fade-up" data-aos-delay="250">
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="250">
       Lerne von Grund auf alles, was du brauchst – von Profi-Techniken bis zum Aufbau deines eigenen erfolgreichen Salons.
     </p>
 
@@ -555,7 +580,7 @@ footer {
         <div class="bad-symbol">✗</div>
         <h3>Option A: Bleib beim Status quo</h3>
         <p>Du bleibst in deinem 9-to-5 Job, kommst finanziell kaum voran und lebst deinen Traum nie wirklich.</p>
-        <p style="color:var(--red); font-weight:600;">
+        <p class="choice-bad-list">
           • Feste Arbeitszeiten<br>
           • Begrenztes Einkommen<br>
           • Keine persönliche Entwicklung<br>
@@ -566,7 +591,7 @@ footer {
       <div class="choice-card choice-good" data-aos="fade-up" data-aos-delay="400">
         <h3>Option B: Starte jetzt deinen Weg</h3>
         <p>Werde Lash- & Beauty-Profi, baue dein eigenes Business auf und lebe deine Leidenschaft selbstbestimmt.</p>
-        <p style="color:var(--gold); font-weight:600;">
+        <p class="choice-good-list">
           ✓ Lerne Premium-Techniken<br>
           ✓ Werde deine eigene Chefin<br>
           ✓ Deutlich höheres Einkommen<br>
