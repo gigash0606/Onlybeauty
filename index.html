@@ -748,20 +748,8 @@ footer span {
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   background: var(--gold);
 }
-/* Make all buttons static: no hover or active effects */
-.cta-btn {
-  transform: none !important;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important; /* keep default shadow */
-  background: var(--gold) !important; /* keep default color */
-  transition: none !important; /* prevent smooth transform/hover animation */
-}
-
-/* Disable hover and active specifically */
-.cta-btn:hover,
-.cta-btn:active {
-  transform: none !important;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
-  background: var(--gold) !important;
+.btn-group .cta-btn:nth-child(2) {
+  animation-delay: 0.4s; /* smaller offset for more natural float */
 }
   </style>
 </head>
