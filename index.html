@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Luxury Beauty Lounge – Premium Sessions & Ausbildung</title>
-  
+  <script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+</script>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -555,12 +559,13 @@ footer {
 <footer data-aos="fade-up" data-aos-delay="700">
   © 2026 Luxury Beauty Lounge – Alle Rechte vorbehalten
 </footer>
-  <script>
+ <script>
   window.addEventListener('load', () => {
-    // Ensure page starts at top
     window.scrollTo(0, 0);
 
-    // Initialize AOS after scroll
+    // remove #hash so refresh always starts at top
+    history.replaceState(null, '', window.location.pathname);
+
     AOS.init({
       duration: 600,
       once: true,
@@ -569,7 +574,7 @@ footer {
     });
   });
 
-  // Optional: keep smooth scroll for internal links
+  // smooth scroll for buttons
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
