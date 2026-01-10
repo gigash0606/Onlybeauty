@@ -741,6 +741,28 @@ footer span {
   color: var(--gold);
   font-weight: 600;
 }
+/* Prevent visual change for hero buttons */
+.cta-btn.no-press:hover,
+.cta-btn.no-press:active {
+  transform: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  background: var(--gold);
+}
+/* Make all buttons static: no hover or active effects */
+.cta-btn {
+  transform: none !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important; /* keep default shadow */
+  background: var(--gold) !important; /* keep default color */
+  transition: none !important; /* prevent smooth transform/hover animation */
+}
+
+/* Disable hover and active specifically */
+.cta-btn:hover,
+.cta-btn:active {
+  transform: none !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+  background: var(--gold) !important;
+}
   </style>
 </head>
 <body>
@@ -776,10 +798,10 @@ footer span {
   </div>
 </div>
 
-    <div class="btn-group" data-aos="fade-up" data-aos-delay="700">
-      <a href="#sessions" class="cta-btn">Behandlung buchen</a>
-      <a href="#course-choice" class="cta-btn">Kurs buchen</a>
-    </div>
+<div class="btn-group" data-aos="fade-up" data-aos-delay="700">
+  <a href="#sessions" class="cta-btn no-press">Behandlung buchen</a>
+  <a href="#course-choice" class="cta-btn no-press">Kurs buchen</a>
+</div>
   </div>
 </section>
 
