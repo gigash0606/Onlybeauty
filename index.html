@@ -748,6 +748,11 @@ footer span {
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   background: var(--gold);
 }
+.testimonial {
+  flex: 0 0 auto; /* make width fit content without stretching */
+  width: 300px;   /* or adjust to 280–320px if needed */
+  scroll-snap-align: center; /* snap to center */
+}
   </style>
 </head>
 <body>
@@ -889,21 +894,29 @@ footer span {
 
     <div class="testimonial-slider" data-aos="fade-up" data-aos-delay="250">
       <div class="testimonial">
-        <p>"Dank des Kurses habe ich endlich mein eigenes Beauty-Studio eröffnet. Absolut empfehlenswert!"</p>
-        <strong>- Lena M.</strong>
-      </div>
-      <div class="testimonial">
-        <p>"Die Techniken sind professionell, praxisnah und leicht umzusetzen. Ich fühle mich vorbereitet und sicher."</p>
-        <strong>- Sarah K.</strong>
-      </div>
-      <div class="testimonial">
-        <p>"Ich konnte mein Einkommen verdoppeln und arbeite endlich selbstbestimmt. Danke für alles!"</p>
-        <strong>- Julia K.</strong>
-      </div>
+  <p>"Endlich wurde meine Haut verstanden! Die Microneedling-Behandlung hat mein Hautbild enorm verbessert."</p>
+  <strong>- Anna K.</strong>
+</div>
+
+<div class="testimonial">
+  <p>"Die Luxuriöse Hautpflege war pure Entspannung und sichtbare Ergebnisse. Sehr empfehlenswert!"</p>
+  <strong>- Lara M.</strong>
+</div>
+
+<div class="testimonial">
+  <p>"Dank der Schulung zur Hautexpertin fühle ich mich bereit, mein eigenes Beauty-Business zu starten."</p>
+  <strong>- Julia S.</strong>
+</div>
+
+<div class="testimonial">
+  <p>"Die professionelle Anleitung im Kurs hat mir geholfen, mein Studio erfolgreich zu eröffnen."</p>
+  <strong>- Sophie R.</strong>
+</div>
     </div>
   </div>
 </section>
 
+<!-- Contact Section -->
 <!-- Contact Section -->
 <section id="contact">
   <div class="container">
@@ -916,17 +929,209 @@ footer span {
     </p>
 
     <div class="contact-info" data-aos="fade-up" data-aos-delay="400">
-      <p><strong>Adresse:</strong> Musterstraße 12, 12345 Leipzig</p>
-      <p><strong>Telefon:</strong> +49 341 1234567</p>
-      <p><strong>E-Mail:</strong> kontakt@luxurybeauty.de</p>
+      <p><strong>Adresse:</strong> Lößniger Str. 15, 04275 Leipzig</p>
+      <p><strong>Telefon:</strong> 0151 70128870</p>
+      <p><strong>E-Mail:</strong> onlybeautyleipzig@gmail.com</p>
       <p><strong>Öffnungszeiten:</strong> Mo–Fr 10:00–19:00, Sa 10:00–16:00</p>
     </div>
   </div>
 </section>
 
-<footer data-aos="fade-up" data-aos-delay="700">
-  <p>© 2026 <span>Luxury Beauty Lounge</span> – Alle Rechte vorbehalten</p>
+<footer style="background:#1a1a1a; padding:2rem; text-align:center; color: rgba(255,255,255,0.7);">
+  <p>© 2026 <span style="color:#d4b47a;">ONLY BEAUTY by Larissa</span></p>
+  <div style="margin-top:1rem;">
+    <span class="footer-text-btn" data-modal="privacy-modal">Datenschutzerklärung</span> | 
+    <span class="footer-text-btn" data-modal="agb-modal">AGB</span>
+  </div>
 </footer>
+
+<!-- Datenschutzerklärung Modal -->
+<div id="privacy-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Datenschutzerklärung</h2>
+    <div class="modal-text" style="overflow-y:auto; max-height:70vh; line-height:1.6;">
+      <p>1. Einleitung<br>
+      Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+
+      <p>2. Verantwortlicher<br>
+      Larissa Nitz<br>
+      Lößniger Str. 15, 04275 Leipzig<br>
+      Email: onlybeautyleipzig@gmail.com<br>
+      Telefon: 015170128870</p>
+
+      <p>3. Erhebung und Speicherung personenbezogener Daten sowie Art und Zweck der Verwendung</p>
+      <p>3.1. Beim Besuch der Website<br>
+      Beim Aufrufen unserer Website werden automatisch Informationen erfasst, die Ihr Browser an unseren Server übermittelt. Dazu gehören:</p>
+      <ul>
+        <li>IP-Adresse</li>
+        <li>Datum und Uhrzeit der Anfrage</li>
+        <li>Zeitzonendifferenz zur Greenwich Mean Time (GMT)</li>
+        <li>Inhalt der Anforderung (konkrete Seite)</li>
+        <li>Zugriffsstatus/HTTP-Statuscode</li>
+        <li>Jeweils übertragene Datenmenge</li>
+        <li>Website, von der die Anforderung kommt</li>
+        <li>Browsertyp und -version sowie Sprache und Version der Browsersoftware</li>
+      </ul>
+      <p>Diese Daten werden benötigt, um einen reibungslosen Verbindungsaufbau der Website zu gewährleisten und die Systemsicherheit zu gewährleisten.</p>
+
+      <p>3.2. Kontaktformular<br>
+      Wenn Sie uns über ein Kontaktformular oder per E-Mail Anfragen zukommen lassen, werden Ihre Angaben inklusive der von Ihnen angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage gespeichert.<br>
+      Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO</p>
+
+      <p>4. Cookies<br>
+      Unsere Website verwendet Cookies. Dabei handelt es sich um kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Cookies richten keinen Schaden an und enthalten keine Viren.</p>
+      <ul>
+        <li>Notwendige Cookies: Diese sind für den Betrieb der Website erforderlich.</li>
+        <li>Statistik-Cookies: Mit Ihrer Zustimmung nutzen wir Cookies, um das Nutzerverhalten anonymisiert auszuwerten.</li>
+      </ul>
+      <p>Sie können Ihre Cookie-Einstellungen jederzeit in Ihrem Browser ändern.</p>
+
+      <p>5. Analyse-Tools und Tools von Drittanbietern</p>
+      <p>5.1. Google Analytics<br>
+      Diese Website nutzt den Webanalysedienst Google Analytics. Anbieter ist die Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA.<br>
+      Google Analytics verwendet Cookies, die eine Analyse Ihrer Benutzung der Website ermöglichen. Die durch Cookies erzeugten Informationen werden an einen Server von Google in den USA übertragen und dort gespeichert.<br>
+      Rechtsgrundlage: Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO</p>
+
+      <p>5.2. Google Maps<br>
+      Zur Darstellung von Karteninhalten verwenden wir Google Maps. Anbieter ist die Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA.<br>
+      Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unseres Online-Angebots.<br>
+      Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO</p>
+
+      <p>6. Weitergabe von Daten an Dritte<br>
+      Eine Weitergabe Ihrer persönlichen Daten an Dritte erfolgt nur, wenn:</p>
+      <ul>
+        <li>Sie Ihre ausdrückliche Einwilligung dazu erteilt haben,</li>
+        <li>die Verarbeitung zur Erfüllung eines Vertrags erforderlich ist,</li>
+        <li>eine rechtliche Verpflichtung besteht, oder</li>
+        <li>die Weitergabe zur Wahrung berechtigter Interessen erforderlich ist.</li>
+      </ul>
+
+      <p>7. Ihre Rechte<br>
+      Sie haben das Recht:</p>
+      <ul>
+        <li>Auskunft über Ihre gespeicherten Daten zu erhalten (Art. 15 DSGVO),</li>
+        <li>unrichtige Daten berichtigen zu lassen (Art. 16 DSGVO),</li>
+        <li>die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO),</li>
+        <li>die Einschränkung der Verarbeitung zu verlangen (Art. 18 DSGVO),</li>
+        <li>Ihre Einwilligung zur Datenverarbeitung zu widerrufen (Art. 7 Abs. 3 DSGVO),</li>
+        <li>eine Beschwerde bei einer Aufsichtsbehörde einzureichen (Art. 77 DSGVO).</li>
+      </ul>
+
+      <p>8. Dauer der Datenspeicherung<br>
+      Wir speichern Ihre personenbezogenen Daten nur so lange, wie dies zur Erreichung der hier genannten Zwecke erforderlich ist oder wie es gesetzlich vorgeschrieben ist.</p>
+
+      <p>9. Datensicherheit<br>
+      Wir setzen technische und organisatorische Maßnahmen ein, um Ihre Daten gegen Manipulation, Verlust, Zerstörung oder unberechtigte Zugriffe zu schützen.</p>
+
+      <p>10. Änderungen dieser Datenschutzerklärung<br>
+      Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um den aktuellen rechtlichen Anforderungen zu entsprechen oder Änderungen unserer Dienstleistungen umzusetzen.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AGB Modal -->
+<div id="agb-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+    <div class="modal-text" style="overflow-y:auto; max-height:70vh; line-height:1.6;">
+      <p>1. Geltungsbereich<br>
+      Diese Allgemeinen Geschäftsbedingungen gelten für alle Dienstleistungen, die im Kosmetik Salon ONLY BEAUTY by Larissa angeboten werden. Mit der Inanspruchnahme unserer Dienstleistungen erkennt der Kunde diese AGB an.</p>
+
+      <p>2. Terminvereinbarung<br>
+      Termine sind verbindlich und müssen im Voraus vereinbart werden. Änderungen oder Stornierungen sind bis 24 Stunden vor dem Termin kostenfrei möglich. Bei späteren Stornierungen oder Nichterscheinen behalten wir uns vor, die vollen Kosten des Termins in Rechnung zu stellen.</p>
+
+      <p>3. Preise<br>
+      Alle Preise sind in Euro angegeben und verstehen sich inklusive der gesetzlichen Mehrwertsteuer. Änderungen der Preise bleiben vorbehalten und werden rechtzeitig bekannt gegeben.</p>
+
+      <p>4. Bezahlung<br>
+      Die Zahlung erfolgt unmittelbar nach der Dienstleistung in Bar, Rechnungen sind sofort fällig.</p>
+
+      <p>5. Haftung<br>
+      Der Kosmetik Salon haftet nicht für Schäden, die durch unsachgemäße Anwendung der Produkte oder Dienstleistungen entstehen. Bei Allergien oder gesundheitlichen Problemen muss der Kunde vor der Behandlung informieren.</p>
+
+      <p>6. Datenschutz<br>
+      Wir verpflichten uns, die Daten unserer Kunden vertraulich zu behandeln und ausschließlich im Rahmen der gesetzlichen Bestimmungen zu verwenden.</p>
+
+      <p>7. Schlussbestimmungen<br>
+      Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. Änderungen der AGB bedürfen der Schriftform.</p>
+
+      <p>8. Gerichtsstand<br>
+      Gerichtsstand für alle Streitigkeiten ist der Sitz des Kosmetik Salons.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.6); 
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto; 
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%; max-width: 800px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute; top: 10px; right: 20px;
+  font-size: 1.5rem; font-weight: bold;
+  cursor: pointer;
+}
+
+/* Footer text buttons */
+.footer-text-btn {
+  cursor: pointer;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+  margin: 0 0.5rem;
+  text-decoration: underline; /* optional: looks clickable */
+}
+
+.footer-text-btn:hover {
+  color: #d4b47a; /* gold on hover */
+  text-decoration: none;
+}
+</style>
+
+<script>
+const modalButtons = document.querySelectorAll('.footer-text-btn');
+const modals = document.querySelectorAll('.modal');
+const closeBtns = document.querySelectorAll('.close-btn');
+
+modalButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const modalId = btn.getAttribute('data-modal');
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'block';
+    modal.querySelector('.modal-text').scrollTop = 0; // scroll to top
+  });
+});
+
+closeBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.modal').style.display = 'none';
+  });
+});
+
+// Close modal when clicking outside content
+window.addEventListener('click', (e) => {
+  modals.forEach(modal => {
+    if(e.target === modal) modal.style.display = 'none';
+  });
+});
+</script>
 
  <script>
   window.addEventListener('load', () => {
