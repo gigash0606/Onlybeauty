@@ -839,6 +839,11 @@ footer span {
   margin-bottom: 1rem;
   color: var(--black-soft);
 }
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: clamp(1.8rem, 6vw, 4rem); /* slightly smaller but still readable */
+  }
+}
 
   </style>
 </head>
@@ -856,9 +861,9 @@ footer span {
          data-aos="fade-down"
          data-aos-delay="100">
 
-    <h1 data-aos="fade-up" data-aos-delay="300">
-      Ganzheitliche Hautgesundheit – Behandlung & Ausbildung unter einem Dach
-    </h1>
+<h1 data-aos="fade-up" data-aos-delay="300">
+  Ganzheitliche <span class="highlight-red">Hautgesundheit</span> – Behandlung & <span class="highlight-red">Ausbildung</span> unter einem Dach
+</h1>
 
     <p data-aos="fade-up" data-aos-delay="500">
       Für Frauen mit Hautproblemen und für Quereinsteigerinnen & Kosmetikerinnen, die Haut wirklich verstehen möchten.<br>
