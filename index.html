@@ -753,6 +753,93 @@ footer span {
   width: 300px;   /* or adjust to 280–320px if needed */
   scroll-snap-align: center; /* snap to center */
 }
+.single-service {
+  display: flex;
+  justify-content: center;
+}
+
+.service-card--wide {
+  max-width: 600px;   /* keeps card look but focused */
+  text-align: center;
+}
+
+.service-card--wide ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.service-card--wide li {
+  margin-bottom: 0.6rem;
+}
+#why-different {
+  background: linear-gradient(135deg, rgba(212,180,122,0.03) 0%, rgba(198,40,57,0.02) 100%);
+  position: relative;
+}
+
+#why-different::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 100px,
+      rgba(212,180,122,0.01) 100px,
+      rgba(212,180,122,0.01) 102px
+    );
+  pointer-events: none;
+}
+/* Initial subtle blur + slight opacity and lift */
+.service-card[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  backdrop-filter: blur(6px); /* start blurred */
+  transition: opacity 0.6s ease, transform 0.6s ease, backdrop-filter 0.6s ease;
+}
+
+/* When AOS triggers, remove blur */
+.service-card[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+  backdrop-filter: blur(2px); /* final subtle blur */
+}
+
+.service-card .highlight-subtitle {
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 1rem;
+  margin: 0.4rem 0 0.6rem 0; /* closer to the list */
+  display: block;
+}
+
+.service-card .service-points {
+  list-style: disc;
+  margin: 0 0 1rem 1.25rem; /* small indent for bullets */
+  padding: 0;
+  line-height: 1.5;
+}
+
+.academy-points {
+  list-style: disc;
+  margin: 1rem 0 1.5rem 1.5rem;
+  padding: 0;
+  line-height: 1.6;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+}
+
+#academy .choice-card {
+  padding: clamp(2rem, 5vw, 3rem);
+  text-align: left;
+}
+
+#academy .choice-card p {
+  margin-bottom: 1rem;
+  color: var(--black-soft);
+}
+
   </style>
 </head>
 <body>
@@ -763,125 +850,147 @@ footer span {
   <!-- Hero -->
 <section class="hero" data-aos="fade">
   <div class="container hero-content">
- <img src="Logo.svg" 
-     alt="Logo" 
-     class="hero-logo"
-     data-aos="fade-down"
-     data-aos-delay="100">
+    <img src="Logo.svg" 
+         alt="Logo" 
+         class="hero-logo"
+         data-aos="fade-down"
+         data-aos-delay="100">
 
-<h1 data-aos="fade-up" data-aos-delay="300">
-  DERMA <span class="highlight-red">INSTITUT</span> & ELITE ACADEMY
-</h1>
+    <h1 data-aos="fade-up" data-aos-delay="300">
+      Ganzheitliche Hautgesundheit – Behandlung & Ausbildung unter einem Dach
+    </h1>
 
-<p data-aos="fade-up" data-aos-delay="500">
-  Das 1. Hautkonzept in ganz Sachsen • Ursache statt Oberfläche • Dein Weg in die Selbstständigkeit als Hautexpertin
-</p>
+    <p data-aos="fade-up" data-aos-delay="500">
+      Für Frauen mit Hautproblemen und für Quereinsteigerinnen & Kosmetikerinnen, die Haut wirklich verstehen möchten.<br>
+      Ursache statt Oberfläche • fundiertes Wissen • nachhaltige Ergebnisse
+    </p>
     
     <!-- Social Proof Ticker -->
-<div class="social-proof-ticker" data-aos="fade-up" data-aos-delay="600">
-<div class="ticker-track">
-<span>“Endlich wurde meine Haut verstanden! – Anna K.”</span>
-<span>“Professionelle Hautbehandlung, sehr empfehlenswert. – Lara M.”</span>
-<span>“Meine Haut fühlt sich strahlend und gesund an. – Julia S.”</span>
-<span>“Ich komme definitiv wieder für weitere Behandlungen. – Sophie R.”</span>
-<span>“Tolles Hauterlebnis, kann ich nur empfehlen. – Maria L.”</span>
-</div>
-</div>
+    <div class="social-proof-ticker" data-aos="fade-up" data-aos-delay="600">
+      <div class="ticker-track">
+        <span>“Endlich wurde meine Haut verstanden! – Anna K.”</span>
+        <span>“Professionelle Hautbehandlung, sehr empfehlenswert. – Lara M.”</span>
+        <span>“Meine Haut fühlt sich strahlend und gesund an. – Julia S.”</span>
+      </div>
+    </div>
 
-<div class="btn-group" data-aos="fade-up" data-aos-delay="700">
-  <a href="#sessions" class="cta-btn no-press">Kosmetische Behandlung buchen</a>
-  <a href="#course-choice" class="cta-btn no-press">Schulung buchen</a>
-</div>
+    <div class="btn-group" data-aos="fade-up" data-aos-delay="700">
+      <a href="#sessions" class="cta-btn no-press">Jetzt Behandlung buchen</a>
+<a href="#academy" class="cta-btn no-press">Zur Academy & Ausbildung</a>
+    </div>
+  </div>
+</section>
+
+<!-- Warum ein anderer Weg + Unser Ansatz -->
+<section id="why-and-approach" style="background: linear-gradient(135deg, #fefcf7 0%, #fdf9f1 100%); position: relative; padding: clamp(4rem, 8vw, 6rem) 0;">
+  
+  <!-- Soft radial overlay for luxury texture -->
+  <div style="position:absolute; inset:0; pointer-events:none; background:
+      radial-gradient(circle at 20% 30%, rgba(212,180,122,0.06), transparent 60%),
+      radial-gradient(circle at 80% 70%, rgba(198,40,57,0.03), transparent 60%);
+      z-index:0;"></div>
+
+  <div class="container" style="position:relative; z-index:1;">
+
+    <!-- Warum ein anderer Weg -->
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+      Warum ein <span class="highlight-red">anderer Weg?</span>
+    </h2>
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="200">
+      Kurzfristige Effekte, wechselnde Produkte und Behandlungen ohne klares Hautverständnis
+      führen oft dazu, dass Hautprobleme nicht nachhaltig gelöst werden.<br><br>
+      Bei Only Beauty gehen wir tiefer. Wir betrachten Haut ganzheitlich – ruhig, fundiert und individuell.
+    </p>
+
+    <!-- Unser Ansatz -->
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="300">
+      Unser <span class="highlight-red">Ansatz</span>
+    </h2>
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="400">
+      Ganzheitlich. Verständlich. Wirksam.<br>
+      Hautgesundheit ist kein Zufall. Sie entsteht durch Analyse, Wissen und individuell abgestimmte Konzepte.
+    </p>
+
+    <div class="choices" data-aos="fade-up" data-aos-delay="500">
+      <div class="choice-card choice-good">
+        <h3>Unser Fokus:</h3>
+        <ul class="choice-good-list" style="list-style:none; padding-left:0; text-align:left;">
+          <li>• Ursachen erkennen statt Symptome überdecken</li>
+          <li>• Struktur statt Produkt-Chaos</li>
+          <li>• Nachhaltige Hautverbesserung</li>
+          <li>• Wissen, das Sicherheit gibt</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- Sessions -->
+<!-- Behandlungen – Für Kundinnen -->
 <section id="sessions">
   <div class="container">
     <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
-      Unsere Signature <span class="highlight-red">Behandlungen</span>
+      🧴 Für Kundinnen – <span class="highlight-red">Behandlungen</span>
     </h2>
 
-<div class="services-grid">
-  <!-- Featured service -->
-  <div class="service-card service-featured" data-aos="fade-up" data-aos-delay="200">
-    <div class="featured-badge">Beliebt</div>
-    <h3>Luxury Glow Facial</h3>
-    <p>Hydrafacial + LED-Therapie + Massage – für strahlende Haut und pure Entspannung.</p>
-    <p><strong>Dauer:</strong> 90 Min. | <strong>ab</strong> 145 €</p>
-    <a href="#" class="cta-btn">Termin sichern</a>
-  </div>
-
-  <!-- Other skin treatments -->
-  <div class="service-card" data-aos="fade-up" data-aos-delay="350">
-    <h3>Klassische Kosmetik</h3>
-    <p>Grundpflege, Hautschutz und Entspannung zur Verbesserung des Hautbildes. Reduktion von Unreinheiten und Förderung eines ebenmäßigen Teints.</p>
-    <p><strong>Dauer:</strong> 60 Min. | <strong>ab</strong> 75 €</p>
-    <a href="#" class="cta-btn">Termin sichern</a>
-  </div>
-
-  <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-    <h3>Microneedling</h3>
-    <p>Minimal-invasive Behandlung zur Verbesserung der Hautstruktur, für Falten, Akne-Narben, Hyperpigmentierung und vergrößerte Poren.</p>
-    <p><strong>Dauer:</strong> 75 Min. | <strong>ab</strong> 120 €</p>
-    <a href="#" class="cta-btn">Termin sichern</a>
-  </div>
-</div>
-
-    <!-- Micro trust signals -->
-    <p class="services-trust">
-      Über <strong>500 zufriedene Kundinnen</strong> jährlich • <strong>100% professionelle Produkte</strong> • <strong>Ausgebildetes Expertenteam</strong>
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="200">
+      Individuelle Behandlungen für gesunde, stabile Haut.<br>
+      Unsere Behandlungen basieren auf einer fundierten Hautanalyse und werden exakt auf dein Hautbild abgestimmt.
     </p>
 
-  </div> <!-- end of .container -->
+    <div class="services-grid single-service" data-aos="fade-up" data-aos-delay="300">
+
+<div class="service-card service-card--wide" data-aos="fade-up" data-aos-delay="350">
+  <h3>Deine Hautanalyse & Behandlung</h3>
+
+  <p class="highlight-subtitle">Geeignet bei:</p>
+
+  <ul class="service-points">
+    <li>unreiner oder entzündlicher Haut</li>
+    <li>sensibler & gestresster Haut</li>
+    <li>Hautbarriere-Störungen</li>
+    <li>Wunsch nach langfristiger Hautverbesserung</li>
+  </ul>
+
+  <p>
+    Ziel ist kein kurzfristiger Effekt, sondern nachhaltige Hautgesundheit.
+  </p>
+
+  <a href="#" class="cta-btn" data-aos="fade-up" data-aos-delay="400">
+    Jetzt Hautanalyse & Termin sichern
+  </a>
+</div>
+
+    </div>
+  </div>
 </section>
 
 <!-- Course Choice -->
-<section id="course-choice">
+<section id="academy">
   <div class="container">
     <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
-      Werde zur <span class="highlight-red">selbstständigen</span> Beauty-Expertin
+      Für zukünftige Hautexpertinnen – <span class="highlight-red">Academy</span>
     </h2>
 
-   <p class="centered-text" data-aos="fade-up" data-aos-delay="250">
-  Lerne alles, was du für dein eigenes erfolgreiches Beauty-Business brauchst – von Profi-Techniken bis zu Kundenmanagement und Marketing. 
-  Starte noch heute deine Selbstständigkeit und gestalte deine Zukunft selbstbestimmt!
-</p>
-<p class="centered-text services-trust" data-aos="fade-up" data-aos-delay="350">
-  Bereits über <strong>200 erfolgreiche Absolventinnen</strong> in Deutschland
-</p>
+    <div class="choice-card choice-good choice-featured" data-aos="fade-up" data-aos-delay="250">
+      <p>
+        Dein Einstieg in die Hautexpertise – auch ohne Vorkenntnisse. Schritt für Schritt lernst du:
+      </p>
 
-    <div class="choices">
-      <div class="choice-card choice-bad" data-aos="fade-up" data-aos-delay="400">
-        <div class="bad-symbol">✗</div>
-        <h3>Option A: Bleib beim Status quo</h3>
-        <p>Du bleibst in deinem 9-to-5 Job, kommst finanziell kaum voran und lebst deinen Traum nie wirklich.</p>
-        <p class="choice-bad-list">
-          • Feste Arbeitszeiten<br>
-          • Begrenztes Einkommen<br>
-          • Keine persönliche Entwicklung<br>
-          • Abhängigkeit von anderen
-        </p>
-      </div>
+      <ul class="academy-points">
+        <li>Hautzustände zu verstehen</li>
+        <li>sicher zu analysieren</li>
+        <li>individuell zu behandeln</li>
+        <li>fundiert zu beraten</li>
+      </ul>
 
-   <div class="choice-card choice-good choice-featured" data-aos="fade-up" data-aos-delay="400">
-        <h3>Option B: Starte jetzt deinen Weg</h3>
-<p>Werde Skin-Expertin, baue dein eigenes Business auf und lebe deine Leidenschaft selbstbestimmt.</p>
-        <p class="choice-good-list">
-  ✓ Werde zum Hautexperten<br>
-  ✓ Werde deine eigene Chefin<br>
-  ✓ Deutlich höheres Einkommen<br>
-  ✓ Freiheit & Erfüllung
-</p>
-        <a href="#" class="cta-btn">Ja, ich will erfolgreicher Skin Expert werden</a>
-      </div>
+      <p>
+        Strukturiert, praxisnah und verständlich aufgebaut. Kein Vorwissen erforderlich.
+      </p>
+
+      <a href="#course-choice" class="cta-btn">Mehr über die Ausbildung erfahren</a>
     </div>
-    <!-- Micro social proof -->
-<div class="course-trust" data-aos="fade-up" data-aos-delay="500">
-<p><strong>90%</strong> unserer Absolventinnen starten erfolgreich ihr eigenes Business direkt nach der Schulung</p>
-  <p>"Dank des Kurses habe ich mein Studio eröffnet!" – Lena M.</p>
-  <p>"Die Techniken sind wirklich professionell und leicht umsetzbar." – Sarah K.</p>
-</div>
   </div>
 </section>
 
