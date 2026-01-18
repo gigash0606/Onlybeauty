@@ -1015,8 +1015,10 @@ footer span {
 </section>
 
 <!-- Course Choice -->
+<!-- Course Choice Section -->
 <section id="course-choice">
   <div class="container">
+
     <!-- Section Title -->
     <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
       FÜR ZUKÜNFTIGE <span class="highlight-red">HAUTEXPERTINNEN – ACADEMY</span>
@@ -1046,20 +1048,21 @@ footer span {
       Strukturiert, praxisnah und verständlich aufgebaut.
     </p>
 
-    <!-- Subtitle -->
-    <h3 class="section-subtitle" data-aos="fade-up" data-aos-delay="400">
-      ENTSCHEIDUNG – DEIN WEG
-    </h3>
+    <!-- Entscheidung Banner -->
+    <div class="decision-banner" data-aos="fade-up" data-aos-delay="400">
+      <span>ENTSCHEIDUNG</span>
+      <h2>DEIN WEG</h2>
+    </div>
 
     <!-- Choice Cards -->
     <div class="choices">
-      <!-- Option A: Bad / Status quo -->
+      <!-- Option A -->
       <div class="choice-card choice-bad" data-aos="fade-up" data-aos-delay="500">
-        <h3 data-aos="fade-up" data-aos-delay="550">Option A: Bleib beim Status quo</h3>
-        <p data-aos="fade-up" data-aos-delay="600">
+        <h3>Option A: Bleib beim Status quo</h3>
+        <p>
           Du bleibst in deinem 9-to-5 Job, kommst finanziell kaum voran und lebst deinen Traum nie wirklich.
         </p>
-        <p class="choice-bad-list" data-aos="fade-up" data-aos-delay="650">
+        <p class="choice-bad-list">
           • Feste Arbeitszeiten<br>
           • Begrenztes Einkommen<br>
           • Keine persönliche Entwicklung<br>
@@ -1067,21 +1070,21 @@ footer span {
         </p>
       </div>
 
-      <!-- Option B: Good / Featured -->
+      <!-- Option B -->
       <div class="choice-card choice-good choice-featured" data-aos="fade-up" data-aos-delay="700">
-        <h3 data-aos="fade-up" data-aos-delay="750">Option B: Starte jetzt deinen Weg</h3>
-        <p data-aos="fade-up" data-aos-delay="800">
+        <h3>Option B: Starte jetzt deinen Weg</h3>
+        <p>
           Werde Skin-Expertin, baue dein eigenes Business auf und lebe deine Leidenschaft selbstbestimmt.
         </p>
-        <p class="choice-good-list" data-aos="fade-up" data-aos-delay="850">
+        <p class="choice-good-list">
           ✓ Werde zum Hautexperten<br>
           ✓ Werde deine eigene Chefin<br>
           ✓ Deutlich höheres Einkommen<br>
           ✓ Freiheit & Erfüllung
         </p>
-<a href="https://calendly.com/" target="_blank" class="cta-btn" data-aos="fade-up" data-aos-delay="900">
-  Ja, ich will erfolgreicher Skin Expert werden
-</a>
+        <a href="https://calendly.com/" target="_blank" class="cta-btn">
+          Ja, ich will erfolgreicher Skin Expert werden
+        </a>
       </div>
     </div>
   </div>
@@ -1106,6 +1109,85 @@ footer span {
 </section>
 
 <style>
+/* Entscheidung Banner */
+.decision-banner {
+  max-width: 760px;
+  margin: 0 auto -1rem auto; /* closer to cards */
+  padding: clamp(0.5rem,1vw,1rem) 0;
+  text-align: center;
+  background: transparent;
+}
+
+.decision-banner span {
+  display: block;
+  font-size: clamp(1.8rem, 4vw, 2.4rem); /* responsive size */
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.decision-banner h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: var(--black-soft);
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Choice Cards */
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 0 var(--spacing-xs);
+}
+
+.choice-card {
+  flex: 1 1 300px;
+  max-width: 380px;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+}
+
+/* Option A – Bad */
+.choice-bad {
+  background: #fceded; /* light red tint */
+  border: 2px solid rgba(198,40,57,0.25);
+  color: rgba(0,0,0,0.7);
+  transform: scale(0.975);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.choice-bad h3 { color: var(--red); }
+.choice-bad-list { color: var(--red); }
+
+/* Option B – Good */
+.choice-good {
+  background: linear-gradient(135deg, rgba(212,180,122,0.2) 0%, rgba(212,180,122,0.08) 100%);
+  border: 2px solid rgba(212,180,122,0.7);
+  color: #111;
+  box-shadow: 0 20px 50px rgba(212,180,122,0.35);
+}
+
+.choice-good:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 28px 70px rgba(212,180,122,0.45);
+}
+
+/* Remove extra spacing after cards */
+#course-choice .choices { margin-bottom: 0; }
+
+/* Center all texts in cards */
+.choice-card h3,
+.choice-card p,
+.choice-card ul { text-align: center; }
 /* WHY ONLY BEAUTY Section */
 #why-only-beauty {
   background: linear-gradient(135deg, #fefcf7 0%, #fef9f2 100%);
