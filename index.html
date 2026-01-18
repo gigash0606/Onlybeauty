@@ -119,10 +119,10 @@ body, p, span, a, li {
 .hero h1 {
   font-size: clamp(2rem, 4.2vw, 3.2rem);
   line-height: 1.15;
-  margin-top: 0rem;
-  margin-bottom: 2rem;
-  padding-top: 0rem;
-  max-width: 680px;
+  margin: 0 auto 2rem auto; /* auto left/right centers it */
+  padding-top: 0;
+  max-width: min(80%, 900px); /* wider but still limited on huge screens */
+  text-align: center; /* ensure text inside is centered */
 }
     
     .hero p {
