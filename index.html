@@ -1328,6 +1328,143 @@ footer span {
   padding: clamp(3rem, 6vw, 5rem) 0;
 }
 
+/* Update these specific sections */
+
+#why-and-approach {
+  background: #fcfaf5;
+  position: relative;
+  padding: clamp(3rem, 6vw, 4rem) 0;
+  border-bottom: none; /* Changed from 1px solid */
+}
+
+#course-choice {
+  background: #f9f9f9; 
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  position: relative;
+  border-bottom: none; /* Changed from 1px solid */
+}
+
+#testimonials {
+  background: linear-gradient(to bottom, #fdfaf3 90%, #ffffff 100%);
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  text-align: center;
+  position: relative;
+  border-top: none; /* Added to ensure no line from top */
+}
+
+#faq {
+  background: linear-gradient(to bottom, #ffffff 90%, #fcfaf5 100%) !important;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  border-top: none; /* Ensure no border here */
+}
+
+#cta-final {
+  background: #fcfaf5;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  text-align: center;
+  border-top: none; /* Changed from 1px solid */
+}
+/* Better blend: Course Choice to Why Only Beauty */
+#course-choice {
+  /* Fades from light gray to pure white at the very bottom */
+  background: linear-gradient(to bottom, #f9f9f9 80%, #ffffff 100%); 
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  position: relative;
+  border-bottom: none; 
+}
+
+#why-only-beauty {
+  background: #ffffff !important; /* Keep it solid white to match the end of the previous section */
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+
+/* Better blend: CTA Final to Contact Us */
+#cta-final {
+  /* Fades from warm cream to white to prepare for the Contact section */
+  background: linear-gradient(to bottom, #fcfaf5 70%, #ffffff 100%);
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  text-align: center;
+  border-top: none;
+}
+
+#contact {
+  background: #ffffff !important;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  text-align: center;
+  /* Ensure no top border here */
+  border-top: none; 
+}
+/* 1. Seamless transition: Why Only Beauty to Testimonials */
+#why-only-beauty {
+  /* Fades from pure white to the testimonial cream color at the very bottom */
+  background: linear-gradient(to bottom, #ffffff 85%, #fdfaf3 100%) !important;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-bottom: none;
+}
+
+/* 2. Testimonials Section (Remove any top lines) */
+#testimonials {
+  background: #fdfaf3 !important; /* Matches the bottom of the previous gradient */
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  text-align: center;
+  position: relative;
+  border-top: none; /* Removed the 1px line */
+}
+
+/* 3. Smooth transition: Testimonials to FAQ */
+#testimonials::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  /* Fades the cream back to white for the FAQ section */
+  background: linear-gradient(to bottom, transparent, #ffffff);
+}
+
+#faq {
+  background: #ffffff !important;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  border-top: none;
+}
+/* FAQ: Fade from white to cream at the bottom */
+#faq {
+  background: linear-gradient(to bottom, #ffffff 80%, #fcfaf5 100%) !important;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  border-bottom: none;
+}
+
+/* CTA Final: Maintain the cream background consistently */
+#cta-final {
+  background: #fcfaf5 !important;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  text-align: center;
+  border-top: none; /* Remove any lingering top lines */
+}
+
+/* CTA Final: Blend into the white Contact section */
+#cta-final {
+  background: linear-gradient(to bottom, #fcfaf5 80%, #ffffff 100%) !important;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
+/* 1. Ensure Contact section stays pure white */
+#contact {
+  background: #ffffff !important;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  border-bottom: none; /* Removes any bottom line */
+}
+
+/* 2. Transition the Footer into the dark background without a gold border */
+footer {
+  background: #1a1a1a !important; /* Matches your footer background */
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: clamp(3rem, 5vw, 4rem) 0;
+  
+  /* REMOVED: border-top: 2px solid var(--gold); */
+  border-top: none !important; 
+  
 
   </style>
 </head>
