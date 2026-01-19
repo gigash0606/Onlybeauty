@@ -1258,6 +1258,59 @@ footer span {
 [data-aos="fade-up"] {
   transform: translateY(30px);
 }
+/* --- Optimized Unser Ansatz Grid --- */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 3rem auto 0 auto;
+}
+
+.approach-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 180, 122, 0.3);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.approach-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  background: white;
+  box-shadow: 0 15px 35px rgba(212, 180, 122, 0.15);
+}
+
+.approach-icon {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.approach-card span {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-weight: 600;
+  color: var(--black-soft);
+  line-height: 1.4;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .approach-card {
+    padding: 1.5rem;
+  }
+}
 
   </style>
 </head>
@@ -1303,37 +1356,53 @@ footer span {
 <!-- Combined Section: Warum ein anderer Weg + Unser Ansatz with alternating slide-in bullets -->
 <section id="why-and-approach">
   <div class="container">
-    <h2 class="section-title" data-aos="fade-up" data-aos-delay="50">
+    <h2 class="section-title" data-aos="fade-up">
       WARUM EIN <span class="highlight-red">ANDERER WEG?</span>
     </h2>
 
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="150">
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="100">
       Kurzfristige Effekte, wechselnde Produkte und Behandlungen ohne klares Hautverständnis führen oft dazu, dass Hautprobleme nicht nachhaltig gelöst werden.
     </p>
 
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="250">
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="150">
       Bei <strong>Only Beauty</strong> gehen wir tiefer. Wir betrachten Haut <span class="highlight-red">ganzheitlich</span> – ruhig, fundiert und individuell.
     </p>
 
-    <h3 class="section-subtitle" data-aos="fade-up" data-aos-delay="300">
-      UNSER ANSATZ
-    </h3>
+    <div style="margin-top: 5rem;">
+      <h3 class="section-subtitle" data-aos="fade-up">
+        UNSER ANSATZ
+      </h3>
 
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="400">
-      Ganzheitlich. Verständlich. Wirksam.<br>
-      Hautgesundheit ist kein Zufall. Sie entsteht durch Analyse, Wissen und individuell abgestimmte Konzepte.
-    </p>
+      <p class="centered-text" data-aos="fade-up" data-aos-delay="100">
+        Ganzheitlich. Verständlich. Wirksam.<br>
+        Hautgesundheit ist kein Zufall. Sie entsteht durch Analyse, Wissen und individuell abgestimmte Konzepte.
+      </p>
 
-    <div class="approach-list" data-aos="fade-up" data-aos-delay="450">
-      <ul>
-        <li data-aos="fade-right" data-aos-delay="500">Ursachen erkennen statt Symptome überdecken</li>
-        <li data-aos="fade-left" data-aos-delay="550">Struktur statt Produkt-Chaos</li>
-        <li data-aos="fade-right" data-aos-delay="600">Nachhaltige Hautverbesserung</li>
-        <li data-aos="fade-left" data-aos-delay="650">Wissen, das Sicherheit gibt</li>
-      </ul>
+      <div class="approach-grid">
+        <div class="approach-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="approach-icon">✧</div>
+          <span>Ursachen erkennen statt Symptome überdecken</span>
+        </div>
+
+        <div class="approach-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="approach-icon">✧</div>
+          <span>Struktur statt Produkt-Chaos</span>
+        </div>
+
+        <div class="approach-card" data-aos="zoom-in" data-aos-delay="400">
+          <div class="approach-icon">✧</div>
+          <span>Nachhaltige Hautverbesserung</span>
+        </div>
+
+        <div class="approach-card" data-aos="zoom-in" data-aos-delay="500">
+          <div class="approach-icon">✧</div>
+          <span>Wissen, das Sicherheit gibt</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
 
 
 <!-- Sessions -->
