@@ -76,7 +76,6 @@ body, p, span, a, li {
     }
     
     /* Hero */
-/* Hero with Paper Texture */
 .hero {
   min-height: 100vh;
   height: 100vh;
@@ -84,17 +83,20 @@ body, p, span, a, li {
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* Paper texture overlay + white base */
+  /* Added a bottom-heavy gradient to blend into the next section */
   background: 
-    linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
-    url('https://www.transparenttextures.com/patterns/white-paperboard.png'), 
-    #ffffff;
-  background-blend-mode: multiply;
+    linear-gradient(to bottom, transparent 80%, #fcfaf5 100%),
+    radial-gradient(circle at center, rgba(212, 180, 122, 0.15) 0%, transparent 70%),
+    url('https://www.transparenttextures.com/patterns/handmade-paper.png'), 
+    #fcfaf5;
+  background-blend-mode: normal, multiply, multiply;
   position: relative;
   padding: var(--spacing-md) var(--spacing-xs);
+  /* Removed the hard border-bottom to help the blend */
+  border-bottom: none;
 }
 
-    
+
     .hero::before {
       content: '';
       position: absolute;
@@ -197,14 +199,12 @@ body, p, span, a, li {
       position: relative;
     }
     
-    #sessions {
-      background: 
-        linear-gradient(135deg, var(--black) 0%, var(--black-soft) 100%),
-        url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600&q=80') center/cover no-repeat;
-      background-blend-mode: overlay;
-      color: var(--white);
-      position: relative;
-    }
+#sessions {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: var(--white);
+  position: relative;
+}
+
     
     #sessions::before {
       content: '';
@@ -230,13 +230,13 @@ body, p, span, a, li {
       color: var(--red);
     }
     
-    #course-choice {
-      background: 
-        linear-gradient(135deg, var(--white) 0%, #fefefe 100%),
-        radial-gradient(circle at 50% 0%, rgba(212,180,122,0.04) 0%, transparent 50%),
-        radial-gradient(circle at 50% 100%, rgba(198,40,57,0.02) 0%, transparent 50%);
-      position: relative;
-    }
+#course-choice {
+  background: linear-gradient(to bottom, #f9f9f9 90%, #ffffff 100%);
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  position: relative;
+}
+
+
     
     #course-choice::before {
       content: '';
@@ -402,14 +402,15 @@ body, p, span, a, li {
       min-width: auto;
     }
     
-    footer {
-      text-align: center;
-      padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 4vw, 2rem);
-      background: var(--black);
-      color: rgba(255,255,255,0.7);
-      font-size: clamp(0.875rem, 2vw, 0.94rem);
-      border-top: 1px solid rgba(212,180,122,0.2);
-    }
+footer {
+  background: #111111; /* Deep charcoal for a grounded finish */
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  padding: clamp(3rem, 5vw, 4rem) 0;
+  border-top: 2px solid var(--gold); /* Thin gold line for luxury finish */
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+}
+
     
     /* Media Queries */
     @media (min-width: 481px) and (max-width: 768px) {
@@ -622,11 +623,13 @@ footer {
 }
 /* Light, luxurious testimonial section */
 #testimonials {
-  background: linear-gradient(135deg, #fefcf7 0%, #fef9f2 100%);
+  background: #fdfaf3;
   padding: clamp(4rem, 8vw, 6rem) 0;
   text-align: center;
   position: relative;
+  border-top: 1px solid rgba(212, 180, 122, 0.1);
 }
+
 
 /* Optional soft texture overlay */
 #testimonials::before {
@@ -682,10 +685,11 @@ footer {
 }
 /* Contact Section — clean white background */
 #contact {
-  background: var(--white); /* pure white */
+  background: #ffffff !important;
   padding: clamp(4rem, 8vw, 6rem) 0;
   text-align: center;
 }
+
 
 #contact .section-title {
   color: var(--black-soft);
@@ -719,15 +723,15 @@ footer {
   color: var(--gold);
   font-weight: 600;
 }
-/* Footer */
-footer {
-  background: var(--black-soft); /* dark contrast */
-  color: rgba(255, 255, 255, 0.7);
+/* footer {
+  background: #111111; /* Deep charcoal for a grounded finish */
+  color: rgba(255, 255, 255, 0.6);
   text-align: center;
-  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 4vw, 2rem);
-  border-top: 1px solid rgba(212, 180, 122, 0.2);
-  font-size: clamp(0.875rem, 2vw, 0.94rem);
+  padding: clamp(3rem, 5vw, 4rem) 0;
+  border-top: 2px solid var(--gold); /* Thin gold line for luxury finish */
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
 }
+
 
 footer span {
   color: var(--gold);
@@ -755,10 +759,12 @@ footer span {
 }
 /* Combined section styling */
 #why-and-approach {
-  background: linear-gradient(135deg, #fefcf7 0%, #fef9f2 100%);
+  background: #fcfaf5;
   position: relative;
   padding: clamp(3rem, 6vw, 4rem) 0;
+  border-bottom: 1px solid rgba(212, 180, 122, 0.1);
 }
+
 
 #why-and-approach .centered-text {
   text-align: center;
@@ -807,9 +813,10 @@ footer span {
 }
 
 #course-choice {
-  background: #f9f9f9; /* light neutral background */
+  background: #f9f9f9; 
   padding: clamp(4rem, 8vw, 6rem) 0;
   position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 #course-choice .centered-text {
@@ -982,11 +989,12 @@ footer span {
 
 /* Testimonial Section */
 #testimonials {
-  background: linear-gradient(135deg, #fefcf7 0%, #fef9f2 100%);
+  background: linear-gradient(to bottom, #fdfaf3 90%, #ffffff 100%);
   padding: clamp(4rem, 8vw, 6rem) 0;
   text-align: center;
   position: relative;
 }
+
 
 #testimonials::before {
   content: '';
@@ -1088,9 +1096,11 @@ footer span {
 }
 /* FAQ Section */
 #faq {
-  background: #f9f9f9;
+  background: linear-gradient(to bottom, #ffffff 90%, #fcfaf5 100%) !important;
   padding: clamp(4rem, 8vw, 6rem) 0;
 }
+
+
 
 #faq .faq-item {
   margin-bottom: clamp(1.5rem, 3vw, 2rem);
@@ -1134,10 +1144,12 @@ footer span {
   padding-bottom: 0.5rem;
 }
 #cta-final {
-  background: linear-gradient(135deg, #fefcf7 0%, #fef9f2 100%);
-  padding: clamp(3rem, 6vw, 4rem) 0; /* smaller bottom padding */
+  background: #fcfaf5; /* Returns to the warm cream to signal the end */
+  padding: clamp(4rem, 8vw, 6rem) 0;
   text-align: center;
+  border-top: 1px solid rgba(212, 180, 122, 0.1);
 }
+
 
 #cta-final .section-title {
   font-size: clamp(1.8rem, 4vw, 2.4rem);
@@ -1311,6 +1323,11 @@ footer span {
     padding: 1.5rem;
   }
 }
+#why-only-beauty {
+  background: linear-gradient(to bottom, #ffffff 90%, #fdfaf3 100%) !important;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+
 
   </style>
 </head>
