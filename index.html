@@ -1249,6 +1249,15 @@ footer span {
 #sessions .choice-good-list {
   color: var(--gold) !important;
 }
+/* Custom AOS transition for a softer feel */
+[data-aos] {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Reduce the distance of the "up" movement to make it subtler */
+[data-aos="fade-up"] {
+  transform: translateY(30px);
+}
 
   </style>
 </head>
@@ -1785,11 +1794,11 @@ window.addEventListener('click', (e) => {
     history.replaceState(null, '', window.location.pathname);
 
 AOS.init({
-  duration: 500,
-  offset: -150, // Negative offset triggers the animation before the element even reaches the viewport
-  once: true,
-  easing: 'ease-out-back',
-  delay: 50,
+  duration: 300,      // Longer duration for a premium feel
+  easing: 'ease-out',  // Clean fade without the "bounce/wobble"
+  once: true,          // Animation happens only once
+  offset: 0,         // Starts 100px before the element enters view
+  delay: 0,
 });
   });
 
