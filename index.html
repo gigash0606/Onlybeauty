@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ONLYBEAUTYLEIPZIG</title>
-  <script>
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-</script>
-  <!-- Google Fonts -->
- <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <!-- AOS CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONLYBEAUTYLEIPZIG</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700;900&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script>
+    // Reset scroll position on refresh
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  </script>
 
   <style>
     :root {
@@ -31,13 +35,7 @@
       --spacing-lg: clamp(2rem, 4vw, 4rem);
       --spacing-xl: clamp(3rem, 6vw, 6rem);
     }
-    /* Enforce Barlow everywhere */
-*,
-*::before,
-*::after {
-  font-family: 'Barlow', sans-serif !important;
-}
-    
+
     * {
       margin: 0;
       padding: 0;
@@ -78,22 +76,24 @@ body, p, span, a, li {
     }
     
     /* Hero */
-    .hero {
-      min-height: 100vh;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: 
-        linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%),
-        radial-gradient(circle at 20% 50%, rgba(212,180,122,0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 50%, rgba(198,40,57,0.02) 0%, transparent 50%),
-        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1600&q=80') center/cover no-repeat;
-      position: relative;
-      padding: var(--spacing-md) var(--spacing-xs);
-      background-color: var(--white);
-    }
+/* Hero with Paper Texture */
+.hero {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* Paper texture overlay + white base */
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+    url('https://www.transparenttextures.com/patterns/white-paperboard.png'), 
+    #ffffff;
+  background-blend-mode: multiply;
+  position: relative;
+  padding: var(--spacing-md) var(--spacing-xs);
+}
+
     
     .hero::before {
       content: '';
@@ -162,16 +162,6 @@ body, p, span, a, li {
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.cta-btn:hover {
-  transform: translateY(-5px);
-  background: var(--gold-light);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-}
-
-.cta-btn:active {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
 
 /* optional: slightly bigger for choice-card buttons to match card corners */
 .choice-card .cta-btn {
@@ -763,90 +753,6 @@ footer span {
     ),
     linear-gradient(135deg, rgba(212,180,122,0.08) 0%, rgba(212,180,122,0.03) 100%);
 }
-  </style>
-</head>
-<body>
-
-  <!-- AOS JS (at the end for better performance) -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <!-- Hero -->
-<section class="hero" data-aos="fade">
-  <div class="container hero-content">
-    
-    <!-- Logo -->
-    <img src="Logo.svg" 
-         alt="Logo" 
-         class="hero-logo"
-         data-aos="fade-down"
-         data-aos-delay="100">
-
-    <!-- Main Heading -->
-    <h1 data-aos="fade-up" data-aos-delay="200">
-      Ganzheitliche <span class="highlight-red">Hautgesundheit</span> –<br>
-      <span class="highlight-red">Behandlung</span> & <span class="highlight-red">Ausbildung</span> unter einem Dach
-    </h1>
-
-    <!-- Subtitle / Description -->
-    <p data-aos="fade-up" data-aos-delay="300">
-      Für Frauen mit Hautproblemen<br>
-      und für Quereinsteigerinnen & Kosmetikerinnen,<br>
-      die Haut wirklich verstehen möchten.
-    </p>
-
-    <p data-aos="fade-up" data-aos-delay="400">
-      Ursache statt Oberfläche • fundiertes Wissen • nachhaltige Ergebnisse
-    </p>
-
-    <!-- Buttons -->
-    <div class="btn-group" data-aos="fade-up" data-aos-delay="500">
-      <a href="#sessions" class="cta-btn no-press">Jetzt Behandlung buchen</a>
-      <a href="#course-choice" class="cta-btn no-press">Zur Academy & Ausbildung</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- Combined Section: Warum ein anderer Weg + Unser Ansatz with alternating slide-in bullets -->
-<section id="why-and-approach">
-  <div class="container">
-    <!-- Section Title -->
-    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
-      WARUM EIN <span class="highlight-red">ANDERER WEG?</span>
-    </h2>
-
-    <!-- Paragraphs -->
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="200">
-      Kurzfristige Effekte, wechselnde Produkte und Behandlungen ohne klares Hautverständnis führen oft dazu, dass Hautprobleme nicht nachhaltig gelöst werden.
-    </p>
-
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="300">
-      Bei <strong>Only Beauty</strong> gehen wir tiefer. Wir betrachten Haut <span class="highlight-red">ganzheitlich</span> – ruhig, fundiert und individuell.
-    </p>
-
-    <!-- Subtitle -->
-    <h3 class="section-subtitle" data-aos="fade-up" data-aos-delay="400">
-      UNSER ANSATZ
-    </h3>
-
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="500">
-      Ganzheitlich. Verständlich. Wirksam.<br>
-      Hautgesundheit ist kein Zufall. Sie entsteht durch Analyse, Wissen und individuell abgestimmte Konzepte.
-    </p>
-
-    <!-- Approach list -->
-    <div class="approach-list">
-      <ul>
-        <li data-aos="fade-right" data-aos-delay="600">Ursachen erkennen statt Symptome überdecken</li>
-        <li data-aos="fade-left" data-aos-delay="700">Struktur statt Produkt-Chaos</li>
-        <li data-aos="fade-right" data-aos-delay="800">Nachhaltige Hautverbesserung</li>
-        <li data-aos="fade-left" data-aos-delay="900">Wissen, das Sicherheit gibt</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<style>
 /* Combined section styling */
 #why-and-approach {
   background: linear-gradient(135deg, #fefcf7 0%, #fef9f2 100%);
@@ -963,152 +869,6 @@ footer span {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 28px 70px rgba(212,180,122,0.45);
 }
-
-</style>
-
-<!-- Sessions -->
-<section id="sessions">
-  <div class="container">
-    <!-- Section Title -->
-    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
-      FÜR KUNDINNEN – <span class="highlight-red">BEHANDLUNGEN</span>
-    </h2>
-
-    <div class="services-grid">
-      <!-- Service Card -->
-      <div class="service-card service-featured choice-good" style="text-align:center;">
-        
-        <!-- Card Intro Paragraph -->
-        <p style="margin-bottom:1.5rem; font-weight:500;"
-           data-aos="fade-up" data-aos-delay="200">
-          Individuelle Behandlungen für gesunde, stabile Haut<br>
-          Unsere Behandlungen basieren auf einer fundierten Hautanalyse<br>
-          und werden exakt auf dein Hautbild abgestimmt.
-        </p>
-
-        <!-- Card Subtitle -->
-        <h3 style="margin-bottom:1rem;" data-aos="fade-up" data-aos-delay="300">
-          Geeignet bei:
-        </h3>
-
-        <!-- List -->
-        <ul class="choice-good-list" style="list-style:none; padding-left:0; margin-bottom:1.5rem;">
-          <li data-aos="fade-up" data-aos-delay="400">• Unreiner oder Entzündlicher Haut</li>
-          <li data-aos="fade-up" data-aos-delay="500">• Sensibler & Gestresster Haut</li>
-          <li data-aos="fade-up" data-aos-delay="600">• Hautbarriere-Störungen</li>
-          <li data-aos="fade-up" data-aos-delay="700">• Wunsch nach langfristiger Hautverbesserung</li>
-        </ul>
-
-        <!-- Card Outro Paragraph -->
-        <p style="margin-bottom:1.5rem; font-weight:500;"
-           data-aos="fade-up" data-aos-delay="800">
-          Ziel ist kein kurzfristiger Effekt, sondern nachhaltige Hautgesundheit.
-        </p>
-
-        <!-- CTA Button -->
-<a href="https://calendly.com/" target="_blank" class="cta-btn" data-aos="fade-up" data-aos-delay="900">
-  Jetzt Hautanalyse & Termin buchen
-</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Course Choice -->
-<!-- Course Choice Section -->
-<section id="course-choice">
-  <div class="container">
-
-    <!-- Section Title -->
-    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
-      FÜR ZUKÜNFTIGE <span class="highlight-red">HAUTEXPERTINNEN – ACADEMY</span>
-    </h2>
-
-    <!-- Intro Paragraphs -->
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="200">
-      Dein Einstieg in die Hautexpertise – auch ohne Vorkenntnisse
-    </p>
-
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="250">
-      Die Only Beauty Elite Academy richtet sich an:<br>
-      • Quereinsteigerinnen<br>
-      • Frauen in beruflicher Neuorientierung<br>
-      • Angehende oder aktive Kosmetikerinnen
-    </p>
-
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="300">
-      Kein Vorwissen erforderlich. Du lernst Schritt für Schritt:<br>
-      • Hautzustände zu verstehen<br>
-      • Sicher zu analysieren<br>
-      • Individuell zu behandeln<br>
-      • Fundiert zu beraten
-    </p>
-
-    <p class="centered-text" data-aos="fade-up" data-aos-delay="350">
-      Strukturiert, praxisnah und verständlich aufgebaut.
-    </p>
-
-    <!-- Entscheidung Banner -->
-    <div class="decision-banner" data-aos="fade-up" data-aos-delay="400">
-      <span>ENTSCHEIDUNG</span>
-      <h2>DEIN WEG</h2>
-    </div>
-
-    <!-- Choice Cards -->
-    <div class="choices">
-      <!-- Option A -->
-      <div class="choice-card choice-bad" data-aos="fade-up" data-aos-delay="500">
-        <h3>Option A: Bleib beim Status quo</h3>
-        <p>
-          Du bleibst in deinem 9-to-5 Job, kommst finanziell kaum voran und lebst deinen Traum nie wirklich.
-        </p>
-        <p class="choice-bad-list">
-          • Feste Arbeitszeiten<br>
-          • Begrenztes Einkommen<br>
-          • Keine persönliche Entwicklung<br>
-          • Abhängigkeit von anderen
-        </p>
-      </div>
-
-      <!-- Option B -->
-      <div class="choice-card choice-good choice-featured" data-aos="fade-up" data-aos-delay="700">
-        <h3>Option B: Starte jetzt deinen Weg</h3>
-        <p>
-          Werde Skin-Expertin, baue dein eigenes Business auf und lebe deine Leidenschaft selbstbestimmt.
-        </p>
-        <p class="choice-good-list">
-          ✓ Werde zum Hautexperten<br>
-          ✓ Werde deine eigene Chefin<br>
-          ✓ Deutlich höheres Einkommen<br>
-          ✓ Freiheit & Erfüllung
-        </p>
-        <a href="https://calendly.com/" target="_blank" class="cta-btn">
-          Ja, ich will erfolgreicher Skin Expert werden
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Warum Only Beauty Section (Single Animated Card) -->
-<section id="why-only-beauty">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
-      WARUM ONLY <span class="highlight-red">BEAUTY?</span>
-    </h2>
-
-    <div class="single-card" data-aos="fade-up" data-aos-delay="200">
-      <p class="animated-line">Ganzheitlicher Ansatz</p>
-      <p class="animated-line">Verständlich & praxisnah erklärt</p>
-      <p class="animated-line">Individuelle Betreuung</p>
-      <p class="animated-line">Reale Hautfälle & echte Erfahrung</p>
-      <p class="animated-line">Wissen, das anwendbar ist</p>
-      <p class="animated-line">Für Kundinnen und angehende Hautexpertinnen.</p>
-    </div>
-  </div>
-</section>
-
-<style>
 /* Entscheidung Banner */
 .decision-banner {
   max-width: 760px;
@@ -1189,52 +949,7 @@ footer span {
 .choice-card p,
 .choice-card ul { text-align: center; }
 /* WHY ONLY BEAUTY Section */
-#why-only-beauty {
-  background: linear-gradient(135deg, #fefcf7 0%, #fef9f2 100%);
-  padding: clamp(4rem, 8vw, 5rem) 0;
-  color: var(--black-soft);
-  position: relative;
-}
-#why-only-beauty::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: none; /* remove dark overlay */
-  pointer-events: none;
-}
-#why-only-beauty .single-card {
-  max-width: 720px; /* wider */
-  margin: 2rem auto 0 auto;
-  background: #ffffff; /* solid white */
-  border-radius: 16px;
-  padding: clamp(2rem, 4vw, 3rem);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08); /* subtle shadow */
-  text-align: center;
-  color: var(--black-soft);
-}
-#why-only-beauty .single-card::before {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: var(--gold);
-  margin: 0 auto 1.5rem auto;
-  border-radius: 2px;
-}
-#why-only-beauty .animated-line {
-  opacity: 0;
-  transform: translateY(10px); /* less dramatic */
-  font-size: clamp(1rem, 1.8vw, 1.1rem);
-  margin: 1rem 0; /* more spacing */
-  font-weight: 500;
-  transition: all 0.6s ease-out;
-  color: var(--black-soft);
-}
 
-#why-only-beauty .animated-line.show {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .single-card {
   max-width: 600px;
@@ -1371,19 +1086,401 @@ footer span {
     padding: clamp(1.5rem,3vw,2rem);
   }
 }
-</style>
+/* FAQ Section */
+#faq {
+  background: #f9f9f9;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
 
-<script>
-  // Animate each line one by one
-  document.addEventListener("DOMContentLoaded", () => {
-    const lines = document.querySelectorAll("#why-only-beauty .animated-line");
-    lines.forEach((line, index) => {
-      setTimeout(() => {
-        line.classList.add("show");
-      }, index * 400); // 400ms between each line
-    });
-  });
-</script>
+#faq .faq-item {
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  border-bottom: 1px solid rgba(212,180,122,0.3);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-weight: 600;
+  padding: clamp(0.8rem, 2vw, 1rem) 0;
+  cursor: pointer;
+  color: var(--black-soft);
+  transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: var(--gold);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0;
+}
+
+.faq-answer p {
+  margin: clamp(0.5rem,1vw,1rem) 0;
+  font-weight: 400;
+  color: var(--black-soft);
+}
+
+/* Active state */
+.faq-item.active .faq-answer {
+  max-height: 500px; /* enough to show content */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+#cta-final {
+  background: linear-gradient(135deg, #fefcf7 0%, #fef9f2 100%);
+  padding: clamp(3rem, 6vw, 4rem) 0; /* smaller bottom padding */
+  text-align: center;
+}
+
+#cta-final .section-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin-bottom: 1rem;
+}
+
+#cta-final .section-subtitle {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+#cta-final .centered-text {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: clamp(2rem, 4vw, 2.5rem);
+  color: var(--black-soft);
+}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.6); 
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto; 
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%; max-width: 800px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute; top: 10px; right: 20px;
+  font-size: 1.5rem; font-weight: bold;
+  cursor: pointer;
+}
+
+/* Footer text buttons */
+.footer-text-btn {
+  cursor: pointer;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+  margin: 0 0.5rem;
+  text-decoration: underline; /* optional: looks clickable */
+}
+
+.footer-text-btn:hover {
+  color: #d4b47a; /* gold on hover */
+  text-decoration: none;
+}
+#why-only-beauty .why-text p {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  color: var(--black-soft);
+  margin: 0.7rem 0;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* --- Optimized Decision Logic --- */
+
+/* Option A: The "Wrong" Path (Muted, Faded, Smaller) */
+.choice-bad {
+  background: #f2f2f2 !important;
+  border: 1px solid #dcdcdc !important;
+  color: #888888 !important; /* Faded text */
+  transform: scale(0.92); /* Physically smaller */
+  filter: grayscale(100%); /* Removes all "life" from the card */
+  box-shadow: none !important;
+  pointer-events: none; /* Optional: makes it feel non-interactive */
+  opacity: 0.6;
+}
+
+.choice-bad h3 {
+  color: #666666 !important;
+}
+
+/* Option B: The "Correct" Path (Large, Glowing, High Contrast) */
+.choice-good.choice-featured {
+  background: #ffffff !important;
+  border: 3px solid var(--gold) !important; /* Thick gold frame */
+  color: var(--black-soft) !important;
+  transform: scale(1.08) !important; /* Dominates the space */
+  box-shadow: 0 30px 60px rgba(212, 180, 122, 0.4) !important; /* Deep glow */
+  z-index: 10;
+}
+
+.choice-good h3 {
+  color: var(--gold-dark) !important;
+  font-size: 2rem !important;
+}
+
+.choice-good .choice-good-list {
+  color: #2e7d32 !important; /* Deep success green for the checkmarks */
+  font-weight: 700;
+}
+
+/* Make Option B button extra "clickable" */
+.choice-good .cta-btn {
+  background: var(--gold) !important;
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(212, 180, 122, 0.5);
+}
+/* Change list text to gold specifically in the sessions section */
+#sessions .choice-good-list {
+  color: var(--gold) !important;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- AOS JS (at the end for better performance) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Hero -->
+<section class="hero" data-aos="fade">
+  <div class="container hero-content">
+    
+    <!-- Logo -->
+    <img src="Logo.svg" 
+         alt="Logo" 
+         class="hero-logo"
+         data-aos="fade-down"
+         data-aos-delay="100">
+
+    <!-- Main Heading -->
+    <h1 data-aos="fade-up" data-aos-delay="200">
+      Ganzheitliche <span class="highlight-red">Hautgesundheit</span> –<br>
+      <span class="highlight-red">Behandlung</span> & <span class="highlight-red">Ausbildung</span> unter einem Dach
+    </h1>
+
+    <!-- Subtitle / Description -->
+    <p data-aos="fade-up" data-aos-delay="300">
+      Für Frauen mit Hautproblemen<br>
+      und für Quereinsteigerinnen & Kosmetikerinnen,<br>
+      die Haut wirklich verstehen möchten.
+    </p>
+
+    <p data-aos="fade-up" data-aos-delay="400">
+      Ursache statt Oberfläche • fundiertes Wissen • nachhaltige Ergebnisse
+    </p>
+
+    <!-- Buttons -->
+    <div class="btn-group" data-aos="fade-up" data-aos-delay="500">
+      <a href="#sessions" class="cta-btn no-press">Jetzt Behandlung buchen</a>
+      <a href="#course-choice" class="cta-btn no-press">Zur Academy & Ausbildung</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Combined Section: Warum ein anderer Weg + Unser Ansatz with alternating slide-in bullets -->
+<section id="why-and-approach">
+  <div class="container">
+    <!-- Section Title -->
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+      WARUM EIN <span class="highlight-red">ANDERER WEG?</span>
+    </h2>
+
+    <!-- Paragraphs -->
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="200">
+      Kurzfristige Effekte, wechselnde Produkte und Behandlungen ohne klares Hautverständnis führen oft dazu, dass Hautprobleme nicht nachhaltig gelöst werden.
+    </p>
+
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="300">
+      Bei <strong>Only Beauty</strong> gehen wir tiefer. Wir betrachten Haut <span class="highlight-red">ganzheitlich</span> – ruhig, fundiert und individuell.
+    </p>
+
+    <!-- Subtitle -->
+    <h3 class="section-subtitle" data-aos="fade-up" data-aos-delay="400">
+      UNSER ANSATZ
+    </h3>
+
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="500">
+      Ganzheitlich. Verständlich. Wirksam.<br>
+      Hautgesundheit ist kein Zufall. Sie entsteht durch Analyse, Wissen und individuell abgestimmte Konzepte.
+    </p>
+
+    <!-- Approach list -->
+    <div class="approach-list">
+      <ul>
+        <li data-aos="fade-right" data-aos-delay="600">Ursachen erkennen statt Symptome überdecken</li>
+        <li data-aos="fade-left" data-aos-delay="700">Struktur statt Produkt-Chaos</li>
+        <li data-aos="fade-right" data-aos-delay="800">Nachhaltige Hautverbesserung</li>
+        <li data-aos="fade-left" data-aos-delay="900">Wissen, das Sicherheit gibt</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Sessions -->
+<section id="sessions">
+  <div class="container">
+    <!-- Section Title -->
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+      FÜR KUNDINNEN – <span class="highlight-red">BEHANDLUNGEN</span>
+    </h2>
+
+    <div class="services-grid">
+      <!-- Service Card -->
+      <div class="service-card service-featured choice-good" style="text-align:center;">
+        
+        <!-- Card Intro Paragraph -->
+        <p style="margin-bottom:1.5rem; font-weight:500;"
+           data-aos="fade-up" data-aos-delay="200">
+          Individuelle Behandlungen für gesunde, stabile Haut<br>
+          Unsere Behandlungen basieren auf einer fundierten Hautanalyse<br>
+          und werden exakt auf dein Hautbild abgestimmt.
+        </p>
+
+        <!-- Card Subtitle -->
+        <h3 style="margin-bottom:1rem;" data-aos="fade-up" data-aos-delay="300">
+          Geeignet bei:
+        </h3>
+
+        <!-- List -->
+        <ul class="choice-good-list" style="list-style:none; padding-left:0; margin-bottom:1.5rem;">
+          <li data-aos="fade-up" data-aos-delay="400">• Unreiner oder Entzündlicher Haut</li>
+          <li data-aos="fade-up" data-aos-delay="500">• Sensibler & Gestresster Haut</li>
+          <li data-aos="fade-up" data-aos-delay="600">• Hautbarriere-Störungen</li>
+          <li data-aos="fade-up" data-aos-delay="700">• Wunsch nach langfristiger Hautverbesserung</li>
+        </ul>
+
+        <!-- Card Outro Paragraph -->
+        <p style="margin-bottom:1.5rem; font-weight:500;"
+           data-aos="fade-up" data-aos-delay="800">
+          Ziel ist kein kurzfristiger Effekt, sondern nachhaltige Hautgesundheit.
+        </p>
+
+        <!-- CTA Button -->
+<a href="https://calendly.com/" target="_blank" class="cta-btn" data-aos="fade-up" data-aos-delay="900">
+  Jetzt Hautanalyse & Termin buchen
+</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Course Choice -->
+<!-- Course Choice Section -->
+<section id="course-choice">
+  <div class="container">
+
+    <!-- Section Title -->
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+      FÜR ZUKÜNFTIGE <span class="highlight-red">HAUTEXPERTINNEN – ACADEMY</span>
+    </h2>
+
+    <!-- Intro Paragraphs -->
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="200">
+      Dein Einstieg in die Hautexpertise – auch ohne Vorkenntnisse
+    </p>
+
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="250">
+      Die Only Beauty Elite Academy richtet sich an:<br>
+      • Quereinsteigerinnen<br>
+      • Frauen in beruflicher Neuorientierung<br>
+      • Angehende oder aktive Kosmetikerinnen
+    </p>
+
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="300">
+      Kein Vorwissen erforderlich. Du lernst Schritt für Schritt:<br>
+      • Hautzustände zu verstehen<br>
+      • Sicher zu analysieren<br>
+      • Individuell zu behandeln<br>
+      • Fundiert zu beraten
+    </p>
+
+    <p class="centered-text" data-aos="fade-up" data-aos-delay="350">
+      Strukturiert, praxisnah und verständlich aufgebaut.
+    </p>
+
+    <!-- Entscheidung Banner -->
+    <div class="decision-banner" data-aos="fade-up" data-aos-delay="400">
+      <span>ENTSCHEIDUNG</span>
+      <h2>DEIN WEG</h2>
+    </div>
+
+    <!-- Choice Cards -->
+    <div class="choices">
+      <!-- Option A -->
+      <div class="choice-card choice-bad" data-aos="fade-up" data-aos-delay="500">
+        <h3>Option A: Bleib beim Status quo</h3>
+        <p>
+          Du bleibst in deinem 9-to-5 Job, kommst finanziell kaum voran und lebst deinen Traum nie wirklich.
+        </p>
+        <p class="choice-bad-list">
+          • Feste Arbeitszeiten<br>
+          • Begrenztes Einkommen<br>
+          • Keine persönliche Entwicklung<br>
+          • Abhängigkeit von anderen
+        </p>
+      </div>
+
+      <!-- Option B -->
+      <div class="choice-card choice-good choice-featured" data-aos="fade-up" data-aos-delay="700">
+        <h3>Option B: Starte jetzt deinen Weg</h3>
+        <p>
+          Werde Skin-Expertin, baue dein eigenes Business auf und lebe deine Leidenschaft selbstbestimmt.
+        </p>
+        <p class="choice-good-list">
+          ✓ Werde zum Hautexperten<br>
+          ✓ Werde deine eigene Chefin<br>
+          ✓ Deutlich höheres Einkommen<br>
+          ✓ Freiheit & Erfüllung
+        </p>
+        <a href="https://calendly.com/" target="_blank" class="cta-btn">
+          Ja, ich will erfolgreicher Skin Expert werden
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Warum Only Beauty Section (Single Animated Card) -->
+<section id="why-only-beauty" style="background: var(--white); padding: clamp(3rem, 6vw, 5rem) 0;">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">WARUM ONLY <span class="highlight-red">BEAUTY?</span></h2>
+    
+    <div style="max-width: 650px; margin: 0 auto; text-align: center;">
+      <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 2rem; color: var(--black-soft);" data-aos="fade-up">
+        Was uns besonders macht
+      </p>
+
+      <div class="why-text">
+        <p data-aos="fade-up" data-aos-delay="100">✔ Ganzheitlicher Ansatz</p>
+        <p data-aos="fade-up" data-aos-delay="200">✔ Verständlich & praxisnah erklärt</p>
+        <p data-aos="fade-up" data-aos-delay="300">✔ Individuelle Betreuung</p>
+        <p data-aos="fade-up" data-aos-delay="400">✔ Reale Hautfälle & echte Erfahrung</p>
+        <p data-aos="fade-up" data-aos-delay="500">✔ Wissen, das anwendbar ist</p>
+      </div>
+
+      <p style="margin-top: 2rem; font-weight: 600; color: var(--black-soft);" data-aos="fade-up" data-aos-delay="600">
+        Für Kundinnen und angehende Hautexpertinnen.
+      </p>
+    </div>
+  </div>
+</section>
 
 <!-- Testimonial Slider -->
 <section id="testimonials">
@@ -1524,77 +1621,6 @@ footer span {
     </div>
   </div>
 </section>
-
-<style>
-/* FAQ Section */
-#faq {
-  background: #f9f9f9;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-}
-
-#faq .faq-item {
-  margin-bottom: clamp(1.5rem, 3vw, 2rem);
-  border-bottom: 1px solid rgba(212,180,122,0.3);
-}
-
-.faq-question {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  font-size: clamp(1rem, 2vw, 1.1rem);
-  font-weight: 600;
-  padding: clamp(0.8rem, 2vw, 1rem) 0;
-  cursor: pointer;
-  color: var(--black-soft);
-  transition: color 0.2s ease;
-}
-
-.faq-question:hover {
-  color: var(--gold);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
-  padding: 0;
-}
-
-.faq-answer p {
-  margin: clamp(0.5rem,1vw,1rem) 0;
-  font-weight: 400;
-  color: var(--black-soft);
-}
-
-/* Active state */
-.faq-item.active .faq-answer {
-  max-height: 500px; /* enough to show content */
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-#cta-final {
-  background: linear-gradient(135deg, #fefcf7 0%, #fef9f2 100%);
-  padding: clamp(3rem, 6vw, 4rem) 0; /* smaller bottom padding */
-  text-align: center;
-}
-
-#cta-final .section-title {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  margin-bottom: 1rem;
-}
-
-#cta-final .section-subtitle {
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-  margin-bottom: 1rem;
-}
-
-#cta-final .centered-text {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  margin-bottom: clamp(2rem, 4vw, 2.5rem);
-  color: var(--black-soft);
-}
-</style>
 
 <script>
 // FAQ toggle
@@ -1776,48 +1802,6 @@ document.querySelectorAll('.faq-question').forEach(button => {
     </div>
   </div>
 </div>
-
-<style>
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.6); 
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 5% auto; 
-  padding: 2rem;
-  border-radius: 8px;
-  width: 90%; max-width: 800px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  position: relative;
-}
-
-.close-btn {
-  position: absolute; top: 10px; right: 20px;
-  font-size: 1.5rem; font-weight: bold;
-  cursor: pointer;
-}
-
-/* Footer text buttons */
-.footer-text-btn {
-  cursor: pointer;
-  color: rgba(255,255,255,0.7);
-  font-weight: 500;
-  margin: 0 0.5rem;
-  text-decoration: underline; /* optional: looks clickable */
-}
-
-.footer-text-btn:hover {
-  color: #d4b47a; /* gold on hover */
-  text-decoration: none;
-}
-</style>
 
 <script>
 const modalButtons = document.querySelectorAll('.footer-text-btn');
