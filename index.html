@@ -85,7 +85,7 @@ body, p, span, a, li {
 .video-teaser-container {
   width: 100%;
   max-width: 350px; 
-  height: clamp(220px, 20vh, 180px); /* Responsive height based on screen size */
+  height: clamp(180px, 20vh, 180px); /* Responsive height based on screen size */
   margin: 0 auto 1.5rem auto; 
   border-radius: 20px;
   overflow: hidden;
@@ -150,7 +150,7 @@ body, p, span, a, li {
 }
 
 .hero p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   font-size: 0.95rem;
 }
 
@@ -1525,15 +1525,15 @@ body, p, span, a, li, .cta-btn {
   <!-- Hero -->
 <section class="hero" data-aos="fade">
   <div class="container hero-content">
-    
+
     <img src="Logo.svg" alt="Logo" class="hero-logo" data-aos="fade-in">
 
     <div class="video-teaser-container" data-aos="zoom-in" data-aos-delay="200">
-      <video 
-        autoplay 
-        muted 
-        loop 
-        playsinline 
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
         class="hero-video-small"
         poster="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1000">
         <source src="https://assets.mixkit.co/videos/preview/mixkit-stylist-combing-the-hair-of-a-client-41500-large.mp4" type="video/mp4">
@@ -1542,17 +1542,23 @@ body, p, span, a, li, .cta-btn {
 
     <h1 data-aos="fade-up" data-aos-delay="300">
       Ganzheitliche <span class="highlight-red">Hautgesundheit</span> –<br>
-      <span class="highlight-red">Behandlung</span> & <span class="highlight-red">Ausbildung</span> unter einem Dach
+      <span class="highlight-red">Behandlung</span> &amp;
+      <span class="highlight-red">Ausbildung</span> unter einem Dach
     </h1>
 
     <p data-aos="fade-up" data-aos-delay="400">
-      Für Frauen mit Hautproblemen & angehende Hautexpertinnen,<br>
+      Für Frauen mit Hautproblemen<br>
+      und für Quereinsteigerinnen &amp; Kosmetikerinnen,<br>
       die Haut wirklich verstehen möchten.
+    </p>
+
+    <p data-aos="fade-up" data-aos-delay="450" style="font-weight:700;">
+      Ursache statt Oberfläche • Fundiertes Wissen • Nachhaltige Ergebnisse
     </p>
 
     <div class="btn-group" data-aos="fade-up" data-aos-delay="500">
       <a href="#sessions" class="cta-btn no-press">Jetzt Behandlung buchen</a>
-      <a href="#course-choice" class="cta-btn no-press">Zur Academy & Ausbildung</a>
+      <a href="#course-choice" class="cta-btn no-press">Zur Academy &amp; Ausbildung</a>
     </div>
 
   </div>
