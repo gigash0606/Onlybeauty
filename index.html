@@ -1318,25 +1318,24 @@ footer span {
 }
 
 .approach-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(212, 180, 122, 0.3);
-  padding: 2rem;
-  border-radius: 20px;
+  /* Removed background, backdrop-filter, and border */
+  background: transparent;
+  border: none;
+  padding: 1.5rem;
   text-align: center;
-  transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: transform 0.4s ease; /* Keep smooth movement */
 }
 
 .approach-card:hover {
   transform: translateY(-5px);
-  border-color: var(--gold);
-  background: white;
-  box-shadow: 0 15px 35px rgba(212, 180, 122, 0.15);
+  /* Removed border-color, background change, and box-shadow */
 }
+
+
 
 .approach-icon {
   font-size: 1.5rem;
