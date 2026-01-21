@@ -2057,6 +2057,17 @@ AOS.init({
   delay: 0,
 });
   });
+// Detect mobile and normalize animations for stability
+const isMobile = window.innerWidth < 768;
+
+if (isMobile) {
+  document.querySelectorAll('[data-aos="fade-left"], [data-aos="fade-right"]')
+    .forEach(el => {
+      el.setAttribute('data-aos', 'fade-up');
+      el.setAttribute('data-aos-delay', '0'); // Faster response on mobile
+    });
+}
+
 
   // Smooth scroll logic
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
