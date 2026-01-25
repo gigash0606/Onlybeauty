@@ -48,14 +48,17 @@
       scroll-behavior: smooth;
     }
     
-    body {
-      background: var(--white);
-      color: var(--black-soft);
-      font-family: 'Barlow', sans-serif;
-      line-height: 1.68;
-      font-size: clamp(15px, 1.6vw, 18px);
-      overflow-x: hidden;
-    }
+    /* Update body to prevent Safari bounce issues */
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background: var(--white);
+  color: var(--black-soft);
+  font-family: 'Barlow', sans-serif;
+  line-height: 1.68;
+  font-size: clamp(15px, 1.6vw, 18px);
+  overflow-x: hidden;
+}
     
     /* All headings use Barlow Black (900) */
 h1, h2, h3, h4, h5, h6 {
@@ -101,16 +104,24 @@ body, p, span, a, li {
 
 
 /* 1. Main Hero Container */
+/* Updated Hero: Uses a CSS variable set by JavaScript */
+/* 1. Main Hero Container */
 .hero {
-  height: 100dvh;     /* Fills the entire screen exactly */
-  min-height: 650px;  /* Prevents content overlap on small screens */
+  /* Fixes the iOS Safari "jump" by using a pixel-locked variable set by JS */
+  height: 100vh;
+  height: var(--hero-height, 100vh);
+  
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centers content vertically */
+  justify-content: center;
   text-align: center;
   position: relative;
-  padding: 20px var(--spacing-xs);
+  
+  /* Increased bottom padding (60px) so shadows don't get cut off */
+  padding: 20px var(--spacing-xs) 60px var(--spacing-xs);
+  
   box-sizing: border-box;
   margin: 0;
   overflow: hidden;
@@ -121,6 +132,14 @@ body, p, span, a, li {
     #fcfaf5;
   background-blend-mode: normal, multiply, multiply;
 }
+
+/* Ensure buttons inside hero have a tight, safe shadow */
+.hero .cta-btn {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  animation: float 2s ease-in-out infinite;
+}
+
+
 
 /* 2. Hero Content Wrapper */
 .hero-content {
@@ -750,18 +769,18 @@ footer {
   font-weight: 600;
   font-size: clamp(0.85rem,1.5vw,1rem);
 }
-/* Contact Section — clean white background */
+/* Contact Section — Info left, Title centered */
 #contact {
   background: #ffffff !important;
   padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: center;
+  text-align: left; /* Base alignment for the section info */
 }
-
 
 #contact .section-title {
   color: var(--black-soft);
   margin-bottom: clamp(1.5rem,3vw,2rem);
   font-weight: 600;
+  text-align: center; /* Keeps 'Kontaktiere uns' in the middle */
 }
 
 #contact .centered-text {
@@ -769,6 +788,8 @@ footer {
   margin-bottom: clamp(2rem, 4vw, 2.5rem);
   line-height: 1.6;
   color: var(--black-soft);
+  text-align: center; /* Keeps the subtitle text in the middle */
+  margin: 0 auto clamp(2rem, 4vw, 2.5rem) auto;
 }
 
 #contact .contact-info {
@@ -776,7 +797,7 @@ footer {
   flex-direction: column;
   gap: clamp(0.8rem, 2vw, 1rem);
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto; /* Keeps the block centered, but the text inside will be left-aligned */
 }
 
 #contact .contact-info p {
@@ -784,12 +805,15 @@ footer {
   margin-bottom: 0;
   color: var(--black-soft);
   line-height: 1.5;
+  text-align: left; /* Aligns the actual text lines to the left */
 }
 
 #contact .contact-info strong {
   color: var(--gold);
   font-weight: 600;
 }
+
+
 /* footer {
   background: #111111; /* Deep charcoal for a grounded finish */
   color: rgba(255, 255, 255, 0.6);
@@ -2104,5 +2128,22 @@ AOS.init({
     });
   });
 </script>
+<script>
+  // Function to calculate the actual viewable height and lock it
+  function lockHeroHeight() {
+    const vh = window.innerHeight;
+    document.documentElement.style.setProperty('--hero-height', vh + 'px');
+  }
+
+  // Run on load
+  window.addEventListener('load', lockHeroHeight);
+
+  // Only recalculate if the screen actually rotates (iPhone flip)
+  // This prevents the "jump" during normal vertical scrolling
+  window.addEventListener('orientationchange', () => {
+    setTimeout(lockHeroHeight, 200);
+  });
+</script>
+
 </body>
 </html>
