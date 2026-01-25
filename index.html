@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ONLYBEAUTYLEIPZIG</title>
-<link rel="mask-icon" href="Logo.svg" color="#d4b47a">
-<link rel="icon" type="image/svg+xml" href="Logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,28 +100,40 @@ body, p, span, a, li {
 }
 
 
-/* 1. Set the main container to align from the top */
+/* 1. Main Hero Container */
 .hero {
-  height: 93vh;
+  height: 100dvh;     /* Fills the entire screen exactly */
+  min-height: 650px;  /* Prevents content overlap on small screens */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; 
+  justify-content: center; /* Centers content vertically */
   text-align: center;
   position: relative;
-  padding: 20px var(--spacing-xs) 60px var(--spacing-xs);
+  padding: 20px var(--spacing-xs);
   box-sizing: border-box;
- background: 
+  margin: 0;
+  overflow: hidden;
+  background: 
     linear-gradient(to bottom, transparent 80%, #fcfaf5 100%),
     radial-gradient(circle at center, rgba(212, 180, 122, 0.15) 0%, transparent 70%),
     url('https://www.transparenttextures.com/patterns/handmade-paper.png'), 
     #fcfaf5;
   background-blend-mode: normal, multiply, multiply;
-  position: relative;
-  padding: var(--spacing-md) var(--spacing-xs);
-  /* Removed the hard border-bottom to help the blend */
-  border-bottom: none;
 }
+
+/* 2. Hero Content Wrapper */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Keeps internal items centered */
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  flex: 1; /* Occupies available space to maintain centering */
+}
+
 
 /* 2. Remove 'margin-bottom: auto' and set a small gap */
 .hero-logo {
@@ -131,15 +141,6 @@ body, p, span, a, li {
   width: clamp(130px, 20vw, 130px);
   position: relative;
   z-index: 10;
-}
-
-/* 3. Stop the wrapper from filling the screen */
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  flex-grow: 0; 
 }
 
 
@@ -227,53 +228,95 @@ body, p, span, a, li {
       position: relative;
     }
     
+
+/* --- SESSIONS SECTION --- */
 #sessions {
-  /* Dark overlay for readability + Centered image */
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
               url('IMG_0835.jpeg');
-  
-  /* Critical for fixing the zoom */
-  background-size: cover;      /* Scales image to fit container */
-  background-position: center; /* Keeps the subject centered */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  
   color: var(--white);
   position: relative;
-  padding: clamp(4rem, 10vw, 8rem) 0; /* Ensures enough height to see the image */
+  padding: clamp(4rem, 10vw, 8rem) 0;
 }
 
-/* Remove the old decorative gradients so they don't interfere */
-#sessions::before {
-  display: none;
+#sessions .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- SERVICE CARD FIXES --- */
+#sessions .service-card {
+  display: flex;
+  flex-direction: column; /* Stacks content vertically */
+  height: 100%;           /* Ensures cards in a row are equal height */
+  border-radius: 14px !important;
+  background: rgba(0, 0, 0, 0.4) !important; 
+  backdrop-filter: blur(2px) !important; 
+  -webkit-backdrop-filter: blur(2px) !important;
+  border: 1px solid rgba(212, 180, 122, 0.4) !important;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#sessions .service-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--gold) !important;
+  box-shadow: 0 18px 48px rgba(212, 180, 122, 0.3);
+}
+
+/* --- TEXT & LIST ADJUSTMENTS --- */
+#sessions .service-card h3 {
+  color: var(--gold);
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 3.5vw, 1.85rem);
+}
+
+#sessions .service-card p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  flex-grow: 1; /* This pushes the button to the bottom */
+}
+
+#sessions .choice-good-list {
+  color: var(--gold) !important;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+#sessions .choice-good-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* --- BUTTON FIX (Stays inside border) --- */
+/* Modified Grid for Sessions to ensure centering */
+#sessions .services-grid {
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--spacing-xs);
+}
+
+#sessions .service-card {
+  /* Limit the width so it doesn't stretch across the whole screen */
+  max-width: 600px; 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px !important;
+  background: rgba(0, 0, 0, 0.4) !important; 
+  backdrop-filter: blur(2px) !important; 
+  -webkit-backdrop-filter: blur(2px) !important;
+  border: 1px solid rgba(212, 180, 122, 0.4) !important;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 
-
-    
-    #sessions::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(circle at 30% 30%, rgba(212,180,122,0.08) 0%, transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(198,40,57,0.05) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    
-    #sessions .container {
-      position: relative;
-      z-index: 1;
-    }
-    
-    #sessions h2,
-    #sessions .section-title {
-      color: var(--white);
-    }
-    
-    #sessions .section-title .highlight-red {
-      color: var(--red);
-    }
-    
 #course-choice {
   background: linear-gradient(to bottom, #f9f9f9 90%, #ffffff 100%);
   padding: clamp(4rem, 8vw, 6rem) 0;
@@ -313,20 +356,6 @@ body, p, span, a, li {
       padding: 0 var(--spacing-xs);
     }
     
-#sessions .service-card {
-  /* Restores the 14px rounded corners */
-  border-radius: 14px !important;
-  
-  /* Transparency: 0.2 is very clear */
-  background: rgba(0, 0, 0, 0.4) !important; 
-  
-  /* Reduced Blur: 2px is almost clear. Use 0px for no blur at all. */
-  backdrop-filter: blur(2px) !important; 
-  -webkit-backdrop-filter: blur(2px) !important;
-  
-  border: 1px solid rgba(212, 180, 122, 0.4) !important;
-}
-
     
     .service-card:hover {
       transform: translateY(-10px);
@@ -497,7 +526,6 @@ footer {
       .hero { min-height: auto; padding: 2rem 0; }
       .cta-btn { display: none; }
       section { padding: 2rem 0; page-break-inside: avoid; }
-      #sessions { background: var(--white); color: var(--black-soft); }
     }
     @media (max-width: 768px) {
   [data-aos="fade-left"],
