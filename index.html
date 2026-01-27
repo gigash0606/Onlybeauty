@@ -52,12 +52,16 @@
 body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
-  background: var(--white);
+  /* Match this to your hero background color (#fcfaf5) */
+  background: #fcfaf5; 
   color: var(--black-soft);
   font-family: 'Barlow', sans-serif;
   line-height: 1.68;
   font-size: clamp(15px, 1.6vw, 18px);
   overflow-x: hidden;
+  
+  /* This allows the bounce but stops the "white flash" */
+  overscroll-behavior-y: auto; 
 }
     
     /* All headings use Barlow Black (900) */
@@ -107,24 +111,26 @@ body, p, span, a, li {
 /* Updated Hero: Uses a CSS variable set by JavaScript */
 /* 1. Main Hero Container */
 .hero {
-  /* Fixes the iOS Safari "jump" by using a pixel-locked variable set by JS */
   height: 100vh;
   height: var(--hero-height, 100vh);
-  
   min-height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  
+  /* Change back to relative so it stays at the top */
   position: relative;
   
-  /* Increased bottom padding (60px) so shadows don't get cut off */
+  /* These two lines prevent the "cutting off" during pull-down */
+  overflow: visible; 
+  z-index: 1;
+
   padding: 20px var(--spacing-xs) 60px var(--spacing-xs);
-  
   box-sizing: border-box;
   margin: 0;
-  overflow: hidden;
+  
   background: 
     linear-gradient(to bottom, transparent 80%, #fcfaf5 100%),
     radial-gradient(circle at center, rgba(212, 180, 122, 0.15) 0%, transparent 70%),
@@ -159,7 +165,8 @@ body, p, span, a, li {
   margin-bottom: 1rem; 
   width: clamp(130px, 20vw, 130px);
   position: relative;
-  z-index: 10;
+  z-index: 100; /* High z-index */
+  flex-shrink: 0;
 }
 
 
