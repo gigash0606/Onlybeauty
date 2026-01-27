@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <script>
@@ -70,18 +70,26 @@ body {
   overflow-x: hidden;
   overscroll-behavior-y: none; /* New: Prevents layout shift on pull-to-refresh */
 }
-    
-    /* All headings use Barlow Black (900) */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 900; /* Barlow Black */
+    /* Body text uses 'Inter' for maximum readability */
+body, p, span, a, li, .faq-answer p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.011em;
+  line-height: 1.6;
+}
+
+/* Headings use 'Outfit' which mimics Google Sans */
+h1, h2, h3, h4, h5, h6, .section-title, .decision-banner span {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600; /* Use 800 for the extra-bold look you had before */
+  letter-spacing: -0.02em;
   color: var(--black-soft);
 }
 
-/* All body text uses Barlow normal */
-body, p, span, a, li {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
+/* Buttons and Navigation */
+.cta-btn, .faq-question {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
 }
     
     .container {
