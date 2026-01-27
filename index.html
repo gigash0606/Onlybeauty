@@ -14,11 +14,21 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <script>
-    // Reset scroll position on refresh
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-  </script>
+  // Prevents the browser from jumping to old scroll positions
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  // Forces a layout recalculation on refresh to prevent Safari height bugs
+  window.addEventListener('load', () => {
+    const setHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--hero-height', `${window.innerHeight}px`);
+    };
+    setHeight();
+    window.addEventListener('resize', setHeight);
+  });
+</script>
 
   <style>
     :root {
@@ -51,17 +61,14 @@
     /* Update body to prevent Safari bounce issues */
 body {
   min-height: 100vh;
-  min-height: -webkit-fill-available;
-  /* Match this to your hero background color (#fcfaf5) */
-  background: #fcfaf5; 
+  min-height: 100svh; /* New: Small Viewport Height */
+  background: var(--white);
   color: var(--black-soft);
   font-family: 'Barlow', sans-serif;
   line-height: 1.68;
   font-size: clamp(15px, 1.6vw, 18px);
   overflow-x: hidden;
-  
-  /* This allows the bounce but stops the "white flash" */
-  overscroll-behavior-y: auto; 
+  overscroll-behavior-y: none; /* New: Prevents layout shift on pull-to-refresh */
 }
     
     /* All headings use Barlow Black (900) */
@@ -111,26 +118,24 @@ body, p, span, a, li {
 /* Updated Hero: Uses a CSS variable set by JavaScript */
 /* 1. Main Hero Container */
 .hero {
+  /* Fixes the iOS Safari "jump" and "cut off" */
   height: 100vh;
-  height: var(--hero-height, 100vh);
+  height: 100svh; /* New: Strictly locks height to visible screen */
+  
   min-height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  
-  /* Change back to relative so it stays at the top */
   position: relative;
   
-  /* These two lines prevent the "cutting off" during pull-down */
-  overflow: visible; 
-  z-index: 1;
-
-  padding: 20px var(--spacing-xs) 60px var(--spacing-xs);
+  /* New: Added safe-area padding to protect the logo from top bars */
+  padding: calc(env(safe-area-inset-top) + 20px) var(--spacing-xs) 60px var(--spacing-xs);
+  
   box-sizing: border-box;
   margin: 0;
-  
+  overflow: hidden;
   background: 
     linear-gradient(to bottom, transparent 80%, #fcfaf5 100%),
     radial-gradient(circle at center, rgba(212, 180, 122, 0.15) 0%, transparent 70%),
@@ -162,11 +167,11 @@ body, p, span, a, li {
 
 /* 2. Remove 'margin-bottom: auto' and set a small gap */
 .hero-logo {
+  margin-top: 1rem; /* New: Adds a small buffer at the very top */
   margin-bottom: 1rem; 
   width: clamp(130px, 20vw, 130px);
   position: relative;
-  z-index: 100; /* High z-index */
-  flex-shrink: 0;
+  z-index: 10;
 }
 
 
