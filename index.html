@@ -116,8 +116,8 @@ h1, h2, h3, h4, h5, h6, .section-title, .decision-banner span {
 
 /* 3. Ensure the video fits its container */
 .hero-video-small {
-  width: 100%;
-  height: 100%;
+  width: 105%;
+  height: 105%;
   object-fit: cover;
 }
 
@@ -127,8 +127,8 @@ h1, h2, h3, h4, h5, h6, .section-title, .decision-banner span {
 /* 1. Main Hero Container */
 .hero {
   /* Fixes the iOS Safari "jump" and "cut off" */
-  height: 110vh;
-  height: 110svh; /* New: Strictly locks height to visible screen */
+  height: 100vh;
+  height: 100svh; /* New: Strictly locks height to visible screen */
   
   min-height: 650px;
   display: flex;
@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6, .section-title, .decision-banner span {
   position: relative;
   
   /* New: Added safe-area padding to protect the logo from top bars */
-  padding: calc(env(safe-area-inset-top) + 100px) var(--spacing-xs) 0px var(--spacing-xs);
+  padding: calc(env(safe-area-inset-top) + 10px) var(--spacing-xs) 70px var(--spacing-xs);
   
   box-sizing: border-box;
   margin: 0;
