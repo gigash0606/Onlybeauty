@@ -127,8 +127,8 @@ h1, h2, h3, h4, h5, h6, .section-title, .decision-banner span {
 /* 1. Main Hero Container */
 .hero {
   /* Fixes the iOS Safari "jump" and "cut off" */
-  height: 100vh;
-  height: 100svh; /* New: Strictly locks height to visible screen */
+  height: 105vh;
+  height: 105svh; /* New: Strictly locks height to visible screen */
   
   min-height: 650px;
   display: flex;
@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6, .section-title, .decision-banner span {
   position: relative;
   
   /* New: Added safe-area padding to protect the logo from top bars */
-  padding: calc(env(safe-area-inset-top) + 5px) var(--spacing-xs) 60px var(--spacing-xs);
+  padding: calc(env(safe-area-inset-top) + 20px) var(--spacing-xs) 60px var(--spacing-xs);
   
   box-sizing: border-box;
   margin: 0;
@@ -994,7 +994,51 @@ footer span {
   text-align: center;
   background: transparent;
 }
+/* DESKTOP SPECIFIC OVERRIDES */
+@media screen and (min-width: 1024px) {
+  
+  /* 1. Pull everything higher but add more breathing room at the bottom */
+  body .hero {
+    height: 100vh !important;
+    padding-top: 1vh !important; 
+    padding-bottom: 8vh !important; /* Increased space at the very bottom */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
 
+  /* 2. Logo stays high with plenty of space below it */
+  body .hero-logo {
+    width: 220px !important; 
+    margin-top: 0 !important;
+    margin-bottom: 5vh !important; 
+  }
+
+  /* 3. Balanced Video size */
+  body .video-teaser-container {
+    max-width: 380px !important;
+    height: 20vh !important; 
+    margin-bottom: 2.5vh !important;
+  }
+
+  /* 4. Typography Scaling */
+  body .hero h1 {
+    font-size: 3rem !important;
+    margin-bottom: 1.5vh !important;
+  }
+
+  body .hero p {
+    font-size: 1.1rem !important;
+    max-width: 700px !important;
+    margin-bottom: 4vh !important;
+  }
+
+  /* 5. Buttons */
+  body .hero .cta-btn {
+    padding: 1rem 2.8rem !important;
+    font-size: 1.1rem !important;
+  }
+}
 .decision-banner span {
   display: block;
   font-size: clamp(1.8rem, 4vw, 2.4rem); /* responsive size */
