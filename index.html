@@ -72,7 +72,6 @@ body {
 }
     /* Body text uses 'Inter' for maximum readability */
 body, p, span, a, li, .faq-answer p {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-weight: 400;
   letter-spacing: -0.011em;
   line-height: 1.6;
@@ -98,11 +97,10 @@ h1, h2, h3, h4, h5, h6, .section-title, .decision-banner span {
       padding: 0 clamp(1.25rem, 4vw, 5%);
       width: 100%;
     }
-    
-    /* Hero */
+  
 
 
-/* 2. Scale the video container so it doesn't push text off-screen */
+
 .video-teaser-container {
   width: 100%;
   max-width: 350px; 
@@ -114,16 +112,13 @@ h1, h2, h3, h4, h5, h6, .section-title, .decision-banner span {
   border: 1px solid rgba(212,180,122,0.3);
 }
 
-/* 3. Ensure the video fits its container */
+
 .hero-video-small {
   width: 105%;
   height: 105%;
   object-fit: cover;
 }
 
-
-/* 1. Main Hero Container */
-/* Updated Hero: Uses a CSS variable set by JavaScript */
 /* 1. Main Hero Container */
 .hero {
   /* Fixes the iOS Safari "jump" and "cut off" */
@@ -152,7 +147,7 @@ h1, h2, h3, h4, h5, h6, .section-title, .decision-banner span {
   background-blend-mode: normal, multiply, multiply;
 }
 
-/* Ensure buttons inside hero have a tight, safe shadow */
+
 .hero .cta-btn {
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   animation: float 2s ease-in-out infinite;
