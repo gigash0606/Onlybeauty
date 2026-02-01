@@ -1,2215 +1,555 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ONLYBEAUTYLEIPZIG</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <script>
-  // Prevents the browser from jumping to old scroll positions
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-
-  // Forces a layout recalculation on refresh to prevent Safari height bugs
-  window.addEventListener('load', () => {
-    const setHeight = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--hero-height', `${window.innerHeight}px`);
-    };
-    setHeight();
-    window.addEventListener('resize', setHeight);
-  });
-</script>
-
-  <style>
-    :root {
-      --white: #ffffff;
-      --black: #000000;
-      --black-soft: #1a1a1a;
-      --gold: #d4b47a;
-      --gold-dark: #b89a5c;
-      --gold-light: #e8d9b8;
-      --red: #c62839;
-      --red-dark: #a01e2d;
-      
-      --spacing-xs: clamp(0.5rem, 1.5vw, 1rem);
-      --spacing-sm: clamp(1rem, 2vw, 1.5rem);
-      --spacing-md: clamp(1.5rem, 3vw, 2.5rem);
-      --spacing-lg: clamp(2rem, 4vw, 4rem);
-      --spacing-xl: clamp(3rem, 6vw, 6rem);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    /* Update body to prevent Safari bounce issues */
-body {
-  min-height: 100vh;
-  min-height: 100svh; /* New: Small Viewport Height */
-  background: var(--white);
-  color: var(--black-soft);
-  font-family: 'Barlow', sans-serif;
-  line-height: 1.68;
-  font-size: clamp(15px, 1.6vw, 18px);
-  overflow-x: hidden;
-  overscroll-behavior-y: none; /* New: Prevents layout shift on pull-to-refresh */
-}
-    /* Body text uses 'Inter' for maximum readability */
-body, p, span, a, li, .faq-answer p {
-  font-weight: 400;
-  letter-spacing: -0.011em;
-  line-height: 1.6;
-}
-
-/* Headings use 'Outfit' which mimics Google Sans */
-h1, h2, h3, h4, h5, h6, .section-title, .decision-banner span {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600; /* Use 800 for the extra-bold look you had before */
-  letter-spacing: -0.02em;
-  color: var(--black-soft);
-}
-
-/* Buttons and Navigation */
-.cta-btn, .faq-question {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 500;
-}
-    
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 clamp(1.25rem, 4vw, 5%);
-      width: 100%;
-    }
-  
-
-
-
-.video-teaser-container {
-  width: 100%;
-  max-width: 350px; 
-  height: clamp(160px, 20vh, 180px); /* Responsive height based on screen size */
-  margin: 0 auto 1.5rem auto; 
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  border: 1px solid rgba(212,180,122,0.3);
-}
-
-
-.hero-video-small {
-  width: 105%;
-  height: 105%;
-  object-fit: cover;
-}
-
-/* 1. Main Hero Container */
-.hero {
-  /* Fixes the iOS Safari "jump" and "cut off" */
-  height: 100vh;
-  height: 100svh; /* New: Strictly locks height to visible screen */
-  
-  min-height: 650px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  
-  /* New: Added safe-area padding to protect the logo from top bars */
-  padding: calc(env(safe-area-inset-top) + 20px) var(--spacing-xs) 60px var(--spacing-xs);
-  
-  box-sizing: border-box;
-  margin: 0;
-  overflow: hidden;
-  background: 
-    linear-gradient(to bottom, transparent 80%, #fcfaf5 100%),
-    radial-gradient(circle at center, rgba(212, 180, 122, 0.15) 0%, transparent 70%),
-    url('https://www.transparenttextures.com/patterns/handmade-paper.png'), 
-    #fcfaf5;
-  background-blend-mode: normal, multiply, multiply;
-}
-
-
-.hero .cta-btn {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  animation: float 2s ease-in-out infinite;
-}
-
-
-
-/* 2. Hero Content Wrapper */
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Keeps internal items centered */
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  flex: 1; /* Occupies available space to maintain centering */
-}
-
-
-/* 2. Remove 'margin-bottom: auto' and set a small gap */
-.hero-logo {
-  margin-bottom: 1rem; 
-  width: clamp(130px, 20vw, 130px);
-  position: relative;
-  z-index: 10;
-}
-
-
-
-/* 4. Tighter Text Spacing */
-.hero h1 {
-  margin-bottom: 0.2rem;
-  line-height: 1.2;
-}
-
-.hero p {
-  margin-bottom: 0.2rem;
-  font-size: 0.95rem;
-}
-
-/* 5. Compact Buttons for Mobile */
-@media (max-width: 480px) {
-  .btn-group {
-    gap: 0.8rem;
-    margin-top: 0.5rem;
-  }
-}
-
-
-
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: clamp(1rem, 3vw, 1.8rem);
-      margin-top: var(--spacing-md);
-    }
-    
-  .cta-btn {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--black);
-  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 3rem);
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  text-align: center;
-  border: none;
-  cursor: pointer;
-
-  /* unified shadow like cards */
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-  border-radius: 14px; /* match card shape */
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-
-/* optional: slightly bigger for choice-card buttons to match card corners */
-.choice-card .cta-btn {
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-} 
-     
-    .service-card .cta-btn,
-    .choice-card .cta-btn {
-      animation: none;
-    }
-    
-    .cta-btn:hover {
-      transform: translateY(-4px);
-      background: var(--gold-dark);
-      box-shadow: 0 12px 32px rgba(212,180,122,0.42);
-      animation: none;
-    }
-    
-    .cta-btn:active {
-      transform: translateY(-2px);
-      animation: none;
-    }
-    
-    .highlight-red {
-      color: var(--red);
-      font-weight: 700;
-    }
-    
-    /* Sections */
-    section, footer {
-      padding: clamp(3rem, 8vw, 100px) 0;
-      position: relative;
-    }
-    
-
-/* --- SESSIONS SECTION --- */
-#sessions {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-              url('IMG_0835.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: var(--white);
-  position: relative;
-  padding: clamp(4rem, 10vw, 8rem) 0;
-}
-
-#sessions .container {
-  position: relative;
-  z-index: 1;
-}
-
-/* --- SERVICE CARD FIXES --- */
-#sessions .service-card {
-  display: flex;
-  flex-direction: column; /* Stacks content vertically */
-  height: 100%;           /* Ensures cards in a row are equal height */
-  border-radius: 14px !important;
-  background: rgba(0, 0, 0, 0.4) !important; 
-  backdrop-filter: blur(2px) !important; 
-  -webkit-backdrop-filter: blur(2px) !important;
-  border: 1px solid rgba(212, 180, 122, 0.4) !important;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  box-sizing: border-box;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#sessions .service-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--gold) !important;
-  box-shadow: 0 18px 48px rgba(212, 180, 122, 0.3);
-}
-
-/* --- TEXT & LIST ADJUSTMENTS --- */
-#sessions .service-card h3 {
-  color: var(--gold);
-  margin-bottom: 1rem;
-  font-size: clamp(1.5rem, 3.5vw, 1.85rem);
-}
-
-#sessions .service-card p {
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  flex-grow: 1; /* This pushes the button to the bottom */
-}
-
-#sessions .choice-good-list {
-  color: var(--gold) !important;
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
-#sessions .choice-good-list li {
-  margin-bottom: 0.5rem;
-}
-
-/* --- BUTTON FIX (Stays inside border) --- */
-/* Modified Grid for Sessions to ensure centering */
-#sessions .services-grid {
-  display: flex;
-  justify-content: center;
-  padding: 0 var(--spacing-xs);
-}
-
-#sessions .service-card {
-  /* Limit the width so it doesn't stretch across the whole screen */
-  max-width: 600px; 
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  border-radius: 14px !important;
-  background: rgba(0, 0, 0, 0.4) !important; 
-  backdrop-filter: blur(2px) !important; 
-  -webkit-backdrop-filter: blur(2px) !important;
-  border: 1px solid rgba(212, 180, 122, 0.4) !important;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  box-sizing: border-box;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-#course-choice {
-  background: linear-gradient(to bottom, #f9f9f9 90%, #ffffff 100%);
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  position: relative;
-}
-
-
-    
-    #course-choice::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: 
-        repeating-linear-gradient(
-          45deg,
-          transparent,
-          transparent 100px,
-          rgba(212,180,122,0.015) 100px,
-          rgba(212,180,122,0.015) 102px
-        );
-      pointer-events: none;
-    }
-    
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.875rem, 4.5vw + 0.5rem, 2.8rem);
-      margin-bottom: clamp(2rem, 5vw, 3rem);
-      font-weight: 600;
-      line-height: 1.2;
-      padding: 0 var(--spacing-xs);
-    }
-    
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
-      gap: clamp(1.5rem, 4vw, 2.2rem);
-      padding: 0 var(--spacing-xs);
-    }
-    
-    
-    .service-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--gold);
-      box-shadow: 0 18px 48px rgba(212,180,122,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
-      background: linear-gradient(135deg, rgba(212,180,122,0.1) 0%, rgba(212,180,122,0.05) 100%);
-    }
-    
-    .service-card h3 {
-      color: var(--gold);
-      margin-bottom: clamp(0.75rem, 2vw, 1rem);
-      font-size: clamp(1.5rem, 3.5vw + 0.3rem, 1.85rem);
-      line-height: 1.3;
-    }
-    
-    .service-card p {
-      color: rgba(255,255,255,0.85);
-      margin-bottom: clamp(0.75rem, 2vw, 1.2rem);
-      font-size: clamp(0.9375rem, 2vw, 1rem);
-      line-height: 1.6;
-      flex-grow: 1;
-    }
-    
-    .service-card strong {
-      color: var(--gold-light);
-    }
-    
-    .service-card .cta-btn {
-      margin-top: auto;
-      align-self: center;
-      font-size: clamp(0.9375rem, 2vw, 1.05rem);
-      padding: clamp(0.75rem, 2vw, 0.875rem) clamp(1.5rem, 4vw, 2rem);
-      min-width: auto;
-      background: var(--gold);
-      color: var(--black);
-      box-shadow: 0 6px 20px rgba(212,180,122,0.4);
-    }
-    
-    .service-card .cta-btn:hover {
-      background: var(--gold-light);
-      box-shadow: 0 12px 32px rgba(212,180,122,0.5);
-    }
-    
-    .choices {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-      gap: clamp(1.5rem, 4vw, 2.8rem);
-      margin-top: clamp(2rem, 5vw, 4rem);
-      padding: 0 var(--spacing-xs);
-    }
-    
-    .choice-card {
-      padding: clamp(1.75rem, 5vw, 2.8rem);
-      border-radius: 16px;
-      text-align: center;
-      background: var(--white);
-      border: 2px solid transparent;
-      transition: all 0.4s ease;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-    
-    .choice-bad {
-      border-color: var(--red);
-      background: linear-gradient(135deg, rgba(198,40,57,0.05) 0%, rgba(198,40,57,0.02) 100%);
-    }
-    
-    .choice-bad:hover {
-      box-shadow: 0 8px 32px rgba(198,40,57,0.15);
-      transform: translateY(-5px);
-    }
-    
-    .choice-good {
-      border-color: var(--gold);
-      background: linear-gradient(135deg, rgba(212,180,122,0.08) 0%, rgba(212,180,122,0.03) 100%);
-      box-shadow: 0 12px 40px rgba(212,180,122,0.25);
-    }
-    
-    .choice-good:hover {
-      box-shadow: 0 16px 48px rgba(212,180,122,0.35);
-      transform: translateY(-8px);
-    }
-    
-    .bad-symbol {
-      font-size: clamp(3rem, 8vw, 4.5rem);
-      color: var(--red);
-      margin-bottom: clamp(0.75rem, 2vw, 1.2rem);
-      line-height: 1;
-    }
-    
-    .choice-card h3 {
-      font-size: clamp(1.5rem, 4vw + 0.3rem, 2.1rem);
-      margin-bottom: clamp(0.75rem, 2vw, 1rem);
-      line-height: 1.3;
-    }
-    
-    .choice-good h3 {
-      color: var(--gold);
-    }
-    
-    .choice-card p {
-      font-size: clamp(0.9375rem, 2.2vw, 1.0625rem);
-      line-height: 1.7;
-      margin-bottom: clamp(1rem, 3vw, 1.5rem);
-      color: #444;
-    }
-    
-    .choice-card p:last-of-type {
-      font-size: clamp(1rem, 2.5vw, 1.28rem);
-      color: var(--gold);
-      font-weight: 600;
-      margin: clamp(1rem, 3vw, 2rem) 0;
-    }
-    
-    .choice-card .cta-btn {
-      margin-top: auto;
-      font-size: clamp(1.1rem, 2.8vw, 1.3rem);
-      padding: clamp(1rem, 2.5vw, 1.15rem) clamp(2rem, 5vw, 3.2rem);
-      min-width: auto;
-    }
-    
-footer {
-  background: #111111; /* Deep charcoal for a grounded finish */
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
-  padding: clamp(3rem, 5vw, 4rem) 0;
-  border-top: 2px solid var(--gold); /* Thin gold line for luxury finish */
-  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-}
-
-    
-    /* Media Queries */
-    @media (min-width: 481px) and (max-width: 768px) {
-      .hero { min-height: 70vh; }
-      .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-      .choices { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
-    }
-    
-    @media (max-width: 480px) {
-      .hero { min-height: clamp(500px, 75vh, 650px); padding: var(--spacing-sm) var(--spacing-xs); }
-      .btn-group { flex-direction: column; width: 100%; }
-      .cta-btn { width: 100%; min-width: 100%; }
-      .services-grid, .choices { grid-template-columns: 1fr; gap: var(--spacing-md); }
-      .service-card, .choice-card { padding: var(--spacing-md); }
-      section { padding: clamp(2.5rem, 6vw, 4rem) 0; }
-    }
-    
-    @media (min-width: 1200px) {
-      .container { max-width: 1180px; }
-      .services-grid { grid-template-columns: repeat(3, 1fr); }
-      .choices { grid-template-columns: repeat(2, 1fr); max-width: 1000px; margin-left: auto; margin-right: auto; }
-    }
-    
-    @media (hover: none) and (pointer: coarse) {
-      .cta-btn, .service-card, .choice-card {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      .cta-btn:active { transform: scale(0.98); }
-      .service-card:active, .choice-card:active { transform: translateY(-5px); }
-    }
-    
-    @media (prefers-reduced-motion: reduce) {
-      .cta-btn { animation: none; }
-    }
-    
-    @media print {
-      .hero { min-height: auto; padding: 2rem 0; }
-      .cta-btn { display: none; }
-      section { padding: 2rem 0; page-break-inside: avoid; }
-    }
-    @media (max-width: 768px) {
-  [data-aos="fade-left"],
-  [data-aos="fade-right"] {
-    transform: none !important;
-  }
-}
-footer {
-  opacity: 1 !important;
-  transform: none !important;
-}
-/* Continuous smooth floating for hero buttons */
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
-}
-
-.hero .cta-btn {
-  animation: float 2s ease-in-out infinite;
-}
-
-.centered-text {
-  text-align: center;
-  max-width: min(820px, 90vw);
-  margin: 0 auto clamp(2rem,5vw,3.5rem);
-  line-height: 1.6;
-}
-
-.choice-bad-list {
-  color: var(--red);
-  font-weight: 600;
-}
-
-.choice-good-list {
-  color: var(--gold);
-  font-weight: 600;
-}
-/* Social Proof Ticker */
-.social-proof-ticker {
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1px solid rgba(212,180,122,0.3);
-  border-bottom: 1px solid rgba(212,180,122,0.3);
-  padding: 0.75rem 0;
-  margin: clamp(1rem, 2.5vw, 2rem) 0;
-  position: relative;
-  background: rgba(212,180,122,0.05); /* subtle gold tint */
-}
-
-.ticker-track {
-  display: inline-block;
-  padding-left: 100%;
-  animation: ticker 20s linear infinite;
-}
-
-.ticker-track span {
-  display: inline-block;
-  margin-right: clamp(3rem, 5vw, 5rem);
-  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
-  color: var(--black-soft);
-  font-style: italic;
-}
-
-@keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-/* Pause on hover */
-.social-proof-ticker:hover .ticker-track {
-  animation-play-state: paused;
-}
-.service-featured {
-  background: linear-gradient(135deg, rgba(212,180,122,0.1) 0%, rgba(212,180,122,0.05) 100%);
-  border: 2px solid var(--gold);
-  box-shadow: 0 20px 50px rgba(212,180,122,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
-  transform: scale(1.02);
-  position: relative;
-}
-
-.featured-badge {
-  position: absolute;
-  top: -12px;
-  right: -12px;
-  background: var(--gold);
-  color: var(--black);
-  font-weight: 700;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  font-size: clamp(0.85rem, 1.5vw, 1rem);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  z-index: 2;
-}
-.services-trust {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.8); /* looks good on dark #sessions background */
-  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
-  margin-top: clamp(1rem, 2vw, 1.5rem);
-  font-weight: 500;
-}
-#course-choice .services-trust {
-  color: var(--gold);
-  font-weight: 600;
-  margin-top: clamp(1rem, 2vw, 1.5rem);
-}
-.choice-featured {
-  transform: scale(1.05); /* slightly bigger */
-  border: 2px solid var(--gold); /* gold border */
-  box-shadow: 0 20px 50px rgba(212,180,122,0.35); /* stronger shadow */
-  background: linear-gradient(135deg, rgba(212,180,122,0.08) 0%, rgba(212,180,122,0.03) 100%);
-  z-index: 2;
-  position: relative;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.choice-featured:hover {
-  transform: scale(1.08);
-  box-shadow: 0 25px 60px rgba(212,180,122,0.4);
-}
-.choice-bad {
-  background: rgba(198,40,57,0.02); /* very muted red tint */
-  border: 1px solid rgba(198,40,57,0.1); /* subtle border */
-  color: rgba(0,0,0,0.6); /* faded text */
-  transform: scale(0.96); /* slightly smaller */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* soft shadow */
-  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
-  filter: grayscale(20%); /* slight desaturation */
-}
-
-.choice-bad:hover {
-  transform: scale(0.97);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  filter: grayscale(0%); /* subtle “unlock” on hover */
-}
-
-.choice-bad h3,
-.choice-bad p,
-.choice-bad .choice-bad-list {
-  color: rgba(0,0,0,0.6); /* consistent muted text */
-}
-.choice-bad .bad-symbol {
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
-  color: rgba(198,40,57,0.5); /* muted red */
-  opacity: 0.7;
-}
-.course-trust {
-  text-align: center;
-  color: var(--black-soft);
-  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-  margin-top: clamp(2rem, 4vw, 3rem);
-  line-height: 1.5;
-}
-
-.course-trust p {
-  margin: clamp(0.5rem, 1vw, 1rem) 0;
-}
-
-.course-trust strong {
-  color: var(--gold);
-  font-weight: 600;
-}
-/* Light, luxurious testimonial section */
-#testimonials {
-  background: #fdfaf3;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: center;
-  position: relative;
-  border-top: 1px solid rgba(212, 180, 122, 0.1);
-}
-
-
-/* Optional soft texture overlay */
-#testimonials::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(212,180,122,0.03), transparent 70%);
-  pointer-events: none;
-}
-
-/* Section title */
-#testimonials .section-title {
-  color: var(--black-soft);
-  margin-bottom: clamp(2rem,4vw,3rem);
-}
-
-/* Slider container */
-.testimonial-slider {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: clamp(2rem,4vw,3rem);
-  padding: 2rem 0;
-}
-
-.testimonial-slider::-webkit-scrollbar {
-  display: none;
-}
-
-/* Individual testimonial cards */
-.testimonial {
-  flex: 0 0 300px;
-  background: var(--white);
-  border: 1px solid rgba(212,180,122,0.3);
-  border-radius: 16px;
-  padding: clamp(2rem,4vw,3rem);
-  box-shadow: 0 8px 32px rgba(212,180,122,0.1);
-  scroll-snap-align: start;
-  color: var(--black-soft);
-}
-
-.testimonial p {
-  font-size: clamp(0.95rem,1.8vw,1.1rem);
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  color: var(--black-soft);
-}
-
-.testimonial strong {
-  color: var(--gold);
-  font-weight: 600;
-  font-size: clamp(0.85rem,1.5vw,1rem);
-}
-/* Contact Section — Info left, Title centered */
-#contact {
-  background: #ffffff !important;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: left; /* Base alignment for the section info */
-}
-
-#contact .section-title {
-  color: var(--black-soft);
-  margin-bottom: clamp(1.5rem,3vw,2rem);
-  font-weight: 600;
-  text-align: center; /* Keeps 'Kontaktiere uns' in the middle */
-}
-
-#contact .centered-text {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  margin-bottom: clamp(2rem, 4vw, 2.5rem);
-  line-height: 1.6;
-  color: var(--black-soft);
-  text-align: center; /* Keeps the subtitle text in the middle */
-  margin: 0 auto clamp(2rem, 4vw, 2.5rem) auto;
-}
-
-#contact .contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(0.8rem, 2vw, 1rem);
-  max-width: 500px;
-  margin: 0 auto; /* Keeps the block centered, but the text inside will be left-aligned */
-}
-
-#contact .contact-info p {
-  font-size: clamp(1rem, 1.8vw, 1.1rem);
-  margin-bottom: 0;
-  color: var(--black-soft);
-  line-height: 1.5;
-  text-align: left; /* Aligns the actual text lines to the left */
-}
-
-#contact .contact-info strong {
-  color: var(--gold);
-  font-weight: 600;
-}
-
-
-/* footer {
-  background: #111111; /* Deep charcoal for a grounded finish */
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
-  padding: clamp(3rem, 5vw, 4rem) 0;
-  border-top: 2px solid var(--gold); /* Thin gold line for luxury finish */
-  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-}
-
-
-footer span {
-  color: var(--gold);
-  font-weight: 600;
-}
-/* Prevent visual change for hero buttons */
-.cta-btn.no-press:hover,
-.cta-btn.no-press:active {
-  transform: none;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  background: var(--gold);
-}
-.testimonial {
-  flex: 0 0 auto; /* make width fit content without stretching */
-  width: 300px;   /* or adjust to 280–320px if needed */
-  scroll-snap-align: center; /* snap to center */
-}
-
-.service-card.service-featured {
-  background: linear-gradient(
-      rgba(0,0,0,0.3), 
-      rgba(0,0,0,0.3)
-    ),
-    linear-gradient(135deg, rgba(212,180,122,0.08) 0%, rgba(212,180,122,0.03) 100%);
-}
-/* Combined section styling */
-#why-and-approach {
-  background: #fcfaf5;
-  position: relative;
-  padding: clamp(3rem, 6vw, 4rem) 0;
-  border-bottom: 1px solid rgba(212, 180, 122, 0.1);
-}
-
-
-#why-and-approach .centered-text {
-  text-align: center;
-  max-width: min(820px, 90vw);
-  margin: 0 auto 1rem auto;
-  line-height: 1.45;
-  color: var(--black-soft);
-  font-weight: 500;
-}
-
-#why-and-approach .section-subtitle {
-  text-align: center;
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-  font-weight: 600;
-  margin: clamp(1.5rem, 3vw, 2rem) 0 0.5rem 0;
-  color: var(--black-soft);
-}
-
-/* Centered bullet points */
-#why-and-approach .approach-list ul {
-  max-width: 600px;
-  margin: 2rem auto 0 auto;
-  padding-left: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.8rem;
-}
-
-#why-and-approach .approach-list ul li {
-  position: relative;
-  padding-left: 0;
-  font-size: clamp(1rem, 1.8vw, 1.05rem);
-  font-weight: 500;
-  color: var(--black-soft);
-  line-height: 1.4;
-  text-align: center;
-}
-
-/* Add bullet symbol above text */
-#why-and-approach .approach-list ul li::before {
-  content: "•";
-  display: block;
-  font-size: 1.2rem;
-  color: var(--gold);
-  margin-bottom: 0.3rem;
-}
-
-#course-choice {
-  background: #f9f9f9; 
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  position: relative;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-#course-choice .centered-text {
-  text-align: center;
-  max-width: 760px;
-  margin: 1rem auto;
-  line-height: 1.6;
-  color: var(--black-soft);
-  font-weight: 500;
-}
-
-#course-choice .section-subtitle {
-  text-align: center;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 700;
-  margin: clamp(2rem, 4vw, 3rem) 0;
-  position: relative;
-  color: var(--black-soft);
-}
-
-#course-choice .choices {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: clamp(2rem, 4vw, 3rem);
-  margin-top: clamp(2rem, 5vw, 4rem);
-  padding: 0 var(--spacing-xs);
-}
-
-/* Shared card styling */
-.choice-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: clamp(2rem, 4vw, 3rem);
-  text-align: left;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  position: relative;
-}
-
-/* Option A – Bad choice */
-.choice-bad {
-  border: 2px solid rgba(198,40,57,0.15);
-  background: #f7f6f6; /* light washed-out gray/red */
-  color: rgba(0,0,0,0.65); /* muted text */
-  transform: scale(0.975); /* slightly “less correct” subconscious cue */
-}
-
-/* Option B – Good choice */
-.choice-good {
-  border: 2px solid rgba(212,180,122,0.5);
-  background: linear-gradient(135deg, rgba(212,180,122,0.12) 0%, rgba(212,180,122,0.05) 100%);
-  color: #111111; /* dark for better contrast */
-  box-shadow: 0 24px 60px rgba(212,180,122,0.35);
-}
-
-.choice-good:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 28px 70px rgba(212,180,122,0.45);
-}
-/* Entscheidung Banner */
-.decision-banner {
-  max-width: 760px;
-  margin: 0 auto -1rem auto; /* closer to cards */
-  padding: clamp(0.5rem,1vw,1rem) 0;
-  text-align: center;
-  background: transparent;
-}
-/* DESKTOP SPECIFIC OVERRIDES */
-@media screen and (min-width: 1024px) {
-  
-  /* 1. Pull everything higher but add more breathing room at the bottom */
-  body .hero {
-    height: 100vh !important;
-    padding-top: 1vh !important; 
-    padding-bottom: 8vh !important; /* Increased space at the very bottom */
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-  }
-
-  /* 2. Logo stays high with plenty of space below it */
-  body .hero-logo {
-    width: 220px !important; 
-    margin-top: 0 !important;
-    margin-bottom: 5vh !important; 
-  }
-
-  /* 3. Balanced Video size */
-  body .video-teaser-container {
-    max-width: 380px !important;
-    height: 20vh !important; 
-    margin-bottom: 2.5vh !important;
-  }
-
-  /* 4. Typography Scaling */
-  body .hero h1 {
-    font-size: 3rem !important;
-    margin-bottom: 1.5vh !important;
-  }
-
-  body .hero p {
-    font-size: 1.1rem !important;
-    max-width: 700px !important;
-    margin-bottom: 4vh !important;
-  }
-
-  /* 5. Buttons */
-  body .hero .cta-btn {
-    padding: 1rem 2.8rem !important;
-    font-size: 1.1rem !important;
-  }
-}
-.decision-banner span {
-  display: block;
-  font-size: clamp(1.8rem, 4vw, 2.4rem); /* responsive size */
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 800;
-  margin-bottom: 0.4rem;
-}
-
-.decision-banner h2 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 900;
-  color: var(--black-soft);
-  line-height: 1.1;
-  margin: 0;
-}
-
-/* Choice Cards */
-.choices {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
-  padding: 0 var(--spacing-xs);
-}
-
-.choice-card {
-  flex: 1 1 300px;
-  max-width: 380px;
-  padding: 2rem;
-  border-radius: 16px;
-  text-align: center;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  position: relative;
-}
-
-/* Option A – Bad */
-.choice-bad {
-  background: #fceded; /* light red tint */
-  border: 2px solid rgba(198,40,57,0.25);
-  color: rgba(0,0,0,0.7);
-  transform: scale(0.975);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.choice-bad h3 { color: var(--red); }
-.choice-bad-list { color: var(--red); }
-
-/* Option B – Good */
-.choice-good {
-  background: linear-gradient(135deg, rgba(212,180,122,0.2) 0%, rgba(212,180,122,0.08) 100%);
-  border: 2px solid rgba(212,180,122,0.7);
-  color: #111;
-  box-shadow: 0 20px 50px rgba(212,180,122,0.35);
-}
-
-.choice-good:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 28px 70px rgba(212,180,122,0.45);
-}
-
-/* Remove extra spacing after cards */
-#course-choice .choices { margin-bottom: 0; }
-
-/* Center all texts in cards */
-.choice-card h3,
-.choice-card p,
-.choice-card ul { text-align: center; }
-/* WHY ONLY BEAUTY Section */
-
-
-.single-card {
-  max-width: 600px;
-  margin: 2rem auto 0 auto;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  text-align: center;
-  color: var(--white);
-}
-
-/* Animated lines inside card */
-.animated-line {
-  opacity: 0;
-  transform: translateY(20px);
-  font-size: clamp(1rem, 1.8vw, 1.1rem);
-  margin: 0.8rem 0;
-  font-weight: 500;
-  transition: all 0.6s ease-out;
-  color: var(--white);
-}
-
-/* Show class for JS animation */
-.animated-line.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Testimonial Section */
-#testimonials {
-  background: linear-gradient(to bottom, #fdfaf3 90%, #ffffff 100%);
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: center;
-  position: relative;
-}
-
-
-#testimonials::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(212,180,122,0.03), transparent 70%);
-  pointer-events: none;
-}
-
-#testimonials .section-title {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--black-soft);
-}
-
-#testimonials .section-subtitle {
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  color: var(--black-soft);
-  margin-bottom: clamp(3rem,5vw,4rem);
-  font-weight: 500;
-}
-
-/* Slider */
-.testimonial-slider {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: clamp(2rem,4vw,3rem);
-  padding: 0 1rem;
-}
-
-.testimonial-slider::-webkit-scrollbar {
-  display: none;
-}
-
-/* Testimonial Card */
-.testimonial {
-  flex: 0 0 300px;
-  background: var(--white);
-  border: 1px solid rgba(212,180,122,0.3);
-  border-radius: 16px;
-  padding: clamp(2rem,4vw,3rem);
-  box-shadow: 0 8px 32px rgba(212,180,122,0.1);
-  scroll-snap-align: center;
-  color: var(--black-soft);
-  text-align: center;
-}
-
-.testimonial p {
-  font-size: clamp(0.95rem,1.8vw,1.1rem);
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-
-.testimonial strong {
-  color: var(--gold);
-  font-weight: 600;
-  font-size: clamp(0.85rem,1.5vw,1rem);
-}
-
-/* Stars */
-.testimonial-stars {
-  display: flex;
-  justify-content: center;
-  margin: 0.75rem 0 1.25rem 0;
-  gap: 0.25rem;
-}
-
-.testimonial-stars .star {
-  width: clamp(16px, 2vw, 20px);
-  height: clamp(16px, 2vw, 20px);
-  display: inline-block;
-  background-color: rgba(212,180,122,0.3); /* empty star color */
-  clip-path: polygon(
-    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
-  );
-}
-
-.testimonial-stars .star.filled {
-  background-color: var(--gold);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .testimonial-slider {
-    gap: clamp(1.5rem,3vw,2rem);
-  }
-  .testimonial {
-    flex: 0 0 260px;
-  }
-}
-
-@media (max-width: 480px) {
-  .testimonial {
-    flex: 0 0 220px;
-    padding: clamp(1.5rem,3vw,2rem);
-  }
-}
-/* FAQ Section */
-#faq {
-  background: linear-gradient(to bottom, #ffffff 90%, #fcfaf5 100%) !important;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-}
-
-
-
-#faq .faq-item {
-  margin-bottom: clamp(1.5rem, 3vw, 2rem);
-  border-bottom: 1px solid rgba(212,180,122,0.3);
-}
-
-.faq-question {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  font-size: clamp(1rem, 2vw, 1.1rem);
-  font-weight: 600;
-  padding: clamp(0.8rem, 2vw, 1rem) 0;
-  cursor: pointer;
-  color: var(--black-soft);
-  transition: color 0.2s ease;
-}
-
-.faq-question:hover {
-  color: var(--gold);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
-  padding: 0;
-}
-
-.faq-answer p {
-  margin: clamp(0.5rem,1vw,1rem) 0;
-  font-weight: 400;
-  color: var(--black-soft);
-}
-
-/* Active state */
-.faq-item.active .faq-answer {
-  max-height: 500px; /* enough to show content */
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-#cta-final {
-  background: #fcfaf5; /* Returns to the warm cream to signal the end */
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: center;
-  border-top: 1px solid rgba(212, 180, 122, 0.1);
-}
-
-
-#cta-final .section-title {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  margin-bottom: 1rem;
-}
-
-#cta-final .section-subtitle {
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-  margin-bottom: 1rem;
-}
-
-#cta-final .centered-text {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  margin-bottom: clamp(2rem, 4vw, 2.5rem);
-  color: var(--black-soft);
-}
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.6); 
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 5% auto; 
-  padding: 2rem;
-  border-radius: 8px;
-  width: 90%; max-width: 800px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  position: relative;
-}
-
-.close-btn {
-  position: absolute; top: 10px; right: 20px;
-  font-size: 1.5rem; font-weight: bold;
-  cursor: pointer;
-}
-
-/* Footer text buttons */
-.footer-text-btn {
-  cursor: pointer;
-  color: rgba(255,255,255,0.7);
-  font-weight: 500;
-  margin: 0 0.5rem;
-  text-decoration: underline; /* optional: looks clickable */
-}
-
-.footer-text-btn:hover {
-  color: #d4b47a; /* gold on hover */
-  text-decoration: none;
-}
-#why-only-beauty .why-text p {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
-  color: var(--black-soft);
-  margin: 0.7rem 0;
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-/* --- Optimized Decision Logic --- */
-
-/* Option A: The "Wrong" Path (Muted, Faded, Smaller) */
-.choice-bad {
-  background: #f2f2f2 !important;
-  border: 1px solid #dcdcdc !important;
-  color: #888888 !important; /* Faded text */
-  transform: scale(0.92); /* Physically smaller */
-  filter: grayscale(100%); /* Removes all "life" from the card */
-  box-shadow: none !important;
-  pointer-events: none; /* Optional: makes it feel non-interactive */
-  opacity: 0.6;
-}
-
-.choice-bad h3 {
-  color: #666666 !important;
-}
-
-/* Option B: The "Correct" Path (Large, Glowing, High Contrast) */
-.choice-good.choice-featured {
-  background: #ffffff !important;
-  border: 3px solid var(--gold) !important; /* Thick gold frame */
-  color: var(--black-soft) !important;
-  transform: scale(1.08) !important; /* Dominates the space */
-  box-shadow: 0 30px 60px rgba(212, 180, 122, 0.4) !important; /* Deep glow */
-  z-index: 10;
-}
-
-.choice-good h3 {
-  color: var(--gold-dark) !important;
-  font-size: 2rem !important;
-}
-
-.choice-good .choice-good-list {
-  color: #2e7d32 !important; /* Deep success green for the checkmarks */
-  font-weight: 700;
-}
-
-/* Make Option B button extra "clickable" */
-.choice-good .cta-btn {
-  background: var(--gold) !important;
-  transform: scale(1.1);
-  box-shadow: 0 10px 20px rgba(212, 180, 122, 0.5);
-}
-/* Change list text to gold specifically in the sessions section */
-#sessions .choice-good-list {
-  color: var(--gold) !important;
-}
-/* Custom AOS transition for a softer feel */
-[data-aos] {
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-}
-
-/* Reduce the distance of the "up" movement to make it subtler */
-[data-aos="fade-up"] {
-  transform: translateY(30px);
-}
-/* --- Optimized Unser Ansatz Grid --- */
-.approach-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 900px;
-  margin: 3rem auto 0 auto;
-}
-
-.approach-card {
-  /* Removed background, backdrop-filter, and border */
-  background: transparent;
-  border: none;
-  padding: 1.5rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.4s ease; /* Keep smooth movement */
-}
-
-.approach-card:hover {
-  transform: translateY(-5px);
-  /* Removed border-color, background change, and box-shadow */
-}
-
-
-
-.approach-icon {
-  font-size: 1.5rem;
-  color: var(--gold);
-  margin-bottom: 1rem;
-}
-
-.approach-card span {
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
-  font-weight: 600;
-  color: var(--black-soft);
-  line-height: 1.4;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-  .approach-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  .approach-card {
-    padding: 1.5rem;
-  }
-}
-#why-only-beauty {
-  background: linear-gradient(to bottom, #ffffff 90%, #fdfaf3 100%) !important;
-  padding: clamp(3rem, 6vw, 5rem) 0;
-}
-
-/* Update these specific sections */
-
-#why-and-approach {
-  background: #fcfaf5;
-  position: relative;
-  padding: clamp(3rem, 6vw, 4rem) 0;
-  border-bottom: none; /* Changed from 1px solid */
-}
-
-#course-choice {
-  background: #f9f9f9; 
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  position: relative;
-  border-bottom: none; /* Changed from 1px solid */
-}
-
-#testimonials {
-  background: linear-gradient(to bottom, #fdfaf3 90%, #ffffff 100%);
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: center;
-  position: relative;
-  border-top: none; /* Added to ensure no line from top */
-}
-
-#faq {
-  background: linear-gradient(to bottom, #ffffff 90%, #fcfaf5 100%) !important;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  border-top: none; /* Ensure no border here */
-}
-
-#cta-final {
-  background: #fcfaf5;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: center;
-  border-top: none; /* Changed from 1px solid */
-}
-/* Better blend: Course Choice to Why Only Beauty */
-#course-choice {
-  /* Fades from light gray to pure white at the very bottom */
-  background: linear-gradient(to bottom, #f9f9f9 80%, #ffffff 100%); 
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  position: relative;
-  border-bottom: none; 
-}
-
-#why-only-beauty {
-  background: #ffffff !important; /* Keep it solid white to match the end of the previous section */
-  padding: clamp(3rem, 6vw, 5rem) 0;
-}
-
-/* Better blend: CTA Final to Contact Us */
-#cta-final {
-  /* Fades from warm cream to white to prepare for the Contact section */
-  background: linear-gradient(to bottom, #fcfaf5 70%, #ffffff 100%);
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: center;
-  border-top: none;
-}
-
-#contact {
-  background: #ffffff !important;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: center;
-  /* Ensure no top border here */
-  border-top: none; 
-}
-/* 1. Seamless transition: Why Only Beauty to Testimonials */
-#why-only-beauty {
-  /* Fades from pure white to the testimonial cream color at the very bottom */
-  background: linear-gradient(to bottom, #ffffff 85%, #fdfaf3 100%) !important;
-  padding: clamp(3rem, 6vw, 5rem) 0;
-  border-bottom: none;
-}
-
-/* 2. Testimonials Section (Remove any top lines) */
-#testimonials {
-  background: #fdfaf3 !important; /* Matches the bottom of the previous gradient */
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: center;
-  position: relative;
-  border-top: none; /* Removed the 1px line */
-}
-
-/* 3. Smooth transition: Testimonials to FAQ */
-#testimonials::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  /* Fades the cream back to white for the FAQ section */
-  background: linear-gradient(to bottom, transparent, #ffffff);
-}
-
-#faq {
-  background: #ffffff !important;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  border-top: none;
-}
-/* FAQ: Fade from white to cream at the bottom */
-#faq {
-  background: linear-gradient(to bottom, #ffffff 80%, #fcfaf5 100%) !important;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  border-bottom: none;
-}
-
-/* CTA Final: Maintain the cream background consistently */
-#cta-final {
-  background: #fcfaf5 !important;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  text-align: center;
-  border-top: none; /* Remove any lingering top lines */
-}
-
-/* CTA Final: Blend into the white Contact section */
-#cta-final {
-  background: linear-gradient(to bottom, #fcfaf5 80%, #ffffff 100%) !important;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-}
-/* 1. Ensure Contact section stays pure white */
-#contact {
-  background: #ffffff !important;
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  border-bottom: none; /* Removes any bottom line */
-}
-
-/* 2. Transition the Footer into the dark background without a gold border */
-footer {
-  background: #1a1a1a !important; /* Matches your footer background */
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  padding: clamp(3rem, 5vw, 4rem) 0;
-  
-  /* REMOVED: border-top: 2px solid var(--gold); */
-  border-top: none !important; 
-  
-/* High-Fashion Editorial Look */
-h1, h2, h3, h4, .section-subtitle, .decision-banner span {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 600; 
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--black-soft);
-}
-
-/* Slim, elegant body text */
-body, p, span, a, li, .cta-btn {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300; /* Light weight for luxury feel */
-  letter-spacing: 0.5px;
-}
-
-/* Specific adjustment for the Main Hero Heading */
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic; /* Italics add high-fashion flair */
-  text-transform: none; /* Keep lowercase for a softer, elite look */
-  font-weight: 300;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-}
-.cta-btn {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 3px; /* Wide spacing = luxury */
-  font-weight: 500;
-}
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONLYBEAUTYLEIPZIG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- AOS JS (at the end for better performance) -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- AOS JS (at the end for better performance) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <!-- Hero -->
-<section class="hero" data-aos="fade">
-  <div class="container hero-content">
+    <!-- Hero -->
+    <section class="hero" data-aos="fade">
+        <div class="container hero-content">
 
-    <img src="Logo.svg" alt="Logo" class="hero-logo" data-aos="fade-in">
+            <img src="Logo.svg" alt="Logo" class="hero-logo" data-aos="fade-in">
 
-    <div class="video-teaser-container">
-      <video id="heroVideo" class="hero-video-small" autoplay muted loop playsinline preload="auto">
-        <source src="Beauty.mp4" type="video/mp4">
-      </video>
-    </div>
+            <div class="video-teaser-container">
+                <video id="heroVideo" class="hero-video-small" autoplay muted loop playsinline preload="auto">
+                    <source src="Beauty.mp4" type="video/mp4">
+                </video>
+            </div>
 
-    <h1 data-aos="fade-up">
-      Ganzheitliche <span class="highlight-red">Hautgesundheit</span> –<br>
-      <span class="highlight-red">Behandlung</span> &amp;
-      <span class="highlight-red">Ausbildung</span> unter einem Dach
-    </h1>
+            <h1 data-aos="fade-up">
+                Ganzheitliche <span class="highlight-red">Hautgesundheit</span> –<br>
+                <span class="highlight-red">Behandlung</span> &amp;
+                <span class="highlight-red">Ausbildung</span> unter einem Dach
+            </h1>
 
-    <p data-aos="fade-up">
-      Für Frauen mit Hautproblemen<br>
-      und für Quereinsteigerinnen &amp; Kosmetikerinnen,<br>
-      die Haut wirklich verstehen möchten.
-    </p>
+            <p data-aos="fade-up">
+                Für Frauen mit Hautproblemen<br>
+                und für Quereinsteigerinnen &amp; Kosmetikerinnen,<br>
+                die Haut wirklich verstehen möchten.
+            </p>
 
-    <p data-aos="fade-up" style="font-weight:700;">
-      Ursache statt Oberfläche • Fundiertes Wissen • Nachhaltige Ergebnisse
-    </p>
+            <p data-aos="fade-up" style="font-weight:700;">
+                Ursache statt Oberfläche • Fundiertes Wissen • Nachhaltige Ergebnisse
+            </p>
 
-    <div class="btn-group" data-aos="fade-up">
-      <a href="#sessions" class="cta-btn no-press">Jetzt Behandlung buchen</a>
-      <a href="#course-choice" class="cta-btn no-press">Zur Academy &amp; Ausbildung</a>
-    </div>
+            <div class="btn-group" data-aos="fade-up">
+                <a href="#sessions" class="cta-btn no-press">Jetzt Behandlung buchen</a>
+                <a href="#course-choice" class="cta-btn no-press">Zur Academy &amp; Ausbildung</a>
+            </div>
 
-  </div>
-</section>
-
-
-
-
-<!-- Combined Section: Warum ein anderer Weg + Unser Ansatz with alternating slide-in bullets -->
-<section id="why-and-approach">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">
-      WARUM EIN <span class="highlight-red">ANDERER WEG?</span>
-    </h2>
-
-    <p class="centered-text" data-aos="fade-up">
-      Kurzfristige Effekte, wechselnde Produkte und Behandlungen ohne klares Hautverständnis führen oft dazu, dass Hautprobleme nicht nachhaltig gelöst werden.
-    </p>
-
-    <p class="centered-text" data-aos="fade-up">
-      Bei <strong>Only Beauty</strong> gehen wir tiefer. Wir betrachten Haut <span class="highlight-red">ganzheitlich</span> – ruhig, fundiert und individuell.
-    </p>
-
-    <div style="margin-top: 5rem;">
-      <h3 class="section-subtitle" data-aos="fade-up">
-        UNSER ANSATZ
-      </h3>
-
-      <p class="centered-text" data-aos="fade-up">
-        Ganzheitlich. Verständlich. Wirksam.<br>
-        Hautgesundheit ist kein Zufall. Sie entsteht durch Analyse, Wissen und individuell abgestimmte Konzepte.
-      </p>
-
-      <div class="approach-grid">
-        <div class="approach-card" data-aos="zoom-in">
-          <div class="approach-icon">✧</div>
-          <span>Ursachen erkennen statt Symptome überdecken</span>
         </div>
+    </section>
 
-        <div class="approach-card" data-aos="zoom-in">
-          <div class="approach-icon">✧</div>
-          <span>Struktur statt Produkt-Chaos</span>
+
+
+
+    <!-- Combined Section: Warum ein anderer Weg + Unser Ansatz with alternating slide-in bullets -->
+    <section id="why-and-approach">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                WARUM EIN <span class="highlight-red">ANDERER WEG?</span>
+            </h2>
+
+            <p class="centered-text" data-aos="fade-up">
+                Kurzfristige Effekte, wechselnde Produkte und Behandlungen ohne klares Hautverständnis führen oft dazu,
+                dass Hautprobleme nicht nachhaltig gelöst werden.
+            </p>
+
+            <p class="centered-text" data-aos="fade-up">
+                Bei <strong>Only Beauty</strong> gehen wir tiefer. Wir betrachten Haut <span
+                    class="highlight-red">ganzheitlich</span> – ruhig, fundiert und individuell.
+            </p>
+
+            <div style="margin-top: 5rem;">
+                <h3 class="section-subtitle" data-aos="fade-up">
+                    UNSER ANSATZ
+                </h3>
+
+                <p class="centered-text" data-aos="fade-up">
+                    Ganzheitlich. Verständlich. Wirksam.<br>
+                    Hautgesundheit ist kein Zufall. Sie entsteht durch Analyse, Wissen und individuell abgestimmte
+                    Konzepte.
+                </p>
+
+                <div class="approach-grid">
+                    <div class="approach-card" data-aos="zoom-in">
+                        <div class="approach-icon">✧</div>
+                        <span>Ursachen erkennen statt Symptome überdecken</span>
+                    </div>
+
+                    <div class="approach-card" data-aos="zoom-in">
+                        <div class="approach-icon">✧</div>
+                        <span>Struktur statt Produkt-Chaos</span>
+                    </div>
+
+                    <div class="approach-card" data-aos="zoom-in">
+                        <div class="approach-icon">✧</div>
+                        <span>Nachhaltige Hautverbesserung</span>
+                    </div>
+
+                    <div class="approach-card" data-aos="zoom-in">
+                        <div class="approach-icon">✧</div>
+                        <span>Wissen, das Sicherheit gibt</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="approach-card" data-aos="zoom-in">
-          <div class="approach-icon">✧</div>
-          <span>Nachhaltige Hautverbesserung</span>
+    <!-- Sessions -->
+    <section id="sessions">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="highlight-red">BEHANDLUNGEN</span>
+            </h2>
+
+            <div class="services-grid">
+                <div class="service-card service-featured choice-good" style="text-align:center;" data-aos="fade-up">
+
+                    <p style="margin-bottom:1.5rem; font-weight:500;" data-aos="fade-up">
+                        Individuelle Behandlungen für gesunde, stabile Haut<br>
+                        Unsere Behandlungen basieren auf einer fundierten Hautanalyse<br>
+                        und werden exakt auf dein Hautbild abgestimmt.
+                    </p>
+
+                    <h3 style="margin-bottom:1rem;" data-aos="fade-up">
+                        Geeignet bei:
+                    </h3>
+
+                    <ul class="choice-good-list" style="list-style:none; padding-left:0; margin-bottom:1.5rem;">
+                        <li data-aos="fade-up">• Unreiner oder Entzündlicher Haut</li>
+                        <li data-aos="fade-up">• Sensibler & Gestresster Haut</li>
+                        <li data-aos="fade-up">• Hautbarriere-Störungen</li>
+                        <li data-aos="fade-up">• Wunsch nach langfristiger Hautverbesserung</li>
+                    </ul>
+
+                    <p style="margin-bottom:1.5rem; font-weight:500;" data-aos="fade-up">
+                        Ziel ist kein kurzfristiger Effekt, sondern nachhaltige Hautgesundheit.
+                    </p>
+
+                    <div data-aos="fade-up">
+                        <a href="https://www.beautinda.de/artist/nW2t9Zwjjgb3z41byzNVO6qVy572" target="_blank"
+                            class="cta-btn">
+                            Jetzt Hautanalyse & Termin buchen
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="approach-card" data-aos="zoom-in">
-          <div class="approach-icon">✧</div>
-          <span>Wissen, das Sicherheit gibt</span>
+
+    <!-- Course Choice -->
+    <section id="course-choice">
+        <div class="container">
+
+            <h2 class="section-title" data-aos="fade-up">
+                FÜR ZUKÜNFTIGE <span class="highlight-red">HAUTEXPERTINNEN – ACADEMY</span>
+            </h2>
+
+            <p class="centered-text" data-aos="fade-up">
+                Dein Einstieg in die Hautexpertise – auch ohne Vorkenntnisse
+            </p>
+
+            <div class="academy-details">
+                <p class="centered-text" data-aos="fade-up">
+                    Die Only Beauty Elite Academy richtet sich an:<br>
+                    • Quereinsteigerinnen<br>
+                    • Frauen in beruflicher Neuorientierung<br>
+                    • Angehende oder aktive Kosmetikerinnen
+                </p>
+
+                <p class="centered-text" data-aos="fade-up">
+                    Kein Vorwissen erforderlich. Du lernst Schritt für Schritt:<br>
+                    • Hautzustände zu verstehen<br>
+                    • Sicher zu analysieren<br>
+                    • Individuell zu behandeln<br>
+                    • Fundiert zu beraten
+                </p>
+            </div>
+
+            <p class="centered-text" data-aos="fade-up" style="font-weight: 700;">
+                Strukturiert, praxisnah und verständlich aufgebaut.
+            </p>
+
+            <div class="decision-banner" data-aos="zoom-in">
+                <span>ENTSCHEIDUNG</span>
+                <h2>DEIN WEG</h2>
+            </div>
+
+            <div class="choices">
+                <div class="choice-card choice-bad" data-aos="fade-right">
+                    <h3 data-aos="fade-up">Option A: Bleib beim Status quo</h3>
+                    <p data-aos="fade-up">
+                        Du bleibst in deinem 9-to-5 Job, kommst finanziell kaum voran und lebst deinen Traum nie
+                        wirklich.
+                    </p>
+                    <p class="choice-bad-list" data-aos="fade-up">
+                        • Feste Arbeitszeiten<br>
+                        • Begrenztes Einkommen<br>
+                        • Keine persönliche Entwicklung<br>
+                        • Abhängigkeit von anderen
+                    </p>
+                </div>
+
+                <div class="choice-card choice-good choice-featured" data-aos="fade-left">
+                    <h3 data-aos="fade-up">Option B: Starte jetzt deinen Weg</h3>
+                    <p data-aos="fade-up">
+                        Werde Skin-Expertin, baue dein eigenes Business auf und lebe deine Leidenschaft selbstbestimmt.
+                    </p>
+                    <p class="choice-good-list" data-aos="fade-up">
+                        ✓ Werde zum Hautexperten<br>
+                        ✓ Werde deine eigene Chefin<br>
+                        ✓ Deutlich höheres Einkommen<br>
+                        ✓ Freiheit & Erfüllung
+                    </p>
+                    <div data-aos="zoom-in">
+                        <a href="https://calendly.com/onlybeautyleipzig/30min" target="_blank" class="cta-btn">
+                            Ja, ich will erfolgreicher Skin Expert werden
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Sessions -->
-<section id="sessions">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">
-      <span class="highlight-red">BEHANDLUNGEN</span>
-    </h2>
 
-    <div class="services-grid">
-      <div class="service-card service-featured choice-good" 
-           style="text-align:center;" 
-           data-aos="fade-up">
-        
-        <p style="margin-bottom:1.5rem; font-weight:500;"
-           data-aos="fade-up">
-          Individuelle Behandlungen für gesunde, stabile Haut<br>
-          Unsere Behandlungen basieren auf einer fundierten Hautanalyse<br>
-          und werden exakt auf dein Hautbild abgestimmt.
-        </p>
+    <!-- Warum Only Beauty Section (Single Animated Card) -->
+    <section id="why-only-beauty" style="background: var(--white); padding: clamp(3rem, 6vw, 5rem) 0;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">WARUM ONLY <span class="highlight-red">BEAUTY?</span></h2>
 
-        <h3 style="margin-bottom:1rem;" data-aos="fade-up">
-          Geeignet bei:
-        </h3>
+            <div style="max-width: 650px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 2rem; color: var(--black-soft);"
+                    data-aos="fade-up">
+                    Was uns besonders macht
+                </p>
 
-        <ul class="choice-good-list" style="list-style:none; padding-left:0; margin-bottom:1.5rem;">
-          <li data-aos="fade-up">• Unreiner oder Entzündlicher Haut</li>
-          <li data-aos="fade-up">• Sensibler & Gestresster Haut</li>
-          <li data-aos="fade-up">• Hautbarriere-Störungen</li>
-          <li data-aos="fade-up">• Wunsch nach langfristiger Hautverbesserung</li>
-        </ul>
+                <div class="why-text">
+                    <p data-aos="fade-up">✔ Ganzheitlicher Ansatz</p>
+                    <p data-aos="fade-up">✔ Verständlich & praxisnah erklärt</p>
+                    <p data-aos="fade-up">✔ Individuelle Betreuung</p>
+                    <p data-aos="fade-up">✔ Reale Hautfälle & echte Erfahrung</p>
+                    <p data-aos="fade-up">✔ Wissen, das anwendbar ist</p>
+                </div>
 
-        <p style="margin-bottom:1.5rem; font-weight:500;"
-           data-aos="fade-up">
-          Ziel ist kein kurzfristiger Effekt, sondern nachhaltige Hautgesundheit.
-        </p>
-
-        <div data-aos="fade-up">
-          <a href="https://www.beautinda.de/artist/nW2t9Zwjjgb3z41byzNVO6qVy572" target="_blank" class="cta-btn">
-            Jetzt Hautanalyse & Termin buchen
-          </a>
+                <p style="margin-top: 2rem; font-weight: 600; color: var(--black-soft);" data-aos="fade-up">
+                    Für Kundinnen und angehende Hautexpertinnen.
+                </p>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="container">
+            <p class="section-subtitle" data-aos="fade-up">
+                Vertrauen aus Erfahrung
+            </p>
 
-<!-- Course Choice -->
-<section id="course-choice">
-  <div class="container">
+            <div class="testimonial-slider" data-aos="fade-up">
+                <div class="testimonial">
+                    <p>„Ich hatte vorher keine Vorkenntnisse und fühle mich jetzt sicher im Umgang mit Hautbildern.“</p>
+                    <div class="testimonial-stars">
+                        <span class="star filled"></span><span class="star filled"></span><span
+                            class="star filled"></span><span class="star filled"></span><span
+                            class="star filled"></span>
+                    </div>
+                    <strong>- Absolventin</strong>
+                </div>
 
-    <h2 class="section-title" data-aos="fade-up">
-      FÜR ZUKÜNFTIGE <span class="highlight-red">HAUTEXPERTINNEN – ACADEMY</span>
-    </h2>
+                <div class="testimonial">
+                    <p>„Meine Haut hat sich endlich stabilisiert und reagiert nicht mehr ständig.“</p>
+                    <div class="testimonial-stars">
+                        <span class="star filled"></span><span class="star filled"></span><span
+                            class="star filled"></span><span class="star filled"></span><span
+                            class="star filled"></span>
+                    </div>
+                    <strong>- Kundin</strong>
+                </div>
 
-    <p class="centered-text" data-aos="fade-up">
-      Dein Einstieg in die Hautexpertise – auch ohne Vorkenntnisse
-    </p>
-
-    <div class="academy-details">
-      <p class="centered-text" data-aos="fade-up">
-        Die Only Beauty Elite Academy richtet sich an:<br>
-        • Quereinsteigerinnen<br>
-        • Frauen in beruflicher Neuorientierung<br>
-        • Angehende oder aktive Kosmetikerinnen
-      </p>
-
-      <p class="centered-text" data-aos="fade-up">
-        Kein Vorwissen erforderlich. Du lernst Schritt für Schritt:<br>
-        • Hautzustände zu verstehen<br>
-        • Sicher zu analysieren<br>
-        • Individuell zu behandeln<br>
-        • Fundiert zu beraten
-      </p>
-    </div>
-
-    <p class="centered-text" data-aos="fade-up" style="font-weight: 700;">
-      Strukturiert, praxisnah und verständlich aufgebaut.
-    </p>
-
-    <div class="decision-banner" data-aos="zoom-in">
-      <span>ENTSCHEIDUNG</span>
-      <h2>DEIN WEG</h2>
-    </div>
-
-    <div class="choices">
-      <div class="choice-card choice-bad" data-aos="fade-right">
-        <h3 data-aos="fade-up">Option A: Bleib beim Status quo</h3>
-        <p data-aos="fade-up">
-          Du bleibst in deinem 9-to-5 Job, kommst finanziell kaum voran und lebst deinen Traum nie wirklich.
-        </p>
-        <p class="choice-bad-list" data-aos="fade-up">
-          • Feste Arbeitszeiten<br>
-          • Begrenztes Einkommen<br>
-          • Keine persönliche Entwicklung<br>
-          • Abhängigkeit von anderen
-        </p>
-      </div>
-
-      <div class="choice-card choice-good choice-featured" data-aos="fade-left">
-        <h3 data-aos="fade-up">Option B: Starte jetzt deinen Weg</h3>
-        <p data-aos="fade-up">
-          Werde Skin-Expertin, baue dein eigenes Business auf und lebe deine Leidenschaft selbstbestimmt.
-        </p>
-        <p class="choice-good-list" data-aos="fade-up">
-          ✓ Werde zum Hautexperten<br>
-          ✓ Werde deine eigene Chefin<br>
-          ✓ Deutlich höheres Einkommen<br>
-          ✓ Freiheit & Erfüllung
-        </p>
-        <div data-aos="zoom-in">
-          <a href="https://calendly.com/onlybeautyleipzig/30min" target="_blank" class="cta-btn">
-            Ja, ich will erfolgreicher Skin Expert werden
-          </a>
+                <div class="testimonial">
+                    <p>„Dank der Schulung zur Hautexpertin fühle ich mich bereit, mein eigenes Beauty-Business zu
+                        starten.“</p>
+                    <div class="testimonial-stars">
+                        <span class="star filled"></span><span class="star filled"></span><span
+                            class="star filled"></span><span class="star filled"></span><span
+                            class="star filled"></span>
+                    </div>
+                    <strong>- Absolventin</strong>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
-<!-- Warum Only Beauty Section (Single Animated Card) -->
-<section id="why-only-beauty" style="background: var(--white); padding: clamp(3rem, 6vw, 5rem) 0;">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">WARUM ONLY <span class="highlight-red">BEAUTY?</span></h2>
-    
-    <div style="max-width: 650px; margin: 0 auto; text-align: center;">
-      <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 2rem; color: var(--black-soft);" data-aos="fade-up">
-        Was uns besonders macht
-      </p>
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">FAQ</h2>
 
-      <div class="why-text">
-        <p data-aos="fade-up">✔ Ganzheitlicher Ansatz</p>
-        <p data-aos="fade-up">✔ Verständlich & praxisnah erklärt</p>
-        <p data-aos="fade-up">✔ Individuelle Betreuung</p>
-        <p data-aos="fade-up">✔ Reale Hautfälle & echte Erfahrung</p>
-        <p data-aos="fade-up">✔ Wissen, das anwendbar ist</p>
-      </div>
+            <h3 class="section-subtitle" data-aos="fade-up">Allgemein</h3>
+            <div class="faq-item" data-aos="fade-up">
+                <button class="faq-question">Für wen ist Only Beauty geeignet?</button>
+                <div class="faq-answer">
+                    <p>Für Kundinnen mit Hautproblemen sowie für Frauen, die sich im Bereich Hautgesundheit neu
+                        orientieren oder weiterbilden möchten – mit oder ohne Vorkenntnisse.</p>
+                </div>
+            </div>
 
-      <p style="margin-top: 2rem; font-weight: 600; color: var(--black-soft);" data-aos="fade-up">
-        Für Kundinnen und angehende Hautexpertinnen.
-      </p>
-    </div>
-  </div>
-</section>
+            <div class="faq-item" data-aos="fade-up">
+                <button class="faq-question">Was bedeutet ganzheitliche Hautgesundheit?</button>
+                <div class="faq-answer">
+                    <p>Wir betrachten Haut nicht isoliert, sondern im Zusammenspiel aus Hautbarriere, Pflege, äußeren
+                        Einflüssen und individuellen Faktoren – für nachhaltige Ergebnisse.</p>
+                </div>
+            </div>
 
-<!-- Testimonials -->
-<section id="testimonials">
-  <div class="container">
-    <p class="section-subtitle" data-aos="fade-up">
-      Vertrauen aus Erfahrung
-    </p>
+            <h3 class="section-subtitle" data-aos="fade-up">Behandlungen</h3>
+            <div class="faq-item" data-aos="fade-up">
+                <button class="faq-question">Für welche Hautprobleme sind die Behandlungen geeignet?</button>
+                <div class="faq-answer">
+                    <p>Unter anderem bei unreiner, sensibler, entzündlicher Haut, Hautbarriere-Störungen oder dem Wunsch
+                        nach langfristiger Verbesserung.</p>
+                </div>
+            </div>
 
-    <div class="testimonial-slider" data-aos="fade-up">
-      <div class="testimonial">
-        <p>„Ich hatte vorher keine Vorkenntnisse und fühle mich jetzt sicher im Umgang mit Hautbildern.“</p>
-        <div class="testimonial-stars">
-          <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span>
+            <div class="faq-item" data-aos="fade-up">
+                <button class="faq-question">Wie viele Behandlungen sind notwendig?</button>
+                <div class="faq-answer">
+                    <p>Das hängt vom individuellen Hautzustand ab. Ziel ist eine nachhaltige Stabilisierung, kein
+                        kurzfristiger Effekt.</p>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle" data-aos="fade-up">Academy & Ausbildung</h3>
+            <div class="faq-item" data-aos="fade-up">
+                <button class="faq-question">Kann ich auch ohne Vorkenntnisse teilnehmen?</button>
+                <div class="faq-answer">
+                    <p>Ja. Die Ausbildung ist ausdrücklich auch für Quereinsteigerinnen geeignet und beginnt bei den
+                        Grundlagen.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up">
+                <button class="faq-question">Werde ich betreut?</button>
+                <div class="faq-answer">
+                    <p>Ja. Persönliche Betreuung und Begleitung sind fester Bestandteil der Academy.</p>
+                </div>
+            </div>
         </div>
-        <strong>- Absolventin</strong>
-      </div>
+    </section>
 
-      <div class="testimonial">
-        <p>„Meine Haut hat sich endlich stabilisiert und reagiert nicht mehr ständig.“</p>
-        <div class="testimonial-stars">
-          <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span>
+
+
+
+    <!-- Call to Action Section -->
+    <section id="cta-final">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="highlight-red">Starte jetzt deinen Weg</span>
+            </h2>
+
+            <p class="centered-text" data-aos="fade-up">
+                Ob du deine Haut nachhaltig verbessern möchtest<br>
+                oder dir eine neue berufliche Perspektive aufbauen willst –<br>
+                bei Only Beauty bist du richtig.
+            </p>
+
+            <div class="btn-group" data-aos="fade-up">
+                <a href="#sessions" class="cta-btn no-press">Behandlung buchen</a>
+                <a href="#course-choice" class="cta-btn no-press">Zur Academy & Ausbildung</a>
+            </div>
         </div>
-        <strong>- Kundin</strong>
-      </div>
+    </section>
 
-      <div class="testimonial">
-        <p>„Dank der Schulung zur Hautexpertin fühle ich mich bereit, mein eigenes Beauty-Business zu starten.“</p>
-        <div class="testimonial-stars">
-          <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                Kontaktiere uns
+            </h2>
+
+            <p class="centered-text" data-aos="fade-up">
+                Wir freuen uns auf deine Nachricht oder deinen Besuch!
+            </p>
+
+            <div class="contact-info" data-aos="fade-up">
+                <p data-aos="fade-up">
+                    <strong>Adresse:</strong> <a
+                        href="https://www.google.com/maps/search/?api=1&query=Friedrich-Ebert-Straße+89,+04109+Leipzig"
+                        target="_blank" style="color: inherit; text-decoration: none;">Friedrich-Ebert-Straße 89, 04109
+                        Leipzig</a>
+                </p>
+                <p data-aos="fade-up">
+                    <strong>E-Mail:</strong> <a href="mailto:onlybeautyleipzig@gmail.com"
+                        style="color: inherit; text-decoration: none;">onlybeautyleipzig@gmail.com</a>
+                </p>
+                <p data-aos="fade-up">
+                    <strong>Telefon:</strong> <a href="tel:+4915170128870"
+                        style="color: inherit; text-decoration: none;">015170128870</a>
+                </p>
+                <p data-aos="fade-up">
+                    <strong>Öffnungszeiten:</strong><br>
+                    Montag: geschlossen<br>
+                    Dienstag: 09:00 – 21:00<br>
+                    Mittwoch: 09:00 – 21:00<br>
+                    Donnerstag: 10:00 – 16:00<br>
+                    Freitag: 10:00 – 16:00<br>
+                    Samstag: 10:00 – 16:00<br>
+                    Sonntag: geschlossen
+                </p>
+            </div>
+    </section>
+
+
+    <!-- Footer Section -->
+    <footer style="background:#1a1a1a; padding:2rem; text-align:center; color: rgba(255,255,255,0.7);">
+        <p>© 2026 <span style="color:#d4b47a;">Only Beauty – Derma Institut & Elite Academy<br>
+                Ganzheitliche Hautgesundheit • Ursache statt Oberfläche</span></p>
+
+        <div style="margin-top:1rem;">
+            <span class="footer-text-btn" data-modal="privacy-modal">Datenschutzerklärung</span> |
+            <span class="footer-text-btn" data-modal="agb-modal">AGB</span> |
+            <span class="footer-text-btn" data-modal="impressum-modal">Impressum</span>
         </div>
-        <strong>- Absolventin</strong>
-      </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
 
-<!-- FAQ Section -->
-<section id="faq">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">FAQ</h2>
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Datenschutzerklärung</h2>
+            <div class="modal-text" style="overflow-y:auto; max-height:70vh; line-height:1.6;">
+                <p><strong>1. Einleitung</strong><br>
+                    Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir behandeln Ihre
+                    personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie
+                    dieser Datenschutzerklärung.</p>
 
-    <h3 class="section-subtitle" data-aos="fade-up">Allgemein</h3>
-    <div class="faq-item" data-aos="fade-up">
-      <button class="faq-question">Für wen ist Only Beauty geeignet?</button>
-      <div class="faq-answer">
-        <p>Für Kundinnen mit Hautproblemen sowie für Frauen, die sich im Bereich Hautgesundheit neu orientieren oder weiterbilden möchten – mit oder ohne Vorkenntnisse.</p>
-      </div>
-    </div>
+                <p><strong>2. Verantwortlicher</strong><br>
+                    Larissa Nitz<br>
+                    <a href="https://maps.google.com/?q=Friedrich-Ebert-Straße+89,+04109+Leipzig" target="_blank"
+                        style="color: inherit; text-decoration: none;">Friedrich-Ebert-Straße 89<br>
+                        04109 Leipzig</a><br>
+                    E-Mail: <a href="mailto:onlybeautyleipzig@gmail.com"
+                        style="color: inherit; text-decoration: none;">onlybeautyleipzig@gmail.com</a><br>
+                    Telefon: <a href="tel:+4915170128870"
+                        style="color: inherit; text-decoration: none;">015170128870</a>
+                </p>
 
-    <div class="faq-item" data-aos="fade-up">
-      <button class="faq-question">Was bedeutet ganzheitliche Hautgesundheit?</button>
-      <div class="faq-answer">
-        <p>Wir betrachten Haut nicht isoliert, sondern im Zusammenspiel aus Hautbarriere, Pflege, äußeren Einflüssen und individuellen Faktoren – für nachhaltige Ergebnisse.</p>
-      </div>
-    </div>
+                <p><strong>3. Erhebung und Speicherung personenbezogener Daten</strong></p>
+                <p>3.1. Beim Besuch der Website: Automatische Erfassung von IP-Adresse, Datum/Uhrzeit und Browsertyp zur
+                    Sicherstellung der Systemsicherheit.</p>
+                <p>3.2. Kontaktaufnahme: Bei Anfragen per Telefon oder E-Mail speichern wir Ihre Angaben zur Bearbeitung
+                    der Anfrage (Art. 6 Abs. 1 lit. b DSGVO).</p>
 
-    <h3 class="section-subtitle" data-aos="fade-up">Behandlungen</h3>
-    <div class="faq-item" data-aos="fade-up">
-      <button class="faq-question">Für welche Hautprobleme sind die Behandlungen geeignet?</button>
-      <div class="faq-answer">
-        <p>Unter anderem bei unreiner, sensibler, entzündlicher Haut, Hautbarriere-Störungen oder dem Wunsch nach langfristiger Verbesserung.</p>
-      </div>
-    </div>
+                <p><strong>4. Ihre Rechte</strong><br>
+                    Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer
+                    personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit und Widerruf erteilter
+                    Einwilligungen.</p>
 
-    <div class="faq-item" data-aos="fade-up">
-      <button class="faq-question">Wie viele Behandlungen sind notwendig?</button>
-      <div class="faq-answer">
-        <p>Das hängt vom individuellen Hautzustand ab. Ziel ist eine nachhaltige Stabilisierung, kein kurzfristiger Effekt.</p>
-      </div>
-    </div>
-
-    <h3 class="section-subtitle" data-aos="fade-up">Academy & Ausbildung</h3>
-    <div class="faq-item" data-aos="fade-up">
-      <button class="faq-question">Kann ich auch ohne Vorkenntnisse teilnehmen?</button>
-      <div class="faq-answer">
-        <p>Ja. Die Ausbildung ist ausdrücklich auch für Quereinsteigerinnen geeignet und beginnt bei den Grundlagen.</p>
-      </div>
+                <p><strong>5. Datensicherheit</strong><br>
+                    Wir setzen moderne Verschlüsselungsverfahren ein, um Ihre Daten vor unbefugtem Zugriff zu schützen.
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="faq-item" data-aos="fade-up">
-      <button class="faq-question">Werde ich betreut?</button>
-      <div class="faq-answer">
-        <p>Ja. Persönliche Betreuung und Begleitung sind fester Bestandteil der Academy.</p>
-      </div>
+
+    <div id="agb-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+            <div class="modal-text" style="overflow-y:auto; max-height:70vh; line-height:1.6;">
+                <p><strong>1. Geltungsbereich</strong><br>
+                    Diese AGB gelten für alle Dienstleistungen von Only Beauty – Derma Institut & Elite Academy.</p>
+
+                <p><strong>2. Terminvereinbarung & Stornierung</strong><br>
+                    Termine sind verbindlich. Absagen müssen mindestens 24 Stunden im Voraus erfolgen. Bei verspäteter
+                    Absage oder Nichterscheinen behalten wir uns vor, eine Ausfallgebühr in Höhe von 100% des
+                    Behandlungspreises zu berechnen.</p>
+
+                <p><strong>3. Preise und Zahlung</strong><br>
+                    Es gelten die Preise zum Zeitpunkt der Buchung. Die Zahlung erfolgt unmittelbar nach der Behandlung
+                    in bar oder per EC-Karte.</p>
+
+                <p><strong>4. Haftung</strong><br>
+                    Der Kunde ist verpflichtet, vor der Behandlung über Allergien oder gesundheitliche Einschränkungen
+                    zu informieren. Für Folgeschäden bei unterlassener Information übernehmen wir keine Haftung.</p>
+
+                <p><strong>5. Academy & Schulungen</strong><br>
+                    Für Ausbildungen gelten gesonderte Kursgebühren, die vor Beginn der Schulung fällig sind.</p>
+            </div>
+        </div>
     </div>
-  </div>
-</section>
 
+    <div id="impressum-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Impressum</h2>
+            <div class="modal-text" style="overflow-y:auto; max-height:70vh; line-height:1.6;">
+                <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+                <p>Only Beauty<br>
+                    Larissa Nitz<br>
+                    <a href="https://maps.google.com/?q=Friedrich-Ebert-Straße+89,+04109+Leipzig" target="_blank"
+                        style="color: inherit; text-decoration: none;">Friedrich-Ebert-Straße 89<br>
+                        04109 Leipzig</a>
+                </p>
 
-<script>
-// FAQ toggle
-document.querySelectorAll('.faq-question').forEach(button => {
-  button.addEventListener('click', () => {
-    const faqItem = button.parentElement;
-    faqItem.classList.toggle('active');
-  });
-});
-</script>
+                <p><strong>Kontakt:</strong><br>
+                    E-Mail: <a href="mailto:onlybeautyleipzig@gmail.com"
+                        style="color: inherit; text-decoration: none;">onlybeautyleipzig@gmail.com</a><br>
+                    Telefon: <a href="tel:+4915170128870"
+                        style="color: inherit; text-decoration: none;">015170128870</a></p>
 
-<!-- Call to Action Section -->
-<section id="cta-final">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">
-      <span class="highlight-red">Starte jetzt deinen Weg</span>
-    </h2>
+                <p><strong>Berufsbezeichnung:</strong><br>
+                    Staatlich geprüfte Kosmetikerin (verliehen in der Bundesrepublik Deutschland)</p>
 
-    <p class="centered-text" data-aos="fade-up">
-      Ob du deine Haut nachhaltig verbessern möchtest<br>
-      oder dir eine neue berufliche Perspektive aufbauen willst –<br>
-      bei Only Beauty bist du richtig.
-    </p>
+                <p><strong>Redaktionell verantwortlich:</strong><br>
+                    Larissa Nitz<br>
+                    Friedrich-Ebert-Straße 89<br>
+                    04109 Leipzig</p>
 
-    <div class="btn-group" data-aos="fade-up">
-      <a href="#sessions" class="cta-btn no-press">Behandlung buchen</a>
-      <a href="#course-choice" class="cta-btn no-press">Zur Academy & Ausbildung</a>
+                <p><strong>EU-Streitschlichtung:</strong><br>
+                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+                    <a href="https://ec.europa.eu/consumers/odr/" target="_blank"
+                        style="color:#d4b47a;">https://ec.europa.eu/consumers/odr/</a>.
+                </p>
+
+                <p><strong>Verbraucherstreitbeilegung:</strong><br>
+                    Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+                    Verbraucherschlichtungsstelle teilzunehmen.</p>
+            </div>
+        </div>
     </div>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">
-      Kontaktiere uns
-    </h2>
-
-    <p class="centered-text" data-aos="fade-up">
-      Wir freuen uns auf deine Nachricht oder deinen Besuch!
-    </p>
-
-    <div class="contact-info" data-aos="fade-up">
-      <p data-aos="fade-up">
-        <strong>Adresse:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Friedrich-Ebert-Straße+89,+04109+Leipzig" target="_blank" style="color: inherit; text-decoration: none;">Friedrich-Ebert-Straße 89, 04109 Leipzig</a>
-      </p>
-      <p data-aos="fade-up">
-        <strong>E-Mail:</strong> <a href="mailto:onlybeautyleipzig@gmail.com" style="color: inherit; text-decoration: none;">onlybeautyleipzig@gmail.com</a>
-      </p>
-      <p data-aos="fade-up">
-        <strong>Telefon:</strong> <a href="tel:+4915170128870" style="color: inherit; text-decoration: none;">015170128870</a>
-      </p>
-      <p data-aos="fade-up">
-        <strong>Öffnungszeiten:</strong><br>
-        Montag: geschlossen<br>
-        Dienstag: 09:00 – 21:00<br>
-        Mittwoch: 09:00 – 21:00<br>
-        Donnerstag: 10:00 – 16:00<br>
-        Freitag: 10:00 – 16:00<br>
-        Samstag: 10:00 – 16:00<br>
-        Sonntag: geschlossen
-      </p>
-    </div>
-</section>
 
 
-<!-- Footer Section -->
-<footer style="background:#1a1a1a; padding:2rem; text-align:center; color: rgba(255,255,255,0.7);">
-  <p>© 2026 <span style="color:#d4b47a;">Only Beauty – Derma Institut & Elite Academy<br>
-    Ganzheitliche Hautgesundheit • Ursache statt Oberfläche</span></p>
-  
-  <div style="margin-top:1rem;">
-    <span class="footer-text-btn" data-modal="privacy-modal">Datenschutzerklärung</span> | 
-    <span class="footer-text-btn" data-modal="agb-modal">AGB</span> | 
-    <span class="footer-text-btn" data-modal="impressum-modal">Impressum</span>
-  </div>
-</footer>
-
-
-<div id="privacy-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <h2>Datenschutzerklärung</h2>
-    <div class="modal-text" style="overflow-y:auto; max-height:70vh; line-height:1.6;">
-      <p><strong>1. Einleitung</strong><br>
-      Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
-
-      <p><strong>2. Verantwortlicher</strong><br>
-      Larissa Nitz<br>
-      <a href="https://maps.google.com/?q=Friedrich-Ebert-Straße+89,+04109+Leipzig" target="_blank" style="color: inherit; text-decoration: none;">Friedrich-Ebert-Straße 89<br>
-      04109 Leipzig</a><br>
-      E-Mail: <a href="mailto:onlybeautyleipzig@gmail.com" style="color: inherit; text-decoration: none;">onlybeautyleipzig@gmail.com</a><br>
-      Telefon: <a href="tel:+4915170128870" style="color: inherit; text-decoration: none;">015170128870</a></p>
-
-      <p><strong>3. Erhebung und Speicherung personenbezogener Daten</strong></p>
-      <p>3.1. Beim Besuch der Website: Automatische Erfassung von IP-Adresse, Datum/Uhrzeit und Browsertyp zur Sicherstellung der Systemsicherheit.</p>
-      <p>3.2. Kontaktaufnahme: Bei Anfragen per Telefon oder E-Mail speichern wir Ihre Angaben zur Bearbeitung der Anfrage (Art. 6 Abs. 1 lit. b DSGVO).</p>
-
-      <p><strong>4. Ihre Rechte</strong><br>
-      Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit und Widerruf erteilter Einwilligungen.</p>
-
-      <p><strong>5. Datensicherheit</strong><br>
-      Wir setzen moderne Verschlüsselungsverfahren ein, um Ihre Daten vor unbefugtem Zugriff zu schützen.</p>
-    </div>
-  </div>
-</div>
-
-
-<div id="agb-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
-    <div class="modal-text" style="overflow-y:auto; max-height:70vh; line-height:1.6;">
-      <p><strong>1. Geltungsbereich</strong><br>
-      Diese AGB gelten für alle Dienstleistungen von Only Beauty – Derma Institut & Elite Academy.</p>
-
-      <p><strong>2. Terminvereinbarung & Stornierung</strong><br>
-      Termine sind verbindlich. Absagen müssen mindestens 24 Stunden im Voraus erfolgen. Bei verspäteter Absage oder Nichterscheinen behalten wir uns vor, eine Ausfallgebühr in Höhe von 100% des Behandlungspreises zu berechnen.</p>
-
-      <p><strong>3. Preise und Zahlung</strong><br>
-      Es gelten die Preise zum Zeitpunkt der Buchung. Die Zahlung erfolgt unmittelbar nach der Behandlung in bar oder per EC-Karte.</p>
-
-      <p><strong>4. Haftung</strong><br>
-      Der Kunde ist verpflichtet, vor der Behandlung über Allergien oder gesundheitliche Einschränkungen zu informieren. Für Folgeschäden bei unterlassener Information übernehmen wir keine Haftung.</p>
-
-      <p><strong>5. Academy & Schulungen</strong><br>
-      Für Ausbildungen gelten gesonderte Kursgebühren, die vor Beginn der Schulung fällig sind.</p>
-    </div>
-  </div>
-</div>
-
-<div id="impressum-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <h2>Impressum</h2>
-    <div class="modal-text" style="overflow-y:auto; max-height:70vh; line-height:1.6;">
-      <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-      <p>Only Beauty<br>
-      Larissa Nitz<br>
-      <a href="https://maps.google.com/?q=Friedrich-Ebert-Straße+89,+04109+Leipzig" target="_blank" style="color: inherit; text-decoration: none;">Friedrich-Ebert-Straße 89<br>
-      04109 Leipzig</a></p>
-
-      <p><strong>Kontakt:</strong><br>
-      E-Mail: <a href="mailto:onlybeautyleipzig@gmail.com" style="color: inherit; text-decoration: none;">onlybeautyleipzig@gmail.com</a><br>
-      Telefon: <a href="tel:+4915170128870" style="color: inherit; text-decoration: none;">015170128870</a></p>
-
-      <p><strong>Berufsbezeichnung:</strong><br>
-      Staatlich geprüfte Kosmetikerin (verliehen in der Bundesrepublik Deutschland)</p>
-
-      <p><strong>Redaktionell verantwortlich:</strong><br>
-      Larissa Nitz<br>
-      Friedrich-Ebert-Straße 89<br>
-      04109 Leipzig</p>
-
-      <p><strong>EU-Streitschlichtung:</strong><br>
-      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
-      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" style="color:#d4b47a;">https://ec.europa.eu/consumers/odr/</a>.</p>
-      
-      <p><strong>Verbraucherstreitbeilegung:</strong><br>
-      Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-    </div>
-  </div>
-</div>
-
-
-<script>
-const modalButtons = document.querySelectorAll('.footer-text-btn');
-const modals = document.querySelectorAll('.modal');
-const closeBtns = document.querySelectorAll('.close-btn');
-
-modalButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const modalId = btn.getAttribute('data-modal');
-    const modal = document.getElementById(modalId);
-    modal.style.display = 'block';
-    modal.querySelector('.modal-text').scrollTop = 0; // scroll to top
-  });
-});
-
-closeBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.closest('.modal').style.display = 'none';
-  });
-});
-
-// Close modal when clicking outside content
-window.addEventListener('click', (e) => {
-  modals.forEach(modal => {
-    if(e.target === modal) modal.style.display = 'none';
-  });
-});
-</script>
-
-<script>
-  window.addEventListener('load', () => {
-    window.scrollTo(0, 0);
-    history.replaceState(null, '', window.location.pathname);
-
-AOS.init({
-  duration: 350,      // Longer duration for a premium feel
-  easing: 'ease-out',  // Clean fade without the "bounce/wobble"
-  once: true,          // Animation happens only once
-  offset: 50,         // Starts 100px before the element enters view
-  delay: 0,
-});
-  });
-
-  // Smooth scroll logic
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if(target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-</script>
-<script>
-  // Function to calculate the actual viewable height and lock it
-  function lockHeroHeight() {
-    const vh = window.innerHeight;
-    document.documentElement.style.setProperty('--hero-height', vh + 'px');
-  }
-
-  // Run on load
-  window.addEventListener('load', lockHeroHeight);
-
-  // Only recalculate if the screen actually rotates (iPhone flip)
-  // This prevents the "jump" during normal vertical scrolling
-  window.addEventListener('orientationchange', () => {
-    setTimeout(lockHeroHeight, 200);
-  });
-</script>
+<script src="script.js" defer></script>
 
 </body>
+
 </html>
