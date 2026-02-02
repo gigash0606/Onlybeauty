@@ -828,7 +828,7 @@ footer {
 @media (max-width: 480px) {
     .choices {
         flex-direction: column;
-        gap: var(--spacing-md);
+        gap: var(--spacing-lg);
     }
 }
 
