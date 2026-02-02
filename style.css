@@ -673,7 +673,7 @@ footer {
         min-height: 100vh;
         min-height: 100svh;
         padding: 0.5rem var(--spacing-xs) 1.5rem var(--spacing-xs);
-        padding-top: max(2.5rem, env(safe-area-inset-top));
+        padding-top: max(1.2rem, env(safe-area-inset-top));
         justify-content: flex-start;
     }
 
@@ -684,7 +684,7 @@ footer {
 
     .text-logo-wrapper {
         margin-top: 0 !important;
-        margin-bottom: clamp(1rem, 3vh, 1.2rem) !important;
+        margin-bottom: 1.2rem !important;
     }
 
     .video-teaser-container {
