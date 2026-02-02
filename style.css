@@ -673,26 +673,29 @@ footer {
     .hero {
         min-height: 100vh;
         min-height: 100svh;
-        padding: 0.5rem var(--spacing-xs) 1.5rem var(--spacing-xs);
+        padding: 0 var(--spacing-xs);
         padding-top: max(1.2rem, env(safe-area-inset-top));
-        justify-content: flex-start;
+        padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+        justify-content: center;
     }
 
     .hero-content {
-        justify-content: flex-start;
-        height: auto;
+        justify-content: space-evenly;
+        height: 100%;
+        min-height: calc(100vh - max(1.2rem, env(safe-area-inset-top)) - max(1.5rem, env(safe-area-inset-bottom)));
+        flex: 1;
     }
 
     .text-logo-wrapper {
         margin-top: 0 !important;
-        margin-bottom: 0.8rem !important;
+        margin-bottom: 0 !important;
     }
 
     .video-teaser-container {
-        height: clamp(150px, 22vh, 190px) !important;
-        width: 90% !important;
-        max-width: 280px !important;
-        margin-bottom: 1rem !important;
+        height: clamp(140px, 20vh, 180px) !important;
+        width: 85% !important;
+        max-width: 260px !important;
+        margin-bottom: 0 !important;
     }
 
     .logo-secondary {
@@ -700,16 +703,20 @@ footer {
     }
 
     .hero h1 {
-        margin-bottom: 0.6rem !important;
-        font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+        margin-bottom: 0 !important;
+        font-size: clamp(1.3rem, 5.5vw, 1.7rem) !important;
+        line-height: 1.25;
     }
 
     .hero p {
-        margin-bottom: 0.5rem !important;
+        margin-bottom: 0 !important;
+        font-size: 0.9rem !important;
+        line-height: 1.4;
     }
 
     .hero .btn-group {
-        margin-top: 1rem !important;
+        margin-top: 0 !important;
+        gap: 0.6rem !important;
     }
 }
 
