@@ -673,7 +673,7 @@ footer {
         min-height: 100vh;
         min-height: 100svh;
         padding: 0.5rem var(--spacing-xs) 1.5rem var(--spacing-xs);
-        padding-top: max(0.5rem, env(safe-area-inset-top));
+        padding-top: max(1.2rem, env(safe-area-inset-top));
         justify-content: flex-start;
     }
 
@@ -684,14 +684,14 @@ footer {
 
     .text-logo-wrapper {
         margin-top: 0 !important;
-        margin-bottom: 0.8rem !important;
+        margin-bottom: 1.2rem !important;
     }
 
     .video-teaser-container {
         height: clamp(150px, 22vh, 190px) !important;
         width: 90% !important;
         max-width: 280px !important;
-        margin-bottom: 1rem !important;
+        margin-bottom: clamp(1rem, 3vh, 1.2rem) !important;
     }
 
     .logo-secondary {
@@ -699,16 +699,16 @@ footer {
     }
 
     .hero h1 {
-        margin-bottom: 0.6rem !important;
+        margin-bottom: clamp(0.5rem, 2vh, 1rem) !important;
         font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
     }
 
     .hero p {
-        margin-bottom: 0.5rem !important;
+        margin-bottom: clamp(0.5rem, 2vh, 0.8rem) !important;
     }
 
     .hero .btn-group {
-        margin-top: 1rem !important;
+        margin-top: clamp(1rem, 3vh, 2rem) !important;
     }
 }
 
