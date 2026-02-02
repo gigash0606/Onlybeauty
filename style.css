@@ -644,7 +644,7 @@ footer {
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(0.55rem, 1.5vw, 0.65rem);
     color: #111;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.05em;
     font-weight: 700;
     text-transform: uppercase;
     margin-top: 0.25rem;
@@ -670,35 +670,37 @@ footer {
 
 @media (max-width: 480px) {
     .hero {
-        min-height: clamp(500px, 100vh, 100svh);
+        min-height: 100vh;
+        min-height: 100svh;
         padding: 0.5rem var(--spacing-xs) 1.5rem var(--spacing-xs);
-        padding-top: max(1.5rem, env(safe-area-inset-top));
-        justify-content: center;
+        padding-top: max(2.5rem, env(safe-area-inset-top));
+        justify-content: flex-start;
     }
 
     .hero-content {
-        justify-content: center;
-        height: 100%;
+        justify-content: flex-start;
+        height: auto;
     }
 
     .text-logo-wrapper {
-        margin-top: -1rem !important;
-        margin-bottom: clamp(1rem, 3vh, 1.5rem) !important;
+        margin-top: 0 !important;
+        margin-bottom: clamp(1rem, 3vh, 1.2rem) !important;
     }
 
     .video-teaser-container {
-        height: clamp(180px, 28vh, 240px) !important;
-        margin-bottom: clamp(1rem, 3vh, 1.5rem) !important;
+        height: clamp(150px, 22vh, 190px) !important;
+        width: 90% !important;
+        max-width: 280px !important;
+        margin-bottom: clamp(1rem, 3vh, 1.2rem) !important;
     }
 
     .logo-secondary {
-        white-space: normal !important;
         text-align: center;
-        max-width: 90vw;
     }
 
     .hero h1 {
         margin-bottom: clamp(0.5rem, 2vh, 1rem) !important;
+        font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
     }
 
     .hero p {
