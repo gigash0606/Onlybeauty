@@ -659,6 +659,7 @@ footer {
     }
 
     .hero-logo {
+        margin-top: -2rem !important;
         margin-bottom: clamp(1rem, 3vh, 1.5rem) !important;
         width: clamp(110px, 20vw, 130px) !important;
     }
@@ -684,47 +685,61 @@ footer {
 @media screen and (min-width: 1024px) {
     body .hero {
         min-height: 100vh !important;
-        height: auto !important;
-        padding-top: 1rem !important;
-        padding-bottom: 2rem !important;
+        height: 100svh !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-start !important;
+        justify-content: center !important;
     }
 
     body .hero-content {
-        justify-content: flex-start !important;
-        /* gap removed */
+        justify-content: center !important;
+        height: 100%;
+        max-width: 1200px !important;
     }
 
     body .hero-logo {
-        width: clamp(120px, 10vw, 180px) !important;
-        margin-top: 2rem !important;
-        margin-bottom: clamp(1rem, 2vh, 2rem) !important;
+        width: clamp(130px, 10vw, 170px) !important;
+        margin-top: -3rem !important;
+        margin-bottom: clamp(0.75rem, 3vh, 1.5rem) !important;
     }
 
     body .video-teaser-container {
-        max-width: clamp(280px, 22vw, 360px) !important;
-        height: clamp(120px, 15vh, 180px) !important;
-        margin-bottom: clamp(1rem, 2vh, 2rem) !important;
+        max-width: clamp(320px, 25vw, 420px) !important;
+        height: clamp(160px, 22vh, 220px) !important;
+        margin-bottom: clamp(1rem, 3vh, 1.8rem) !important;
     }
 
     body .hero h1 {
-        font-size: clamp(1.8rem, 3vw, 2.8rem) !important;
-        margin-bottom: clamp(0.5rem, 1vh, 1rem) !important;
-        line-height: 1.2 !important;
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+        margin-bottom: clamp(0.75rem, 2.5vh, 1.2rem) !important;
+        line-height: 1.15 !important;
+        max-width: 1000px;
+    }
+
+    body .hero h1 br {
+        display: none;
     }
 
     body .hero p {
-        font-size: clamp(0.95rem, 1.2vw, 1.2rem) !important;
-        max-width: clamp(700px, 60vw, 900px) !important;
-        margin-bottom: clamp(0.8rem, 1.5vh, 1.5rem) !important;
-        line-height: 1.5 !important;
+        font-size: clamp(0.95rem, 1.1vw, 1.2rem) !important;
+        max-width: clamp(800px, 70vw, 1000px) !important;
+        margin-bottom: clamp(0.8rem, 3vh, 1.5rem) !important;
+        line-height: 1.55 !important;
+    }
+
+    body .hero p br {
+        display: none;
     }
 
     body .hero .cta-btn {
-        padding: clamp(0.7rem, 0.9vw, 1rem) clamp(1.5rem, 2vw, 2.5rem) !important;
-        font-size: clamp(0.9rem, 1vw, 1.1rem) !important;
+        padding: clamp(0.8rem, 1vw, 1.1rem) clamp(2rem, 3vw, 3.5rem) !important;
+        font-size: clamp(0.95rem, 1.1vw, 1.25rem) !important;
+    }
+
+    body .hero .btn-group {
+        margin-top: clamp(1rem, 4vh, 2rem) !important;
     }
 }
 
