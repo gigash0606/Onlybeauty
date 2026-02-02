@@ -621,11 +621,34 @@ footer {
     flex: 1;
 }
 
-.hero-logo {
+.text-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
     margin-bottom: clamp(0.5rem, 2vh, 1.2rem);
-    width: clamp(100px, 18vw, 130px);
-    position: relative;
     z-index: 10;
+    position: relative;
+}
+
+.logo-primary {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.4rem, 6vw, 2rem);
+    color: #111;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 0.9;
+}
+
+.logo-secondary {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.5rem, 1.4vw, 0.65rem);
+    color: #111;
+    letter-spacing: 0.28em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+    white-space: nowrap;
 }
 
 .hero h1 {
@@ -658,10 +681,9 @@ footer {
         height: 100%;
     }
 
-    .hero-logo {
-        margin-top: -2rem !important;
+    .text-logo-wrapper {
+        margin-top: -2.5rem !important;
         margin-bottom: clamp(1rem, 3vh, 1.5rem) !important;
-        width: clamp(110px, 20vw, 130px) !important;
     }
 
     .video-teaser-container {
@@ -699,9 +721,8 @@ footer {
         max-width: 1200px !important;
     }
 
-    body .hero-logo {
-        width: clamp(130px, 10vw, 170px) !important;
-        margin-top: -3rem !important;
+    body .text-logo-wrapper {
+        margin-top: -4rem !important;
         margin-bottom: clamp(0.75rem, 3vh, 1.5rem) !important;
     }
 
