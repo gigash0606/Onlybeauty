@@ -236,8 +236,8 @@ h6,
 .video-teaser-container {
     width: 100%;
     max-width: 350px;
-    height: clamp(160px, 20vh, 180px);
-    margin: 0 auto 1.5rem auto;
+    height: clamp(140px, 18vh, 180px);
+    margin: 0 auto clamp(0.5rem, 2vh, 1.2rem) auto;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -588,7 +588,7 @@ footer {
     justify-content: center;
     text-align: center;
     position: relative;
-    padding: calc(env(safe-area-inset-top) + 20px) var(--spacing-xs) 60px var(--spacing-xs);
+    padding: calc(env(safe-area-inset-top) + 10px) var(--spacing-xs) clamp(20px, 5vh, 40px) var(--spacing-xs);
     box-sizing: border-box;
     margin: 0;
     overflow: hidden;
@@ -598,6 +598,11 @@ footer {
         url('https://www.transparenttextures.com/patterns/handmade-paper.png'),
         #fcfaf5;
     background-blend-mode: normal, multiply, multiply;
+}
+
+.hero .btn-group {
+    margin-top: clamp(0.5rem, 1.5vh, 1.2rem);
+    gap: clamp(0.5rem, 2vw, 1rem);
 }
 
 .hero .cta-btn {
@@ -617,20 +622,21 @@ footer {
 }
 
 .hero-logo {
-    margin-bottom: 1rem;
-    width: clamp(130px, 20vw, 130px);
+    margin-bottom: clamp(0.5rem, 2vh, 1.2rem);
+    width: clamp(100px, 18vw, 130px);
     position: relative;
     z-index: 10;
 }
 
 .hero h1 {
-    margin-bottom: 0.2rem;
+    margin-bottom: clamp(0.4rem, 1vh, 0.8rem);
     line-height: 1.2;
 }
 
 .hero p {
-    margin-bottom: 0.2rem;
+    margin-bottom: clamp(0.4rem, 1.5vh, 1rem);
     font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -657,7 +663,6 @@ footer {
         min-height: 100vh !important;
         height: auto !important;
         padding-top: 1rem !important;
-        /* Reduced from 2rem */
         padding-bottom: 2rem !important;
         display: flex !important;
         flex-direction: column !important;
@@ -666,35 +671,32 @@ footer {
 
     body .hero-content {
         justify-content: flex-start !important;
+        /* gap removed */
     }
 
     body .hero-logo {
         width: clamp(120px, 10vw, 180px) !important;
-        /* Reduced min/max */
-        margin-top: 0 !important;
-        margin-bottom: clamp(1rem, 2vh, 2.5rem) !important;
-        /* Reduced */
+        margin-top: 2rem !important;
+        margin-bottom: clamp(1rem, 2vh, 2rem) !important;
     }
 
     body .video-teaser-container {
         max-width: clamp(280px, 22vw, 360px) !important;
         height: clamp(120px, 15vh, 180px) !important;
-        /* Reduced min */
-        margin-bottom: clamp(0.8rem, 1.5vh, 1.5rem) !important;
-        /* Reduced */
+        margin-bottom: clamp(1rem, 2vh, 2rem) !important;
     }
 
     body .hero h1 {
         font-size: clamp(1.8rem, 3vw, 2.8rem) !important;
-        /* Reduced min */
-        margin-bottom: clamp(0.3rem, 1vh, 1rem) !important;
+        margin-bottom: clamp(0.5rem, 1vh, 1rem) !important;
+        line-height: 1.2 !important;
     }
 
     body .hero p {
-        font-size: clamp(0.9rem, 1.1vw, 1.15rem) !important;
+        font-size: clamp(0.95rem, 1.2vw, 1.2rem) !important;
         max-width: clamp(700px, 60vw, 900px) !important;
-        margin-bottom: clamp(1rem, 2vh, 2rem) !important;
-        /* Reduced */
+        margin-bottom: clamp(0.8rem, 1.5vh, 1.5rem) !important;
+        line-height: 1.5 !important;
     }
 
     body .hero .cta-btn {
